@@ -14,7 +14,6 @@ export default function App(){
     //createTodos
     const createTodo = async () => {
         const body = {...newTodo}
-        console.log('hello')
         try {
             const response = await fetch('/api/todos', {
                 method: 'POST',
