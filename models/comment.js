@@ -10,6 +10,6 @@ const commentSchema = new Schema ({
     timestamps: true
 })
 
-const Todo = model('Todo', todoSchema)
+const Comment = model('Comment', commentSchema)
 
-module.exports = Todo
+module.exports = Comment

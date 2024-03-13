@@ -35,6 +35,7 @@ function App() {
   //createTodos
   const createTodo = async () => {
     const body = _objectSpread({}, newTodo);
+    console.log('hello');
     try {
       const response = await fetch('/api/todos', {
         method: 'POST',
@@ -711,4 +712,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.5f79c6bcb1af4eb149e6f628e4f1a2e1.js.map
+//# sourceMappingURL=App.de285f7e66acddbbad1a95f8ff5d28e6.js.map
