@@ -4,7 +4,7 @@ const restaurantSchema = new Schema ({
     name: { type: String, required: true },
     location: { type: String, required: true },
     menu: { type: String, required: true }, 
-    featuredIn: [{ type: Schema.Types.ObjectId, ref: 'Post'}], 
+    featuredIn: [{ type: Schema.Types.ObjectId, ref: 'Post' }], 
     website: { type: String, required: true },
     likedBy: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
