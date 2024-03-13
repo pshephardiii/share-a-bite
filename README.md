@@ -1,4 +1,4 @@
-# Big Poppa Code React Starter
+# Big Poppa Code React Starter Kit
 This Starter Kit is being created for New Web Developers that want to get started with react
 
 Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
