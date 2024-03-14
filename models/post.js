@@ -8,8 +8,8 @@ const postSchema = new Schema ({
     rating: { type: Boolean, required: false }, 
     user: { type: Schema.Types.ObjectId, ref: 'User'}, 
     restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurants' }, 
-    comments: { type: Schema.Types.ObjectId, ref: 'Comments' }, 
-    likedBy: { type: Schema.Types.ObjectId, ref: 'User' }
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comments' }], 
+    likedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, {
     timestamps: true
 })
