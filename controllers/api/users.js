@@ -1,5 +1,5 @@
 require('dotenv').config
-const User = require('../models/user')
+const User = require('../../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -12,7 +12,8 @@ exports.auth = async (req, res, next) => {
         if(!user){ 
             throw new Error('User not found') 
         }
-        req.user = usernext()
+        req.user = user
+        next()
     }catch(error){
         res.status(401).json ({ message: error.message })
     }
