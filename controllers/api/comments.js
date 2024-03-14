@@ -130,6 +130,7 @@ async function replyComment(req, res, next){
        const foundComment = await Comment.findOne({_id: req.params.commentId})
        const newComment = await Comment.create(req.body)
        foundComment.Replies.addToSet(newComment)
+       await foundComment.save()
        res.locals.data.comment=foundComment
        next()
 
