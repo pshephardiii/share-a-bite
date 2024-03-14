@@ -4,6 +4,7 @@ const Post = require('../../models/post')
 module.exports = {
     create,
     index, 
+    show,
     destroy, // auth
     update, // auth
     create, // auth
