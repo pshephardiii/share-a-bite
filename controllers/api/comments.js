@@ -56,7 +56,6 @@ async function createComment(req, res, next) {
        req.body.post = req.params.postId
        const comment = await Comment.create(req.body)
 
-
        // add the comment to the user model
        req.user.comments.addToSet(comment)
        await req.user.save()
@@ -65,6 +64,7 @@ async function createComment(req, res, next) {
        // need to find the post, add the comment id to the post
        const foundpost = await Post.findOne({_id: req.params.postId})
        foundpost.comments.addToSet(comment)
+       await foundpost.save()
 
        res.locals.data.comment=comment
        next()
@@ -130,6 +130,7 @@ async function replyComment(req, res, next){
        const foundComment = await Comment.findOne({_id: req.params.commentId})
        const newComment = await Comment.create(req.body)
        foundComment.Replies.addToSet(newComment)
+       await foundComment.save()
        res.locals.data.comment=foundComment
        next()
 

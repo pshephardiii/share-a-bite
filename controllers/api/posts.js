@@ -57,7 +57,7 @@ async function index(_, res, next) {
 async function show(req, res, next) {
     try {
         const post = await Post.findById(req.params.id)
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
@@ -68,7 +68,7 @@ async function show(req, res, next) {
 
 async function update(req, res, next) {
     try {
-        const post = await Post.findById({ _id : req.params.id, user: req.user._id }, req.body, { new: true })
+        const post = await Post.findOneAndUpdate({ _id : req.params.id, user: req.user._id }, req.body, { new: true })
         res.locals.data.post = post
         next()
     } catch (error) {

@@ -20,10 +20,10 @@ const userSchema = new Schema({
         minlenght: 3,
         required: true
     },
-    contacts: [{ type: Schema.Types.ObjectId, ref: 'Contact'}],
+    contacts: [{ type: Schema.Types.ObjectId, ref: 'User'}],
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
-    comments: [{ types: Schema.Types.ObjectId, ref: 'Comment'}],
-    favoriteRestaurant: [{ types: Schema.Types.ObjectId, ref: 'Favorite Restaurant'}]
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment'}],
+    favRestaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant'}]
 }, {
     timestamps: true,
     toJSON: {
@@ -45,6 +45,4 @@ userSchema.methods.generateAuthToken = async function() {
     return token
 }
 
-
-
-module.exports = mongoose.model('User', userSchema);
+module.exports = model('User', userSchema);

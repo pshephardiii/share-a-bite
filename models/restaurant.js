@@ -2,10 +2,10 @@ const { model, Schema } = require('mongoose')
 
 const restaurantSchema = new Schema ({
     name: { type: String, required: true },
-    location: { type: String, required: true },
-    menu: { type: String, required: true }, 
+    location: { type: String, required: false },
+    menu: { type: String, required: false }, 
     featuredIn: [{ type: Schema.Types.ObjectId, ref: 'Post' }], 
-    website: { type: String, required: true },
+    website: { type: String, required: false },
     likedBy: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: true

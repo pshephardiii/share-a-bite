@@ -7,8 +7,8 @@ const postSchema = new Schema ({
     dish: { type: String, required: false }, // dish name
     rating: { type: Boolean, required: false }, 
     user: { type: Schema.Types.ObjectId, ref: 'User'}, 
-    restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurants' }, 
-    comments: [{ type: Schema.Types.ObjectId, ref: 'Comments' }], 
+    restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' }, 
+    comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }], 
     likedBy: [{ type: Schema.Types.ObjectId, ref: 'User' }]
 }, {
     timestamps: true
