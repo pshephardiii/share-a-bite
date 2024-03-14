@@ -23,7 +23,7 @@ const userSchema = new Schema({
     contacts: [{ type: Schema.Types.ObjectId, ref: 'Contact'}],
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
     comments: [{ types: Schema.Types.ObjectId, ref: 'Comment'}],
-    favoriteRestaurant: [{ types: Schema.Types.ObjectId, ref: 'Favorite Restaurant'}]
+    favRestaurants: [{ types: Schema.Types.ObjectId, ref: 'FavRestaurants'}]
 }, {
     timestamps: true,
     toJSON: {
@@ -44,7 +44,5 @@ userSchema.methods.generateAuthToken = async function() {
     const token = jwt.sign({ _id: this._id, user: this }, process.env.SECRET)
     return token
 }
-
-
 
 module.exports = mongoose.model('User', userSchema);

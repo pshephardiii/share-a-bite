@@ -5,16 +5,16 @@ const Restaurant = require('../../models/restaurant')
 module.exports = {
     index,
     show,
-    jsonResaurant,
-    jsonResaurants
+    jsonRestaurant,
+    jsonRestaurants
 }
 
 
-function jsonResaurant (_, res) {
+function jsonRestaurant (_, res) {
     res.json(res.locals.data.resaurant)
 }
 
-function jsonResaurants (_, res) {
+function jsonRestaurants (_, res) {
     res.json(res.locals.data.resaurants)
 }
 
@@ -24,8 +24,8 @@ function jsonResaurants (_, res) {
 
 async function index(_, res ,next) {
     try {
-        const resaurants = await Restaurant.find({ completed: true })
-        res.locals.data.resaurants = resaurants
+        const restaurants = await Restaurant.find({ completed: true })
+        res.locals.data.resaurants = restaurants
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
@@ -36,8 +36,8 @@ async function index(_, res ,next) {
    /****** Show  *****/
 async function show(req ,res,next) {
     try {
-        const resaurant = await resaurant.findById(req.params.id)
-        res.locals.data.resaurant = resaurant
+        const restaurant = await restaurant.findById(req.params.id)
+        res.locals.data.restaurant = restaurant
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
