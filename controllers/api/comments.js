@@ -16,19 +16,19 @@ module.exports = {
 
 
 function jsonComments(_, res){
-   res.json(res.local.data.comments)
+   res.json(res.locals.data.comments)
 }
 
 
 function jsonComment(_, res){
-   res.json(res.local.data.comment)
+   res.json(res.locals.data.comment)
 }
 
 /********* show all the comments */
 async function indexComments(req, res, next) {
    try {
        const comments = await Comment.find({})
-       res.local.data.comments=comments
+       res.locals.data.comments=comments
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -39,7 +39,7 @@ async function indexComments(req, res, next) {
 async function showComment(req, res, next) {
    try {
        const comment = await Comment.find({_id: req.params.id})
-       res.local.data.comment=comment
+       res.locals.data.comment=comment
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -66,7 +66,7 @@ async function createComment(req, res, next) {
        const foundpost = await Post.findOne({_id: req.params.postId})
        foundpost.comments.addToSet(comment)
 
-       res.local.data.comment=comment
+       res.locals.data.comment=comment
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -79,7 +79,7 @@ async function createComment(req, res, next) {
 async function updateComment(req, res, next) {
    try {
        const comment = await Comment.findOneAndUpdate({_id:req.params.id}, req.body, {new: true})
-       res.local.data.comment=comment
+       res.locals.data.comment=comment
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -92,7 +92,7 @@ async function deleteComment(req, res, next) {
        const comment = await Comment.findOneAndDelete({_id:req.params.id})
        req.user.comments.pull(comment)
        await req.user.save()
-       res.local.data.comment=comment
+       res.locals.data.comment=comment
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -116,7 +116,7 @@ async function likeComment(req, res, next) {
            const index = comment.likedBy.indexOf(user._id)
            comment.likedBy.splice(index, 1)
        }
-       res.local.data.comment=comment
+       res.locals.data.comment=comment
        next()
    } catch(error) {
        res.status(400).json({ msg: error.message })
@@ -130,7 +130,7 @@ async function replyComment(req, res, next){
        const foundComment = await Comment.findOne({_id: req.params.commentId})
        const newComment = await Comment.create(req.body)
        foundComment.Replies.addToSet(newComment)
-       res.local.data.comment=foundComment
+       res.locals.data.comment=foundComment
        next()
 
 
