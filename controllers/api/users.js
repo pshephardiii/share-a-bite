@@ -66,7 +66,7 @@ exports.deleteUser = async (req, res) => {
 
 exports.show = async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id }).populate("user")
+        const user = await User.findOne({ _id: req.params.id })
        
         res.json({ user })
     } catch (error) {
