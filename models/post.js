@@ -9,6 +9,7 @@ const postSchema = new Schema ({
     user: { type: Schema.Types.ObjectId, ref: 'User'}, 
     restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurants' }, 
     comments: { type: Schema.Types.ObjectId, ref: 'Comments' }, 
+    likes: { type: Number, default: 0 },
     likedBy: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
     timestamps: true
