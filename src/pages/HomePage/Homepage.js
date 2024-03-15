@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar'
-import CommentForm from '../../components/CommentForm/CommentForm'
+import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
 import LogOut from '../../components/LogOut/LogOut'
 import * as postAPI from '../../utilities/posts-api'
@@ -26,7 +26,7 @@ export function HomePage(
         <>
             <NavBar/>
             <LogOut user={user} setUser={setUser}/>
-            <CommentForm user={user}/>
+            <PostCreateForm user={user}/>
             {
                 allPosts.length>0?<PostList allPosts={allPosts}/>:<></>  
             }
