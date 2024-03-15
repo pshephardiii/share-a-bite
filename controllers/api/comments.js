@@ -106,16 +106,20 @@ async function likeComment(req, res, next) {
        const comment = await Comment.findOne({_id:req.params.id})
        const commentWriter = comment.user 
        const user = req.user
+
        // user can not like their own comment
        // add the userId to the comment.likedBy array
        if(commentWriter !== user._id && !comment.likedBy.includes(user._id)){
            comment.likedBy.addToSet(user._id)
+           await comment.save()
        }
        // remove the userId from the comment.likedBy array
        if(commentWriter !== user._id && comment.likedBy.includes(user._id)){
            const index = comment.likedBy.indexOf(user._id)
            comment.likedBy.splice(index, 1)
+           await comment.save()
        }
+       
        res.locals.data.comment=comment
        next()
    } catch(error) {
