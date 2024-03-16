@@ -1,5 +1,5 @@
 const Post = require('../../models/post')
-const Post = require('../../models/restaurant')
+const Restaurant = require('../../models/restaurant')
 
 
 module.exports = {

@@ -1,11 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const restaurantCtrl = require('../../controllers/api/restaurant')
+const userCtrl = require('../../controllers/api/users')
 
 // Index
-router.get('/', restaurantCtrl.index, restaurantCtrl.jsonRestaurants)
+router.get('/', userCtrl.auth, restaurantCtrl.index, restaurantCtrl.jsonRestaurants)
 
 // Show
-router.get('/:id', restaurantCtrl.show, restaurantCtrl.jsonRestaurant)
+router.get('/:id', userCtrl.auth, restaurantCtrl.show, restaurantCtrl.jsonRestaurant)
+
+router.post('/:id/add', userCtrl.auth, restaurantCtrl.favRestaurants, restaurantCtrl.jsonRestaurant)
+
+router.post('/:id/remove', userCtrl.auth, restaurantCtrl.favRestaurantsDelete, restaurantCtrl.jsonRestaurant)
 
 module.exports = router
