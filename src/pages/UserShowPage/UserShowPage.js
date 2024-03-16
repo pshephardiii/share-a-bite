@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Navigation } from '../../components/NavBar'
+import { Navigation } from '../../components/NavBar/NavBar'
 import { useParams } from 'react-router-dom'
 import * as userAPI from '../../utilities/users-api'
 import ContactList from '../../components/ContactList/ContactList'
