@@ -38,7 +38,7 @@ async function indexComments(req, res, next) {
 /********* show one comment */
 async function showComment(req, res, next) {
    try {
-       const comment = await Comment.find({_id: req.params.id})
+       const comment = await Comment.find({_id: req.params.id}).populate('User')
        res.locals.data.comment=comment
        next()
    } catch(error) {
