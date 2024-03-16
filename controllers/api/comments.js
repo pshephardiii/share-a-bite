@@ -27,7 +27,7 @@ function jsonComment(_, res){
 /********* show all the comments */
 async function indexComments(req, res, next) {
    try {
-       const comments = await Comment.find({})
+       const comments = await Comment.find({}).populate('user')
        res.locals.data.comments=comments
        next()
    } catch(error) {
@@ -38,7 +38,7 @@ async function indexComments(req, res, next) {
 /********* show one comment */
 async function showComment(req, res, next) {
    try {
-       const comment = await Comment.find({_id: req.params.id}).populate('User')
+       const comment = await Comment.find({_id: req.params.id}).populate('user')
        res.locals.data.comment=comment
        next()
    } catch(error) {
