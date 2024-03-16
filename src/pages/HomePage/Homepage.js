@@ -8,7 +8,7 @@ import * as postAPI from '../../utilities/posts-api'
 export default function HomePage(
     {user, setUser}
 ){
-
+    
     const [allPosts, setAllPosts] = useState(null)
     useEffect(function(){
         async function fetchAllPosts(){
