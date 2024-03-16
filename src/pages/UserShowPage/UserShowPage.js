@@ -6,10 +6,10 @@ import * as userAPI from '../../utilities/users-api'
 import ContactList from '../../components/ContactList/ContactList'
 import PostList from '../../components/PostList/PostList'
 import UpdateUserForm from '../../components/Post/Post'
-import FavRestaurantList from '../../components/favRestaurantList/favRestaurantList'
+import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantList'
 import Contact from '../../components/Contact/Contact'
 import Post from '../../components/Post/Post'
-import FavRestaurant from '../../components/favRestaurant/favRestaurant'
+import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
 
 
 export default function UserShowPage(

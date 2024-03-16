@@ -5,7 +5,7 @@ import PostList from '../../components/PostList/PostList'
 import LogOut from '../../components/LogOut/LogOut'
 import * as postAPI from '../../utilities/posts-api'
 
-export function HomePage(
+export default function HomePage(
     {user, setUser}
 ){
     const [allPosts, setAllPosts] = useState([])
