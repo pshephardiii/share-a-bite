@@ -7,23 +7,6 @@ import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
 
-export default function LandingPage(props){
-    const [showLogin, setShowLogin] = useState(true)
-}{
-    const [restaurant, setRestaurant] = useState('')
-    const [restaurants, setRestaurants] = useState([])
-    const [restaurantSampler, setRestaurantSampler] = useState([])
-
-    const navigate = useNavigate()
-
-    return{
-        <div className={styles.authButton}>
-        <button onClick={() => setShowLogin(!showLogin)}>{!showLogin? 'Already Have An account. Click Here To Sign In': 'New Here. Click Here Sign Up'}</button>
-        { !showLogin ? <SignUpForm signUp={props.signUp}/> : <LoginForm login={props.login}/>}    
-        </div>
-    }
-}
-
 export default function LandingPage(props) {
     // { user, setUser } /* Does this go here, or on the home page? */
     const [showLogin, setShowLogin] = useState(true);
