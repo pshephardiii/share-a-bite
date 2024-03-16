@@ -13,4 +13,8 @@ router.post('/:id/favRestaurant', userCtrl.auth,restaurantCtrl.favRestaurants)
 
 router.post('/:id/favRestaurantDelete', userCtrl.auth,restaurantCtrl.favRestaurantsDelete)
 
+router.post('/:id/favRestaurant', userCtrl.auth, restaurantCtrl.favRestaurants)
+
+router.delete('/:id/favRestaurantDelete', userCtrl.auth, restaurantCtrl.favRestaurantsDelete)
+
 module.exports = router
