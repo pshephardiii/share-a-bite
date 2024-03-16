@@ -49,8 +49,9 @@ async function show(req ,res,next) {
 
  async function favRestaurants (req, res, next) {
     try {
-       req.user.restaurant.pull(req.params.id)
-        req.user.favRestaurants.push( req.params.id)
+        const restaurant = Restaurant.findOne(req.params.id)
+        req.user.favRestaurants.push( restaurant._id)
+        restaurant.likedBy.push(req.user._id)
         await req.user.save()
         next()
         res.status(200).json(req.user)
@@ -62,8 +63,11 @@ async function show(req ,res,next) {
 
 async function favRestaurantsDelete(req, res, next) {
     try {
-        await favRestaurants.indexOf({'_id': req.params.id })
-        req.user.favRestaurants.splice(req.params.id)
+        const restaurant = Restaurant.findOne(req.params.id)
+        const index = req.user.favRestaurants.indexOf({'_id': req.params.id })
+        const index2 = restaurant.likedBy.indexOf(req.user.id )
+        req.user.favRestaurants.splice(index, 1)
+        restaurant.likedBy.splice(index2, 1)
         await req.user.save()
         next()
         res.status(200).json({msg: 'Deleted Restaurant From Favorite'})
