@@ -6,7 +6,7 @@ import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
 
 export default function LandingPage(
-    { user, setUser }
+    { setUser }
 ){
     const [restaurant, setRestaurant] = useState('')
     const [restaurants, setRestaurants] = useState([])
@@ -14,7 +14,7 @@ export default function LandingPage(
 
     const navigate = useNavigate()
 
-    return{
-       
-    }
+    return(
+       <h1>Landing Page!</h1>
+    )
 }
