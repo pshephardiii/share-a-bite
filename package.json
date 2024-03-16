@@ -13,7 +13,8 @@
     "build:webpack": "webpack --mode production --define-process-env-node-env production",
     "dev": "gulp",
     "styles": "gulp styles",
-    "start": "node server.js"
+    "start": "node server.js",
+    "seed": "node config/seed.js"
   },
   "author": "",
   "license": "ISC",
@@ -54,7 +55,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "feather-icons": "^4.29.1",
     "jsonwebtoken": "^9.0.1",
+    "lucide-react": "^0.358.0",
     "mongoose": "^7.4.0",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0"
