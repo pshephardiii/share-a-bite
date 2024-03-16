@@ -7,6 +7,7 @@ import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
 
+
 export default function LandingPage(props) {
     // { user, setUser } /* Does this go here, or on the home page? */
     const [showLogin, setShowLogin] = useState(true);
@@ -30,5 +31,6 @@ export default function LandingPage(props) {
             )}
             { !showLogin ? <SignUpForm signUp={props.signUp}/> : <LoginForm login={props.login}/>}
         </div>
+
     )
 }
