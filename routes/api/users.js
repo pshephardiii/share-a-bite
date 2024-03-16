@@ -6,6 +6,8 @@ router.post('/', userController.createUser)
 router.post('/login', userController.loginUser)
 router.put('/:id', userController.auth, userController.updateUser)
 router.delete('/:id', userController.auth, userController.deleteUser)
+router.post('/:id', userController.auth, userController.addUserContact)
+router.delete('/:id', userController.auth, userController.deleteUserContact)
 router.get('/:id', userController.show)
 
 module.exports = router

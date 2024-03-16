@@ -55,6 +55,16 @@ exports.updateUser = async (req, res) => {
     }
 }
 
+exports.userIndex = async (_, res ,next) => {
+    try {
+        const users = await User.find({ _id: req.params.id })
+        res.locals.data.users = users
+        next()
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 exports.deleteUser = async (req, res) => {
     try {
         await req.user.deleteOne()
@@ -63,6 +73,25 @@ exports.deleteUser = async (req, res) => {
         res.status(400).json({message: error.message})
       }
     }
+
+    exports.addUserContact = async (req,res) => {
+        try {
+            await req.contact.require()
+            res.status(200).json({ message: 'Contact Added' })
+        }catch(error){
+            res.status(400).json({ message: error.message })
+        }
+    }
+
+    exports.deleteUserContact = async (req,res) => {
+        try {
+            await req.contact.deleteOne()
+            res.status(200).json({ message: 'Contact Deleted' })
+        }catch(error){
+            res.status(400).json({ message: error.message })
+        }
+    }
+
 
 exports.show = async (req, res) => {
     try {
