@@ -8,7 +8,7 @@ import * as postAPI from '../../utilities/posts-api'
 export function HomePage(
     {user, setUser}
 ){
-    const [allPosts, setAllPosts] = useState([])
+    const [allPosts, setAllPosts] = useState(null)
     useEffect(function(){
         async function fetchAllPosts(){
            try{
@@ -24,11 +24,12 @@ export function HomePage(
     console.log(allPosts)
     return(
         <>
-            <NavBar/>
+            <NavBar user={user} />
             <LogOut user={user} setUser={setUser}/>
             <PostCreateForm user={user}/>
+        
             {
-                allPosts.length>0?<PostList allPosts={allPosts}/>:<></>  
+                allPosts && <PostList allPosts={allPosts}/>
             }
             
         </>
