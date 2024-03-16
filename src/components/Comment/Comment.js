@@ -2,7 +2,6 @@ import styles from './Comment.module.scss'
 import {likeComment} from '../../utilities/comments-api'
 import {Heart} from 'lucide-react'
 
-
 export function Comment(
     {comment}
 ){
