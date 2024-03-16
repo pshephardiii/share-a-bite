@@ -5,6 +5,8 @@ const Restaurant = require('../../models/restaurant')
 module.exports = {
     index,
     show,
+    favRestaurants,
+    favRestaurantsDelete,
     jsonRestaurant,
     jsonRestaurants
 }
@@ -41,5 +43,31 @@ async function show(req ,res,next) {
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
+    }
+}
+
+
+ async function favRestaurants (req, res, next) {
+    try {
+       req.user.restaurant.pull(req.params.id)
+        req.user.favRestaurants.push( req.params.id)
+        await req.user.save()
+        next()
+        res.status(200).json(req.user)
+    } catch (error) {
+        res.status(400).json({msg: error.message})
+    }
+}
+
+
+async function favRestaurantsDelete(req, res, next) {
+    try {
+        await favRestaurants.indexOf({'_id': req.params.id })
+        req.user.favRestaurants.splice(req.params.id)
+        await req.user.save()
+        next()
+        res.status(200).json({msg: 'Deleted Restaurant From Favorite'})
+    } catch (error) {
+        res.status(400).json({msg: error.message})
     }
 }
