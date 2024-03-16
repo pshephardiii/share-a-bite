@@ -9,6 +9,8 @@ export default function HomePage(
     {user, setUser}
 ){
     const [allPosts, setAllPosts] = useState([])
+    const [showCreate, setShowCreate] = useState(false)
+     
     useEffect(function(){
         async function fetchAllPosts(){
            try{
@@ -20,6 +22,16 @@ export default function HomePage(
         }
         fetchAllPosts()
     },[])
+
+    useEffect(() => {
+        if(localStorage.token && !props.token){
+            props.setToken(localStorage.getItem('token'))
+            setShowCreate(true)
+        }
+        if(localStorage.token && localStorage.user && !props.user){
+            props.setUser(JSON.parse(localStorage.getItem('user')))
+        }
+    }, [])
 
     console.log(allPosts)
     return(
