@@ -20,51 +20,57 @@ import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSamp
 
 // Landing page build
 
-export default function LoginPopUpForm() {
-    const [isOpen, setIsOpen] = useState(false);
-  
-    const togglePopup = () => {
-      setIsOpen(!isOpen)
-    }
-  
-    return (
-      <div>
-        <button onClick={togglePopup}>Login</button>
-  
-        {isOpen && (
-          <div className="loginform">
-            <LoginForm/>
-          </div>
-        )}
-      </div>
-    )
-}
+// use useEffect code for this 
 
-export default function SignUpPopUpForm() {
-    const [isOpen, setIsOpen] = useState(false);
+// export default function LoginPopUpForm() {
+//     const [isOpen, setIsOpen] = useState(false)
   
-    const togglePopup = () => {
-      setIsOpen(!isOpen)
-    }
+//     const togglePopup = () => {
+//       setIsOpen(!isOpen)
+//     }
   
-    return (
-      <div>
-        <button onClick={togglePopup}>Sign Up</button>
+//     return (
+//       <div>
+//         <button onClick={togglePopup}>Login</button>
   
-        {isOpen && (
-          <div className="loginform">
-            <SignUpPopUpForm/>
-          </div>
-        )}
-      </div>
-    )
-}
+//         {isOpen && (
+//           <div className="loginform">
+//             <LoginForm/>
+//           </div>
+//         )}
+//       </div>
+//     )
+// }
+
+// export default function SignUpPopUpForm() {
+//     const [isOpen, setIsOpen] = useState(false)
+  
+//     const togglePopup = () => {
+//       setIsOpen(!isOpen)
+//     }
+  
+//     return (
+//       <div>
+//         <button onClick={togglePopup}>Sign Up</button>
+  
+//         {isOpen && (
+//           <div className="loginform">
+//             <SignUpPopUpForm/>
+//           </div>
+//         )}
+//       </div>
+//     )
+// }
 
 
 
 // Landing page structure
 
 export default function LandingPage(){
+
+
+
+
     return(
         <div className='landingPage'>
             <div className='navHeaderContainter'>
@@ -81,8 +87,7 @@ export default function LandingPage(){
                 {/* hero, search, etc.  */}
 
                 <div className='authContainer'>
-                    <LoginPopUpForm/>
-                    <SignUpPopUpForm/>
+                    <Link to="/auth"> <h4>Login or Sign Up</h4> </Link>
                 </div>
 
             </div>
