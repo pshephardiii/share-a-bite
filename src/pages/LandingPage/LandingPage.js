@@ -6,6 +6,7 @@ import { Navigation } from '../../components/NavBar/NavBar'
 import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
+import styles from './LandingPage.module.scss'
 
 // import Hero
 // import Logo
