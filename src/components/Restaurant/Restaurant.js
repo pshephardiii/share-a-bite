@@ -41,3 +41,4 @@ class RestaurantComponent extends Component {
 }
 
 export default RestaurantComponent
+
