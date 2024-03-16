@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import LoginForm from "../../components/LoginForm/LoginForm"
 import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import { Link, useNavigate } from 'react-router-dom'
-import { Navigation } from '../../components/NavBar'
+import { Navigation } from '../../components/NavBar/NavBar'
 import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
