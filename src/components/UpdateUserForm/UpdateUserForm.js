@@ -8,7 +8,7 @@ export default function UpdateUserForm(
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
-            await updateUser(user.id, user) 
+            await updateUser(user._id, user) 
         } catch(error){
             console.error(error)
         }
