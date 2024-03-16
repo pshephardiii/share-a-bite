@@ -25,7 +25,7 @@ export default function UpdateUserForm(
         onSubmit={handleSubmit}>
             <input type='text' placeholder='name' name='name' value={user.name} onChange={handleChange}/>
             <input type='email' placeholder='email' name='email' value={user.email} onChange={handleChange}/>
-            <input type='password' placeholder='email' name='email' value={user.password} onChange={handleChange}/>
+            <input type='password' placeholder='password' name='password' value={user.password} onChange={handleChange}/>
             <input type='submit'  value='Submit Update Data'/>
         </form>
         </>
