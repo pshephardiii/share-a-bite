@@ -1,14 +1,15 @@
 import {useState, useEffect} from 'react'
-import NavBar from '../../components/NavBar'
+import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
 import LogOut from '../../components/LogOut/LogOut'
 import * as postAPI from '../../utilities/posts-api'
 
-export function HomePage(
+export default function HomePage(
     {user, setUser}
 ){
-    const [allPosts, setAllPosts] = useState([])
+
+    const [allPosts, setAllPosts] = useState(null)
     useEffect(function(){
         async function fetchAllPosts(){
            try{
@@ -21,14 +22,17 @@ export function HomePage(
         fetchAllPosts()
     },[])
 
+
+
     console.log(allPosts)
     return(
         <>
-            <NavBar/>
+            <NavBar user={user} />
             <LogOut user={user} setUser={setUser}/>
             <PostCreateForm user={user}/>
+        
             {
-                allPosts.length>0?<PostList allPosts={allPosts}/>:<></>  
+                allPosts && <PostList allPosts={allPosts}/>
             }
             
         </>

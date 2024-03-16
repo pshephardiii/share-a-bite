@@ -1,4 +1,5 @@
 const Post = require('../../models/post')
+const Restaurant = require('../../models/restaurant')
 
 
 module.exports = {
@@ -8,6 +9,9 @@ module.exports = {
     destroy, // auth
     update, // auth
     create, // auth
+    likePost, // auth
+    unlikePost, // auth
+    getFeaturedRestaurant,
     jsonPosts,
     jsonPost
 }
@@ -28,7 +32,14 @@ function jsonPosts (_, res) {
 async function create(req, res, next) {
     try {
         req.body.user = req.user._id
-        const post = await Post.create(req.body) // post model params
+        const { content, restaurantId } = req.body
+
+        const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
+        
+        if (restaurantId) {
+            await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
+        }
+
         req.user.posts.addToSet(post)
         req.user.save()
         res.locals.data.post = post
@@ -44,7 +55,7 @@ async function create(req, res, next) {
 
 async function index(_, res, next) {
     try {
-        const posts = await Post.find({})
+        const posts = await Post.find({}).populate('restaurant')
         res.locals.data.posts = posts
         next()
     } catch (error) {
@@ -87,5 +98,81 @@ async function destroy(req, res, next){
         next()
     } catch (error) {
         res.status(400).json({ msg: error.message })
+    }
+}
+
+// Like a Post
+
+async function likePost(req, res, next) {
+    try {
+        const userId = req.user._id
+        const post = await Post.findById(req.params.id)
+
+        if (!post) {
+            return res.status(404).json({ msg: error.message })
+        }
+
+        if (req.user.likedPosts.includes(post._id)) {
+            throw new Error('Post was already liked.')
+        }
+
+        req.user.likedPosts.push(post._id)
+        await req.user.save()
+
+        post.likes.push(userId)
+        await post.save()
+
+        res.locals.data.post = Post
+        next()
+
+    } catch (error) {
+        res.status(500).json({ msg: error.message })
+    }
+}
+
+// Unlike a Post
+
+async function unlikePost(req, res, next) {
+    try {
+        const userId = req.user._id
+        const postId = req.params.id
+        
+        const post = await Post.findById(postId)
+        
+        if (!post) {
+            return res.status(404).json({ message: 'Post not found' })
+        }
+        
+        const likedIndex = req.user.likedPosts.indexOf(postId)
+        if (likedIndex === -1) {
+            throw new Error('Post not liked by the user')
+        }
+        
+        req.user.likedPosts.splice(likedIndex, 1)
+        await req.user.save()
+        
+        const userIndex = post.likes.indexOf(userId)
+        if (userIndex !== -1) {
+            post.likes.splice(userIndex, 1)
+            await post.save()
+        }
+        
+        res.locals.data.post = Post
+        next()
+
+    } catch (error) {
+        res.status(500).json({ msg: error.message })
+    }
+}
+
+// Get posts that reference the same restaurant
+
+async function getFeaturedRestaurant(req, res, next) {
+    try {
+        const restaurantId = req.params.restaurant._id
+        const posts = await Post.find({ restaurant: restaurantId }).populate('user')
+        res.json(posts)
+    } catch (error) {
+        res.status(500).json({ msg: error.message })
     }
 }
