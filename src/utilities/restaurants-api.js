@@ -29,7 +29,7 @@ export function getAllRestaurants() {
   }
 
    //fetch remove the restaurant 
-   export function FavReastaurant(id) {
+   export function DeleteFavReastaurant(id) {
     return sendRequest(`${BASE_URL}/${id}/remove`);
   }
   
