@@ -9,12 +9,8 @@ router.get('/', userCtrl.auth, restaurantCtrl.index, restaurantCtrl.jsonRestaura
 // Show
 router.get('/:id', userCtrl.auth, restaurantCtrl.show, restaurantCtrl.jsonRestaurant)
 
-router.post('/:id/favRestaurant', userCtrl.auth,restaurantCtrl.favRestaurants)
+router.post('/:id/add', userCtrl.auth, restaurantCtrl.favRestaurants, restaurantCtrl.jsonRestaurant)
 
-router.post('/:id/favRestaurantDelete', userCtrl.auth,restaurantCtrl.favRestaurantsDelete)
-
-router.post('/:id/favRestaurant', userCtrl.auth, restaurantCtrl.favRestaurants)
-
-router.delete('/:id/favRestaurantDelete', userCtrl.auth, restaurantCtrl.favRestaurantsDelete)
+router.post('/:id/remove', userCtrl.auth, restaurantCtrl.favRestaurantsDelete, restaurantCtrl.jsonRestaurant)
 
 module.exports = router
