@@ -7,13 +7,13 @@ import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
 
-export default function LandingPage(props) {
+// const [restaurant, setRestaurant] = useState('')
+// const [restaurants, setRestaurants] = useState([])
+// const [restaurantSampler, setRestaurantSampler] = useState([])
+
+export default function Auth(props) {
     // { user, setUser } /* Does this go here, or on the home page? */
-    const [showLogin, setShowLogin] = useState(true);
-    const [restaurant, setRestaurant] = useState('');
-    const [restaurants, setRestaurants] = useState([]);
-    const [restaurantSampler, setRestaurantSampler] = useState([]);
-    const navigate = useNavigate();
+    const [showLogin, setShowLogin] = useState(true)
 
     return (
         <div className={styles.authButton}>
@@ -29,6 +29,38 @@ export default function LandingPage(props) {
                 </>
             )}
             { !showLogin ? <SignUpForm signUp={props.signUp}/> : <LoginForm login={props.login}/>}
+        </div>
+    )
+}
+
+// location of NavBar === bottom of page, like Instagram
+// update NavBar with Icons in place of words
+
+export default function NavBar(props) {
+    const navigate = useNavigate()
+
+    const handleHomeClick = () => {
+        navigate('/home')
+    }
+
+    const handleSearchClick = () => {
+        navigate('/search')
+    }
+
+    const handleNewPostClick = () => {
+        navigate(`${user._id}/posts`)
+    }
+
+    const handleFavRestaurantClick = () => {
+        navigate(`${user._id}/restaurants`)
+    }
+
+    return (
+        <div className={styles.navBar}>
+            <button onClick={handleHomeClick}>Home</button>
+            <button onClick={handleSearchClick}>Search</button>
+            <button onClick={handleNewPostClick}>Post</button>
+            <button onClick={handleFavRestaurantClick}>Favs</button>
         </div>
     )
 }
