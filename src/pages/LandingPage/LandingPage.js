@@ -7,60 +7,94 @@ import Restaurant from '../../components/Restaurant/Restaurant'
 import RestaurantList from '../../components/RestaurantList/RestaurantList'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
 
+// import Hero
+// import Logo
+// import other images
+
+// search page (for search bar)
+
 // const [restaurant, setRestaurant] = useState('')
 // const [restaurants, setRestaurants] = useState([])
 // const [restaurantSampler, setRestaurantSampler] = useState([])
 
-export default function Auth(props) {
-    // { user, setUser } /* Does this go here, or on the home page? */
-    const [showLogin, setShowLogin] = useState(true)
 
+// Landing page build
+
+export default function LoginPopUpForm() {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const togglePopup = () => {
+      setIsOpen(!isOpen)
+    }
+  
     return (
-        <div className={styles.authButton}>
-            {showLogin ? (
-                <>
-                    <button onClick={() => setShowLogin(true)}>Login</button>
-                    <Link to="/signup">Sign Up</Link>
-                </>
-            ) : (
-                <>
-                    <button onClick={() => setShowLogin(false)}>Sign Up</button>
-                    <Link to="/login">Login</Link>
-                </>
-            )}
-            { !showLogin ? <SignUpForm signUp={props.signUp}/> : <LoginForm login={props.login}/>}
-        </div>
+      <div>
+        <button onClick={togglePopup}>Login</button>
+  
+        {isOpen && (
+          <div className="loginform">
+            <LoginForm/>
+          </div>
+        )}
+      </div>
     )
 }
 
-// location of NavBar === bottom of page, like Instagram
-// update NavBar with Icons in place of words
-
-export default function NavBar(props) {
-    const navigate = useNavigate()
-
-    const handleHomeClick = () => {
-        navigate('/home')
+export default function SignUpPopUpForm() {
+    const [isOpen, setIsOpen] = useState(false);
+  
+    const togglePopup = () => {
+      setIsOpen(!isOpen)
     }
-
-    const handleSearchClick = () => {
-        navigate('/search')
-    }
-
-    const handleNewPostClick = () => {
-        navigate(`${user._id}/posts`)
-    }
-
-    const handleFavRestaurantClick = () => {
-        navigate(`${user._id}/restaurants`)
-    }
-
+  
     return (
-        <div className={styles.navBar}>
-            <button onClick={handleHomeClick}>Home</button>
-            <button onClick={handleSearchClick}>Search</button>
-            <button onClick={handleNewPostClick}>Post</button>
-            <button onClick={handleFavRestaurantClick}>Favs</button>
+      <div>
+        <button onClick={togglePopup}>Sign Up</button>
+  
+        {isOpen && (
+          <div className="loginform">
+            <SignUpPopUpForm/>
+          </div>
+        )}
+      </div>
+    )
+}
+
+
+
+// Landing page structure
+
+export default function LandingPage(){
+    return(
+        <div className='landingPage'>
+            <div className='navHeaderContainter'>
+
+                <div className='logoContainer'>
+                    <div className='logo'>
+                        {/* image */}
+                    </div>
+                    <div className='companyName'>
+                        Share-A-Bite
+                    </div>
+                </div>
+
+                {/* hero, search, etc.  */}
+
+                <div className='authContainer'>
+                    <LoginPopUpForm/>
+                    <SignUpPopUpForm/>
+                </div>
+
+            </div>
+
+            <div className='footer'>
+                {/* links and corporate info */}
+            </div>
+
+            <div className='navFooter'>
+                <NavBar/>
+            </div>
+
         </div>
     )
 }
