@@ -3,8 +3,7 @@ import {Heart} from 'lucide-react'
 import { Rating } from 'react-simple-star-rating'
 import { createComment } from '../../utilities/comments-api'
 
-
-export function Post(
+export default function Post(
     {post,handleLikePost,handleUnlikePost }
 ){
     const[comment, setComment] =useState(

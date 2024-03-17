@@ -40,3 +40,5 @@ export function deletePost(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
+
+

@@ -31,7 +31,7 @@ const AppRouter = () => {
 			</Routes>
 			</>
 			:
-		<LandingPage setUser={setUser}/>
+		<LandingPage user={user} setUser={setUser}/>
 		}
 		</main>
 		</Router>
