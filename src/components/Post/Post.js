@@ -1,7 +1,7 @@
 import {likeComment} from '../../utilities/comments-api'
 import {Heart} from 'lucide-react'
 
-export function Post(
+export default function Post(
     {post}
 ){
 
