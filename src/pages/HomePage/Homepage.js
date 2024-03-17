@@ -32,7 +32,7 @@ export function HomePage(
         setPost(data)
      }
 
-     async function handleUnikePost(postId) {
+     async function handleUnlikePost(postId) {
         const data = await postAPI.unlikePost(postId)
         setPost(data)
      }
@@ -63,7 +63,7 @@ export function HomePage(
                 <PostList 
                 allPosts={allPosts} 
                 handleLikePost={handleLikePost} 
-                handleUnikePost={handleUnikePost} 
+                handleUnikePost={handleUnlikePost} 
                 handleAllComments={handleAllComments}
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>

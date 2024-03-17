@@ -3,13 +3,15 @@ import {getAllComments} from '../../utilities/comments-api'
 import {useState,useEffect} from 'react'
 
 export default function CommentList(
+    {postId}
 ){
     const[comments, setComments] = useState([])
     useEffect(function(){
         async function fetchComments(){
             try{
                 const data = await getAllComments()
-                setComments(data)
+                const filteredComments = data.filter(comment => comment.post === postId);
+                setComments(filteredComments)
             }catch(error){
                 console.log(error)
             }
@@ -28,5 +30,4 @@ export default function CommentList(
         }
         </>
     )
-
 }
