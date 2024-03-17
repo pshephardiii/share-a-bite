@@ -1,5 +1,42 @@
+import {useState, useEffect} from 'react'
+import * as postAPI from '../../utilities/posts-api'
+import SearchBar from '../../components/SearchBar/SearchBar'
+import PostList from '../../components/PostList/PostList'
+
 export default function SearchPage(){
+
+    const [searchInput, setSearchInput]= useState('')
+    const [searchedItems, setSearchedItems] = useState([])
+    //get all the posts 
+    const [allPosts, setAllPosts] = useState(null)
+    useEffect(function(){
+        async function fetchAllPosts(){
+           try{
+            const data = await postAPI.getAllPosts()
+            setAllPosts(data)
+           } catch(error){
+            console.log(error)
+           }
+        }
+        fetchAllPosts()
+    },[])
+    
+    //to filter the input that match the post title and post dish 
+    useEffect(function(){
+        if(allPosts){
+            const data = allPosts.filter(post => post.title.toLowerCase().includes(searchInput.toLowerCase().trim())||post.dish.toLowerCase().includes(searchInput.toLowerCase().trim()))
+            setSearchedItems(data)
+        } 
+    },[searchInput,allPosts])
+
     return (
-        <h1>This is the SearchPage</h1>
+       <>
+        <SearchBar searchInput={searchInput} setSearchInput={setSearchInput}/>
+        {/* {searchedItems && <PostList allPosts={searchedItems}/>} */}
+        {searchedItems.length > 0 ? (<PostList allPosts={searchedItems}/>):(
+                <p>No matching posts found.</p>
+            )}
+       </>
     )
 }
+
