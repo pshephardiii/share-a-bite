@@ -1,5 +1,5 @@
 import { Component } from "react"
-import { getAllRestaurants, getIndividualRestaurant } from '../utilities/restaurant-api'
+import { getAllRestaurants, getIndividualRestaurant } from '../../utilities/restaurants-api'
 
 class RestaurantComponent extends Component {
     componentDidMount() {
