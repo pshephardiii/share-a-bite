@@ -117,9 +117,7 @@ export default function LandingPage(){
                 </div>
             </div>
 
-            <div className='navFooter'>
-                <NavBar user={user}/>
-            </div>
+            
 
         </div>
 
