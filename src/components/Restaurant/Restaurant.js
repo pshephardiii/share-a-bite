@@ -44,3 +44,4 @@ const RestaurantComponent = () => {
 }
 
 export default RestaurantComponent
+

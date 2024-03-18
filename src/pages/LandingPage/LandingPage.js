@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import styles from '../LandingPage.module.scss'
 import LoginForm from "../../components/LoginForm/LoginForm"
 import SignUpForm from "../../components/SignUpForm/SignUpForm"
 import { Link, useNavigate } from 'react-router-dom'
@@ -68,7 +67,7 @@ import styles from './LandingPage.module.scss'
 
 // Landing page structure
 
-export default function LandingPage(){
+export default function LandingPage( {user, setUser} ){
 
 
 
@@ -99,7 +98,7 @@ export default function LandingPage(){
             </div>
 
             <div className='navFooter'>
-                <NavBar/>
+                <NavBar user={user}/>
             </div>
 
         </div>
