@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
+import styles from './LandingPage.module.scss'
 
 export default function LandingPage(){
 
@@ -117,7 +118,7 @@ export default function LandingPage(){
             </div>
 
             <div className='navFooter'>
-                <NavBar/>
+                <NavBar user={user}/>
             </div>
 
         </div>
