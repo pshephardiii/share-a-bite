@@ -3,8 +3,8 @@ import {useNavigate} from 'react-router-dom'
 import {createPost} from '../../utilities/posts-api'
 //import star rating package npm i react-simple-star-rating
 import { Rating } from 'react-simple-star-rating'
-import {storage, uploadBytes} from '../../firebase'
-import {ref} from 'firebase/storage'
+import {storage} from '../../firebase'
+import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
 
 // Need to change the the rating in post model to be Number instead of Boolean 
