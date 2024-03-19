@@ -1,0 +1,15 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+}
+
+.logo {
+    height: 10px;
+    width: auto;
+}
+
+.heroImg {
+    width:fit-content;
+}
