@@ -11,6 +11,10 @@ const restaurantSchema = new Schema ({
     timestamps: true
 })
 
+const log = function log(){
+    console.log(Restaurant)
+}
+
 const Restaurant = model('Restaurant', restaurantSchema)
 
 module.exports = Restaurant

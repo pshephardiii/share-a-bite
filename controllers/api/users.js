@@ -55,6 +55,16 @@ exports.updateUser = async (req, res) => {
     }
 }
 
+exports.userIndex = async (_, res ,next) => {
+    try {
+        const users = await User.find({ user: req.body.user })
+        res.locals.data.users = users
+        next()
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
 exports.deleteUser = async (req, res) => {
     try {
         await req.user.deleteOne()
@@ -63,6 +73,33 @@ exports.deleteUser = async (req, res) => {
         res.status(400).json({message: error.message})
       }
     }
+
+    exports.addUserContact = async (req,res) => {
+        try {
+            const newUser = await User.findById(res.params.id)
+            req.user.contacts.addToSet(newUser._id)
+            newUser.contacts.addToSet(req.body._id)
+            await req.user.save()
+            await newUser.save()
+        }catch(error){
+            res.status(400).json({ message: error.message })
+        }
+    }
+
+    exports.deleteUserContact = async (req,res) => {
+        try {
+            const newUser = await User.findById(res.params.id)
+            const index = req.user.contacts.indexOf(newUser._id )
+            const index2 = newUser.contacts.indexOf(req.user._id)
+            req.user.contacts.splice(index, 1)
+            newUser.contacts.splice(index2, 1)
+            await req.user.save()
+            res.status(200).json({ message: 'Contact Deleted' })
+        }catch(error){
+            res.status(400).json({ message: error.message })
+        }
+    }
+
 
 exports.show = async (req, res) => {
     try {
@@ -73,4 +110,3 @@ exports.show = async (req, res) => {
      res.status(400).json({ message: error.message })
     }
 }
-

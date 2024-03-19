@@ -56,10 +56,13 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "feather-icons": "^4.29.1",
+    "firebase": "^10.9.0",
     "jsonwebtoken": "^9.0.1",
     "lucide-react": "^0.358.0",
     "mongoose": "^7.4.0",
     "morgan": "^1.10.0",
-    "serve-favicon": "^2.5.0"
+    "react-simple-star-rating": "^5.1.7",
+    "serve-favicon": "^2.5.0",
+    "uuid": "^9.0.1"
   }
 }

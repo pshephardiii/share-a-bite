@@ -1,7 +1,9 @@
 import HomePage from '../pages/HomePage/HomePage';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import UserShowPage from '../pages/UserShowPage/UserShowPage';
-import AuthPage from '../pages/AuthPage/AuthPage';
+import SearchPage from '../pages/SearchPage/SearchPage';
+import PostCreatePage from '../pages/PostCreatePage/PostCreatePage';
+
 
 const routes = [
 	{
@@ -15,9 +17,14 @@ const routes = [
 		path: '/shareabite'
 	},
 	{
-		Component: AuthPage,
-		key: 'auth',
-		path: '/auth'
+		Component: SearchPage,
+		key: 'search',
+		path: '/search'
+	},
+	{
+		Component: PostCreatePage,
+		key: 'createpost',
+		path: '/createpost'
 	},
     {
 		Component: UserShowPage,
