@@ -1,4 +1,4 @@
-import Comment from '../../components/Comment/Comment'
+import Comment from '../Comment/Comment'
 import {getAllComments} from '../../utilities/comments-api'
 import {useState,useEffect} from 'react'
 

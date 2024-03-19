@@ -19,7 +19,7 @@ export function getAllRestaurants() {
   }
   
   //fetch individual restaurant
-  export function getIndividualReastaurant(id) {
+  export function getIndividualRestaurant(id) {
     return sendRequest(`${BASE_URL}/${id}`);
   }
 
