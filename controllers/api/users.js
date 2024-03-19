@@ -57,7 +57,7 @@ exports.updateUser = async (req, res) => {
 
 exports.userIndex = async (_, res ,next) => {
     try {
-        const users = await User.find({ _id: req.params.id })
+        const users = await User.find({ user: req.body.user })
         res.locals.data.users = users
         next()
     } catch (error) {
@@ -78,6 +78,7 @@ exports.deleteUser = async (req, res) => {
         try {
             const newUser = await User.findById(res.params.id)
             req.user.contacts.addToSet(newUser._id)
+            newUser.contacts.addToSet(req.body._id)
             await req.user.save()
             await newUser.save()
         }catch(error){
@@ -89,7 +90,9 @@ exports.deleteUser = async (req, res) => {
         try {
             const newUser = await User.findById(res.params.id)
             const index = req.user.contacts.indexOf(newUser._id )
+            const index2 = newUser.contacts.indexOf(req.user._id)
             req.user.contacts.splice(index, 1)
+            newUser.contacts.splice(index2, 1)
             await req.user.save()
             res.status(200).json({ message: 'Contact Deleted' })
         }catch(error){
