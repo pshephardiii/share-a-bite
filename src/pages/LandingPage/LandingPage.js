@@ -44,7 +44,7 @@ export default function LandingPage(){
                 </div>
             </div>
 
-            <div className={styles.highlights-container}>
+            <div className={styles.highlightsContainer}>
                 <div className={styles.highlight1}>
                     <h3>Connect with friends.</h3>
                     <p>Craft personalized posts, tag your go-to restaurants, and showcase your culinary delights through stunning photos. </p>
