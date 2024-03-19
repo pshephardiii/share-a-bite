@@ -21,6 +21,18 @@ export function deleteUser(id) {
 export function showUser(id) {
     return sendRequest(`${BASE_URL}/${id}`);
 }
+
+export function contactIndex() {
+  return sendRequest(`${BASE_URL}/contacts`)
+}
+
+export function addContact(id) {
+  return sendRequest(`${BASE_URL}/${id}/add`)
+}
+
+export function addContact(id) {
+  return sendRequest(`${BASE_URL}/${id}/delete`)
+}
 /*
 router.put('/:id', userController.auth, userController.updateUser)
 router.delete('/:id', userController.auth, userController.deleteUser)
