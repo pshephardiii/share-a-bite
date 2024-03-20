@@ -8,7 +8,7 @@ import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
 
 // Need to change the the rating in post model to be Number instead of Boolean 
-export default function PostCreateForm(){
+export default function PostCreateForm({user}){
     const [post, setNewPost] = useState({
         title:'',
         body: '', 
@@ -38,13 +38,13 @@ export default function PostCreateForm(){
           // return newPost;
           navigateTo(`/home`)
 
-        } catch {
-          setError('Can not create a post');
+        } catch (error){
+          console.error ('Can not create a post');
         }
       }
       const[imageUpload, setImageUpload] = useState(null)
       const uploadImage=() => {
-        if (imageUpload = null) return;
+        if (imageUpload == null) return;
         //define the path to store the image and give the path a unique name
         const imageRef = ref(storage, `images/${imageUpload.name +v4() }`)
       
@@ -70,6 +70,7 @@ export default function PostCreateForm(){
                 onClick={handleRating}
                 value={post.rating}
             />
+            <button type="submit" >create new post</button>
          </form>
         </>
     )
