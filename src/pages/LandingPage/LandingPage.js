@@ -1,10 +1,16 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import {useState} from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
+import AuthComponent from '../../components/AuthComponent/AuthComponent'
+import SignUpForm from '../../components/SignUpForm/SignUpForm'
+import LoginForm from '../../components/LoginForm/LoginForm'
 import styles from './LandingPage.module.scss'
 
-export default function LandingPage(){
+export default function LandingPage({
+    setUser
+}){
 
     const navigate = useNavigate()
 
@@ -12,9 +18,12 @@ export default function LandingPage(){
         navigate('/restaurants')
     }
 
-    const handleLoginOrSignup = () => {
-        navigate('/auth')
-    }
+    // const [showAuth, setShowAuth] = useState(false)
+    const [showLoginForm, setShowLoginForm] = useState(false)
+    const [showSignUpForm, setShowSignUpForm] = useState(false)
+    // const handleLoginOrSignup = () => {
+    //     navigate('/auth')
+    // }
 
     // className={styles.myComponent}
 
@@ -30,12 +39,24 @@ export default function LandingPage(){
                 </div>
 
                 <div className={styles.authContainer}>
-                    <button className={styles.blackBtn} onClick={handleLoginOrSignup}>Login</button>
-                    <button className={styles.whiteBtn} onClick={handleLoginOrSignup}>Sign Up</button>
+                    <button className={styles.blackBtn} onClick={(e)=>{setShowLoginForm(!showLoginForm); setShowSignUpForm(false)}}>Login</button>
+                    <button className={styles.whiteBtn} onClick={(e)=>{setShowSignUpForm(!showSignUpForm); setShowLoginForm(false)}}>Sign Up</button>
                 </div>
 
             </div>
 
+
+             {(showLoginForm||showSignUpForm)?
+               <div className = {styles.wrapper}>
+                <div className={styles.showforms}>
+                    {/* {showAuth?<AuthComponent setUser={setUser} />:<></>} */}
+                    {showLoginForm?<LoginForm setUser={setUser} />:<></>}
+                    {showSignUpForm?<SignUpForm setUser={setUser} />:<></>}
+                </div>
+               </div>
+            :<></> }
+        
+           
             <div className={styles.heroContainter}>
                 <img className={styles.heroImg} src="https://i.imgur.com/du34eku.jpeg"/>
                 <div className={styles.heroOverlay}>
@@ -116,7 +137,7 @@ export default function LandingPage(){
             <div className={styles.footerBottom}>
             <p>Share-A-Bite © 2024. All rights reserved.</p>
             </div>
-
+                     
         </div>
 
     )

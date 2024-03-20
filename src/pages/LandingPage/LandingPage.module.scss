@@ -32,6 +32,25 @@ p {
     z-index: 1;
 }
 
+.wrapper {
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+    z-index: 2;
+
+}
+.showforms {
+    height: 300px;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+
+}
+
 .logoContainer {
     height: 100%; 
     display: flex; 
