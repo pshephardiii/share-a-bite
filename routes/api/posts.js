@@ -14,4 +14,8 @@ router.post('/', userCtrl.auth, postCtrl.create, postCtrl.jsonPost)
 // Show GET /posts/:id
 router.get('/:id', postCtrl.show, postCtrl.jsonPost)
 
+router.post('/:id/like', userCtrl.auth, postCtrl.likePost, postCtrl.jsonPost)
+
+router.post('/:id/unlike', userCtrl.auth, postCtrl.unlikePost, postCtrl.jsonPost)
+
 module.exports = router
