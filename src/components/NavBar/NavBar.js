@@ -19,8 +19,8 @@ export default function NavBar(
 
         
         {/*This is allow to go to a different page, this is we will use for now*/}
-        <Link to="/searchpage"><Search to="/searchPage"size={48}/></Link>
-        <Link to='/createnewpostpage'><SquarePlus size={48}/></Link>
+        <Link to="/search"><Search to="/searchPage"size={48}/></Link>
+        <Link to='/createpost'><SquarePlus size={48}/></Link>
          
         {/*Below allows pop up and and no new pages need to be set up in routes
          <Search to="/searchPage"size={48} onClick={(e)=>{setShowSearchPage(!showSearchPage)}}/>
