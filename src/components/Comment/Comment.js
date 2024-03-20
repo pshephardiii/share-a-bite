@@ -3,7 +3,7 @@ import {likeComment} from '../../utilities/comments-api'
 import {Heart} from 'lucide-react'
 
 
-export function Comment(
+export default function Comment(
     {comment}
 ){
 
