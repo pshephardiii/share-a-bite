@@ -116,10 +116,11 @@ async function likePost(req, res, next) {
             throw new Error('Post was already liked.')
         }
 
-        req.user.likedPosts.push(post._id)
+        req.user.likedPosts.addToSet(post._id)
         await req.user.save()
 
-        post.likes.push(userId)
+        post.likedBy.addToSet(userId)
+        post.likes = post.likes + 1
         await post.save()
 
         res.locals.data.post = Post
@@ -151,9 +152,10 @@ async function unlikePost(req, res, next) {
         req.user.likedPosts.splice(likedIndex, 1)
         await req.user.save()
         
-        const userIndex = post.likes.indexOf(userId)
+        const userIndex = post.likedBy.indexOf(userId)
         if (userIndex !== -1) {
-            post.likes.splice(userIndex, 1)
+            post.likedBy.splice(userIndex, 1)
+            post.likes = post.likes -1
             await post.save()
         }
         
