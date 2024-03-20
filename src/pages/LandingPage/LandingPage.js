@@ -50,8 +50,8 @@ export default function LandingPage({
                <div className = {styles.wrapper}>
                 <div className={styles.showforms}>
                     {/* {showAuth?<AuthComponent setUser={setUser} />:<></>} */}
-                    {showLoginForm?<LoginForm setUser={setUser} />:<></>}
-                    {showSignUpForm?<SignUpForm setUser={setUser} />:<></>}
+                    {showLoginForm?<LoginForm setUser={setUser} setShowLoginForm={setShowLoginForm}/>:<></>}
+                    {showSignUpForm?<SignUpForm setUser={setUser} setShowSignUpForm={setShowSignUpForm} />:<></>}
                 </div>
                </div>
             :<></> }

@@ -59,7 +59,7 @@ render() {
         </form>
       </div>
       <p className="error-message">&nbsp;{this.state.error}</p>
-      {/* <Link to = '/shareabite'><button>X</button></Link> */}
+      <button onClick={(e)=>{this.props.setShowSignUpForm(false)}}>X</button>
     </div>
   );
 }
