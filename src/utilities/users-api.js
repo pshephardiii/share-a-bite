@@ -30,7 +30,7 @@ export function addContact(id) {
   return sendRequest(`${BASE_URL}/${id}/add`)
 }
 
-export function addContact(id) {
+export function deleteContact(id) {
   return sendRequest(`${BASE_URL}/${id}/delete`)
 }
 /*
