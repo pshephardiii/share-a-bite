@@ -1,15 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Ojuju:wght@200..800&display=swap');
+
 .headerContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-items: space-evenly;
     position: fixed;
+    height: 50px; /* Set the height to 30px */
+    width: 100%; /* Make it span the entire screen width */
+    background-color: #ffffff; /* Optional: Add background color */
+}
+
+.wrapper {
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+    z-index: 2;
+
+}
+.showforms {
+    height: 300px;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    right: 25%;
+
+}
+
+.logoContainer {
+    height: 100%; /* Adjust height to match parent container */
+    display: flex; /* Use flexbox to align logo and company name */
+    align-items: center; /* Align items vertically */
 }
 
 .logo {
-    height: 10px;
+    height: 25px; /* Adjust height to match parent container */
     width: auto;
+    margin-right: 10px; /* Optional: Add margin to separate logo from company name */
+}
+
+.companyName {
+    font-family: "Lobster Two", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-right: 10px;
+}
+
+button {
+    width: 90px;
+    border-radius: 16vmin;
+    border: 2px solid #000000;
+    margin: 5px;
+    margin-right: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.blackBtn {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.whiteBtn {
+    background-color: #ffffff;
 }
 
 .heroImg {
-    width:fit-content;
+    width:100%;
+    height: auto;
 }
