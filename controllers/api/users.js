@@ -24,7 +24,9 @@ exports.createUser = async (req, res) => {
         const user = new User(req.body)
         await user.save()
         const token = await user.generateAuthToken()
-        res.json({ user, token })
+        // res.locals.data.user = user
+        // res.locals.data.token = token 
+        res.json(token)
     } catch (error) {
         res.status(400).json({ message: error.messege })
     }
