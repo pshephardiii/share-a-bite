@@ -44,7 +44,7 @@ export default function LandingPage(){
                 </div>
             </div>
 
-            <div className={styles.highlights-container}>
+            <div className={styles.highlightsContainer}>
                 <div className={styles.highlight1}>
                     <h3>Connect with friends.</h3>
                     <p>Craft personalized posts, tag your go-to restaurants, and showcase your culinary delights through stunning photos. </p>
@@ -67,15 +67,13 @@ export default function LandingPage(){
                     <h3>Every foodie-thing you crave.</h3>
                     <h4>Your favorite local restaurants</h4>
                     <p>Get a slice of pizza or the whole pie, or lo mein from the Chinese takeout spot you've been meaning to try.</p>
-                    <button className={blackBtn} onClick={handleFindRestaurants}>Find restaurants</button>
+                    <button className={styles.blackBtn} onClick={handleFindRestaurants}>Find restaurants</button>
                 </div>
                 <img className={styles.featureImg} src="https://i.imgur.com/Syw6ubz.jpeg"/>
             </div>
 
             <div className={styles.postSampler}>
-                <RestaurantSampler/>
-                <RestaurantSampler/>
-                <RestaurantSampler/>
+                {/* showcase a few things in the post list, ex. last 3 posts */}
             </div>
 
             <div className={styles.footer}>
