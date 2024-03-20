@@ -22,6 +22,7 @@ const userSchema = new Schema({
     },
     contacts: [{ type: Schema.Types.ObjectId, ref: 'User'}],
     posts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
+    likedPosts: [{ type: Schema.Types.ObjectId, ref: 'Post'}],
     comments: [{ type: Schema.Types.ObjectId, ref: 'Comment'}],
     favRestaurants: [{ type: Schema.Types.ObjectId, ref: 'Restaurant'}]
 }, {

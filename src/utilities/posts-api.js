@@ -40,5 +40,13 @@ export function deletePost(id) {
   return sendRequest(`${BASE_URL}/${id}`, 'DELETE');
 }
 
+export function likePost(id) {
+  return sendRequest(`${BASE_URL}/${id}/like`)
+}
+
+export function unlikePost(id) {
+  return sendRequest(`${BASE_URL}/${id}/unlike`)
+}
+
 
 

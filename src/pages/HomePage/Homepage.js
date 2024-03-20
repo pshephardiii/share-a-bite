@@ -25,19 +25,15 @@ export default function HomePage(
         fetchAllPosts()
     },[])
 
-     // event handler 
-     // below two functions needsto be added in posts-api
-     // Paul: had to comment them out for now to avoid breaking bugs
-     
-    //  async function handleLikePost(postId) {
-    //     const data = await postAPI.likePost(postId)
-    //     setPost(data)
-    //  }
+     async function handleLikePost(postId) {
+        const data = await postAPI.likePost(postId)
+        setPost(data)
+     }
 
-    //  async function handleUnlikePost(postId) {
-    //     const data = await postAPI.unlikePost(postId)
-    //     setPost(data)
-    //  }
+     async function handleUnlikePost(postId) {
+        const data = await postAPI.unlikePost(postId)
+        setPost(data)
+     }
 
      async function handleAllComments() {
         const data = await commentAPI.getAllComments()
