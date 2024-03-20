@@ -1,5 +1,7 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
+import { useNavigate, Link } from "react-router-dom";
+import HomePage from "../../pages/HomePage/HomePage";
 
 export default class SignUpForm extends Component {
 state = {
@@ -16,6 +18,7 @@ handleChange = (evt) => {
     error: ''
   });
 };
+
 
 handleSubmit = async (evt) => {
   evt.preventDefault();
@@ -56,6 +59,7 @@ render() {
         </form>
       </div>
       <p className="error-message">&nbsp;{this.state.error}</p>
+      {/* <Link to = '/shareabite'><button>X</button></Link> */}
     </div>
   );
 }
