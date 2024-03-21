@@ -45,6 +45,7 @@ export default function PostCreateForm({user}){
           console.error('Can not create a post');
         }
       }
+
       // const[imageUpload, setImageUpload] = useState(null)
       // const uploadImage=() => {
       //   if (imageUpload == null) return;
@@ -57,17 +58,26 @@ export default function PostCreateForm({user}){
       //     setNewPost({...post, pic:imageRef})
       //   })}
 
+
      
 
     return(
 
         <div className={styles.postCreateFormContainer}>
          <form onSubmit={handleSubmit} className={styles.postCreateForm}>
+         <h1>Create a Post!</h1>
+          <div className={styles.textInputContainer}>
             <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange} className={styles.inputBox}/>
             <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange} className={styles.inputBox}/>
-            {/* <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange}/> */}
-            <input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>
-            <button onClick={uploadImage}>Upload Image</button>
+            <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange} className={styles.inputBox}/> 
+          </div>
+          <div className={styles.imageInputContainer}>
+            {/*<input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>*/}
+            <input type='file' placeholder='pic' className={styles.fileUpload}></input>
+           {/* <button onClick={uploadImage}>Upload Image</button> */}
+           <button className={styles.button}>Upload image</button>
+          </div>
+          <div className={styles.dishRatingInputContainer}>
             <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange} className={styles.inputBox}/>
 
             {/* <input type='number' placeholder='number' value={post.rating} name='rating' onChange={handleChange}/> */}
@@ -75,7 +85,10 @@ export default function PostCreateForm({user}){
                 onClick={handleRating}
                 value={post.rating}
             />
-            <input type="submit" />
+            </div>
+            <div className={styles.submitContainer}>
+              <input type="submit" />
+            </div>
          </form>
         </div>
     )
