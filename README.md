@@ -1,31 +1,79 @@
-# Big Poppa Code React Starter
-This Starter Kit is being created for New Web Developers that want to get started with react
+SHARE-A-BITE
 
-Most people use a CLI Tool like Vue-Cli or Create React App and no idea what these things are doing
+This application allows people to connect with others through food.
+If your hungry and have no idea what you want to eat, join Share-a-Bite and you’ll scroll to your next meal.
 
-The goal of this is for it to be a tool that let's you learn JS at a new level because you have access to
-everything under the hood and no opinionated set up
+In vscode
+-create a models, controllers, and routes folder
+	  
+-Create a user.js file in models, and a users.js controllers/api, and routes
+-models
+![userModelP1](<Screenshot 2024-03-20 at 7.48.01 PM.png>)
+![userModelP2](<Screenshot 2024-03-20 at 7.50.31 PM.png>)
 
-I will base all my tutorials on this Starter Kit.
+-controllers/api
+![usersControllersP1](<Screenshot 2024-03-20 at 7.55.18 PM.png>)
+![usersControllersP2](<Screenshot 2024-03-20 at 7.56.07 PM.png>)
+![usersControllersP3](<Screenshot 2024-03-20 at 7.56.59 PM.png>)
 
-# Who Am I?
+-routes/api
+![usersRoutes](<Screenshot 2024-03-20 at 8.07.50 PM.png>)
 
-![bigpoppacode.io](https://i.imgur.com/PjuyuzK.jpeg)
+-Create a post.js file in models, and a posts.js controllers/api, and routes
+-models
+![postModel](<Screenshot 2024-03-20 at 7.52.28 PM.png>)
 
-I am Arthur Bernier Jr. I work as freelance fullstack web developer and attraction marketing consultant specializing in supporting e-commerce brands,
-subscription box sites, social activists, religious/non-profit leaders and creative entrepreneurs(i.e. barbers, artists, musicians, stylists, models and photographers).
-I have a passion for helping entrepreneurs reach their perfect audience and helping you communicate to that audience in a way that makes them know, like and trust you. I also am a Part-Time Instructor at General Assembly, a Senior Director at a National Non-Profit, a Multi Time Start-Up Founder who has raised 7 figures in VC, Creator and Maintainer of MambaScript, and Multi Time Tech Lead at startups from Seed Stage to Billion Dollar Valuation.
+-controllers/api
+![postsControllerP1](<Screenshot 2024-03-20 at 7.58.21 PM.png>)
+![postsControllerP2](<Screenshot 2024-03-20 at 7.59.07 PM.png>)
+![postsControllerP3](<Screenshot 2024-03-20 at 7.59.30 PM.png>)
+![postsControllerP4](<Screenshot 2024-03-20 at 8.00.16 PM.png>)
+![postsControllerP5](<Screenshot 2024-03-20 at 8.00.44 PM.png>)
 
+-routes/api
+![postsRoutes](<Screenshot 2024-03-20 at 8.09.16 PM.png>)
 
-# My Favorite Online Instructors
+-Create a comment.js file in models, and a comments.js controllers/api, and routes
+-model
+![commentModel](<Screenshot 2024-03-20 at 7.53.25 PM.png>)
 
-[__Colt Steele__](https://www.youtube.com/channel/UCrqAGUPPMOdo0jfQ6grikZw)
+-controllers/api
+![commentsControllersP1](<Screenshot 2024-03-20 at 8.02.08 PM.png>)
+![commentsControllersP2](<Screenshot 2024-03-20 at 8.02.33 PM.png>)
+![commentsControllersP3](<Screenshot 2024-03-20 at 8.03.00 PM.png>)
+![commentsControllersP4](<Screenshot 2024-03-20 at 8.03.24 PM.png>)
 
-[__Brad Traversy__](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA)
+-routes/api
+![commentsRoutes](<Screenshot 2024-03-20 at 8.10.24 PM.png>)
 
-[__Jose Santos Garcia__](https://www.youtube.com/channel/UC46wWUso9H5KPQcoL9iE3Ug)
+-Create a restaurant.js file in models, and a restaurants.js controllers/api, and routes
+-models
+![restaurantModels](<Screenshot 2024-03-20 at 7.53.56 PM.png>)
 
-[__Stephen Grider__](https://www.youtube.com/channel/UCQCaS3atWyNHEy5PkDXdpNg/)
+-controllers/api
+![restaurantsControllersP1](<Screenshot 2024-03-20 at 8.05.14 PM.png>)
+![restaurantsControllersP1](<Screenshot 2024-03-20 at 8.05.39 PM.png>)
+
+-routes/api
+![restaurantsRoutes](<Screenshot 2024-03-20 at 8.11.33 PM.png>)
+
+-Create pages folder. In this folder:
+	-create HomePage folder
+		-create HomePage.js file
+		-create HomePage.module.scss file
+	-create LandingPage folder
+		-create LandingPage.js
+		-create LandingPage.module.scss
+	-create PostCreatePage folder
+		-create PostCreatePage.js File
+		-create PostCreatePage.module.scss file
+	-create SearchPage folder
+		-create SearchPage.js File
+		-create SearchPage.module.scss file
+	-create UserShowPage folder
+		-create UserShowPage.js File
+		-create UserShowPage.module.scss file
+
 
 ## Steps
 
