@@ -6,6 +6,7 @@ import { Rating } from 'react-simple-star-rating'
 import {storage} from '../../firebase'
 import {ref, uploadBytes} from 'firebase/storage'
 import {v4} from 'uuid'
+import styles from './PostCreateForm.module.scss'
 
 // Need to change the the rating in post model to be Number instead of Boolean 
 export default function PostCreateForm(){
@@ -57,20 +58,20 @@ export default function PostCreateForm(){
       }
 
     return(
-        <>
-         <form onSubmit={handleSubmit}>
-            <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange}/>
-            <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange}/>
+        <div className={styles.postCreateFormContainer}>
+         <form onSubmit={handleSubmit} className={styles.postCreateForm}>
+            <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange} className={styles.inputBox}/>
+            <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange} className={styles.inputBox}/>
             {/* <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange}/> */}
-            <input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}}/>
+            <input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>
             <button onClick={uploadImage}>Upload Image</button>
-            <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange}/>
+            <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange} className={styles.inputBox}/>
             {/* <input type='number' placeholder='number' value={post.rating} name='rating' onChange={handleChange}/> */}
             <Rating
                 onClick={handleRating}
                 value={post.rating}
             />
          </form>
-        </>
+        </div>
     )
 }
