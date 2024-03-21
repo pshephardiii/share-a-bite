@@ -8,54 +8,54 @@ In vscode
 	  
 -Create a user.js file in models, and a users.js controllers/api, and routes
 -models
-![userModelP1](<Screenshot 2024-03-20 at 7.48.01 PM.png>)
-![userModelP2](<Screenshot 2024-03-20 at 7.50.31 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.48.21 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.44.23 PM.png>)
 
 -controllers/api
-![usersControllersP1](<Screenshot 2024-03-20 at 7.55.18 PM.png>)
-![usersControllersP2](<Screenshot 2024-03-20 at 7.56.07 PM.png>)
-![usersControllersP3](<Screenshot 2024-03-20 at 7.56.59 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.46.01 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.46.50 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.49.21 PM.png>)
 
 -routes/api
-![usersRoutes](<Screenshot 2024-03-20 at 8.07.50 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.52.44 PM.png>)
 
 -Create a post.js file in models, and a posts.js controllers/api, and routes
 -models
-![postModel](<Screenshot 2024-03-20 at 7.52.28 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.56.37 PM.png>)
 
 -controllers/api
-![postsControllerP1](<Screenshot 2024-03-20 at 7.58.21 PM.png>)
-![postsControllerP2](<Screenshot 2024-03-20 at 7.59.07 PM.png>)
-![postsControllerP3](<Screenshot 2024-03-20 at 7.59.30 PM.png>)
-![postsControllerP4](<Screenshot 2024-03-20 at 8.00.16 PM.png>)
-![postsControllerP5](<Screenshot 2024-03-20 at 8.00.44 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.57.42 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.58.56 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.00.27 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.01.17 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.02.31 PM.png>)
 
 -routes/api
-![postsRoutes](<Screenshot 2024-03-20 at 8.09.16 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 10.55.48 PM.png>)
 
 -Create a comment.js file in models, and a comments.js controllers/api, and routes
 -model
-![commentModel](<Screenshot 2024-03-20 at 7.53.25 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.04.24 PM.png>)
 
 -controllers/api
-![commentsControllersP1](<Screenshot 2024-03-20 at 8.02.08 PM.png>)
-![commentsControllersP2](<Screenshot 2024-03-20 at 8.02.33 PM.png>)
-![commentsControllersP3](<Screenshot 2024-03-20 at 8.03.00 PM.png>)
-![commentsControllersP4](<Screenshot 2024-03-20 at 8.03.24 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.14.52 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.15.50 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.16.49 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.19.04 PM.png>)
 
 -routes/api
-![commentsRoutes](<Screenshot 2024-03-20 at 8.10.24 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.20.44 PM.png>)
 
 -Create a restaurant.js file in models, and a restaurants.js controllers/api, and routes
 -models
-![restaurantModels](<Screenshot 2024-03-20 at 7.53.56 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.22.19 PM.png>)
 
 -controllers/api
-![restaurantsControllersP1](<Screenshot 2024-03-20 at 8.05.14 PM.png>)
-![restaurantsControllersP1](<Screenshot 2024-03-20 at 8.05.39 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.24.12 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.24.52 PM.png>)
 
 -routes/api
-![restaurantsRoutes](<Screenshot 2024-03-20 at 8.11.33 PM.png>)
+![Alt text](<Screenshot 2024-03-20 at 11.25.59 PM.png>)
 
 -Create pages folder. In this folder:
 	-create HomePage folder
