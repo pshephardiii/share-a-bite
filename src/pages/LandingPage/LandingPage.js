@@ -58,7 +58,7 @@ export default function LandingPage({
         
            
             <div className={styles.heroContainter}>
-                <img className={styles.heroImg} src="https://i.imgur.com/AVOCmbz.jpeg"/>
+                <img className={styles.heroImg} src="https://i.imgur.com/du34eku.jpeg"/>
                 <div className={styles.heroOverlay}>
                     <h2>Serving up deliciousness.</h2>
                     <SearchBar/>
@@ -66,20 +66,20 @@ export default function LandingPage({
             </div>
 
             <div className={styles.highlightsContainer}>
-                <div className={styles.highlight1}>
+                <div className={styles.highlight}>
                     <h3>Connect with friends.</h3>
                     <p>Craft personalized posts, tag your go-to restaurants, and showcase your culinary delights through stunning photos. </p>
-                    <img className={styles.friendsImg} src="https://i.imgur.com/rbOY9kf.png"/>
+                    <img className={styles.highlightImg} src="https://i.imgur.com/rbOY9kf.png"/>
                 </div>
-                <div className={styles.highlight2}>
+                <div className={styles.highlight}>
                     <h3>Get restaurant recommendations.</h3>
                     <p>From mouth-watering dishes to hidden gems, explore diverse cuisines and trendy eateries shared by your network. Say goodbye to dining dilemmas and let your friends guide you to the best spots in town.</p>
-                    <img className={styles.mealImg} src='https://i.imgur.com/RMlTNjI.png'/>
+                    <img className={styles.highlightImg} src='https://i.imgur.com/RMlTNjI.png'/>
                 </div>
-                <div className={styles.highlight3}>
+                <div className={styles.highlight}>
                     <h3>Get the best Share-A-Bite experience.</h3>
                     <p>Whether you're a foodie or simply love good company, our platform makes it easy to schedule restaurant meetups, turning every meal into a memorable experience. Login now or download the App.</p>
-                    <img className={styles.mobileImg} src="https://i.imgur.com/IFyfrUl.png"/>
+                    <img className={styles.highlightImg} src="https://i.imgur.com/IFyfrUl.png"/>
                 </div>
             </div>
 
@@ -88,17 +88,18 @@ export default function LandingPage({
                     <h3>Every foodie-thing you crave.</h3>
                     <h4>Your favorite local restaurants</h4>
                     <p>Get a slice of pizza or the whole pie, or lo mein from the Chinese takeout spot you've been meaning to try.</p>
-                    <button className={styles.blackBtn} onClick={handleFindRestaurants}>Find restaurants</button>
+                    <button className={styles.restaurantBtn} onClick={handleFindRestaurants}>Find restaurants</button>
                 </div>
                 <img className={styles.featureImg} src="https://i.imgur.com/Syw6ubz.jpeg"/>
             </div>
 
             <div className={styles.postSampler}>
+                <p>Post sampler - will contain 3 most recent posts</p>
                 {/* showcase a few things in the post list, ex. last 3 posts */}
             </div>
 
             <div className={styles.footer}>
-                <div className={styles.footerCol1}>
+                <div className={styles.footerColumns}>
                     <h4>About</h4>
                     <Link to="/"> About Us </Link>
                     <Link to="/"> Careers </Link>
@@ -108,14 +109,14 @@ export default function LandingPage({
                     <Link to="/"> Accessibility </Link>
                     <Link to="/"> News Room </Link>
                 </div>
-                <div className={styles.footerCol2}>
+                <div className={styles.footerColumns}>
                     <h4>Discover</h4>
                     <Link to="/"> Feed </Link>
                     <Link to="/"> Restaurants </Link>
                     <Link to="/"> Account Details </Link>
                     <Link to="/"> Collection </Link>
                 </div>
-                <div className={styles.footerCol3}>
+                <div className={styles.footerColumns}>
                     <h4>Share-A-Bite for Business</h4>
                     <Link to="/"> Business Owner Login </Link>
                     <Link to="/"> Claim your Business Page </Link>
@@ -125,16 +126,18 @@ export default function LandingPage({
                     <Link to="/"> Business Support </Link>
                     <Link to="/"> Blog for Business </Link>
                 </div>
-                <div className={styles.footerCol4}>
-                    <img className={styles.googlePlayBadge} src="https://i.imgur.com/ieDYEcR.png"/>
-                    <img className={styles.appleAppBadge} src="https://i.imgur.com/ZgoWZUM.png"/>
+                <div className={styles.footerColumns}>
+                    <Link to="/"><img className={styles.badge} src="https://i.imgur.com/ieDYEcR.png"/></Link>
+                    <Link to="/"><img className={styles.badge} src="https://i.imgur.com/ZgoWZUM.png"/></Link>
                 </div>
 
-                <div className={styles.footerBottom}>
-                <p>Share-A-Bite © 2024. All rights reserved.</p>
-                </div>
+                
             </div>
 
+            <div className={styles.footerBottom}>
+            <p>Share-A-Bite © 2024. All rights reserved.</p>
+            </div>
+                     
         </div>
 
     )

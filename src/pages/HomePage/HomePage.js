@@ -61,7 +61,7 @@ export default function HomePage(
                 <PostList 
                 allPosts={allPosts} 
                 handleLikePost={handleLikePost} 
-                handleUnikePost={handleUnlikePost} 
+                handleUnlikePost={handleUnlikePost} 
                 handleAllComments={handleAllComments}
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>
