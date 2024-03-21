@@ -41,11 +41,11 @@ export function deletePost(id) {
 }
 
 export function likePost(id) {
-  return sendRequest(`${BASE_URL}/${id}/like`)
+  return sendRequest(`${BASE_URL}/${id}/like`, 'POST')
 }
 
 export function unlikePost(id) {
-  return sendRequest(`${BASE_URL}/${id}/unlike`)
+  return sendRequest(`${BASE_URL}/${id}/unlike`,'POST')
 }
 
 
