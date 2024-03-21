@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
-export default function HomePage(
+export default function PostCreatePage(
     {user, setUser}
 ){
 
