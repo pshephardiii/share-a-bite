@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
 
-export default function CreateCommentForm() {
+export default function CreateCommentForm({postId}) {
     const [comment, setComment] = useState({ body: '' });
 
     function handleChange(e) {
@@ -12,7 +12,7 @@ export default function CreateCommentForm() {
         evt.preventDefault();
         try {
             // Call the createComment function to upload the comment
-            await createComment(comment);
+            await createComment(postId, comment);
             console.log('Comment successfully uploaded');
             // Reset the comment state after successful upload
             setComment({ body: '' });
