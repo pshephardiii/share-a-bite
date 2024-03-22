@@ -1,9 +1,10 @@
 import {useState, useEffect} from 'react'
 import * as postAPI from '../../utilities/posts-api'
+import NavBar from '../../components/NavBar/NavBar'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import PostList from '../../components/PostList/PostList'
 
-export default function SearchPage(){
+export default function SearchPage({user, setUser}){
 
     const [searchInput, setSearchInput]= useState('')
     const [searchedItems, setSearchedItems] = useState([])
@@ -27,7 +28,7 @@ export default function SearchPage(){
             const data = allPosts.filter(post => post.title.toLowerCase().includes(searchInput.toLowerCase().trim())||post.dish.toLowerCase().includes(searchInput.toLowerCase().trim()))
             setSearchedItems(data)
         } 
-    },[searchInput,allPosts])
+    },[searchInput])
 
     return (
        <>
@@ -36,6 +37,7 @@ export default function SearchPage(){
         {searchedItems.length > 0 ? (<PostList allPosts={searchedItems}/>):(
                 <p>No matching posts found.</p>
             )}
+        <NavBar user={user} setUser={setUser}/>
        </>
     )
 }
