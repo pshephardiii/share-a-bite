@@ -2,6 +2,7 @@ import CommentList from '../CommentList/CommentList'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
 import {Heart} from 'lucide-react'
+import { FaHeart } from "react-icons/fa";
 import { Rating } from 'react-simple-star-rating'
 import {useState, useEffect} from 'react'
 
@@ -16,6 +17,8 @@ export default function Post(
     // useEffect(()=>{getDownloadURL(post.pic).then((url)=>{
     //     setImage(url)
     // })},[])
+    const[liked, setLiked] = useState(false);
+   
 
     async function handleLikePost(postId) {
         
@@ -46,7 +49,6 @@ export default function Post(
             {/* <img src={image}/> */}
             <h3>{post.dish}</h3>
             <h3>{post.likes}</h3>
-            {/* <h3>{post.rating}</h3> */}
             <Rating
                 initialValue={post.rating}
                 readonly={true}
@@ -54,8 +56,10 @@ export default function Post(
             {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
             <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
 
-            <button onClick={()=>{handleLikePost(post._id)}}>like</button>
-            <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button>
+{
+                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><FaHeart style={{color: 'red', fontSize: '30px'}} /></div>:
+                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='black' fontSize='40px'/></div>
+              }
 
             <CommentList postId={post._id}/>
             <CreateCommentForm postId={post._id}/>

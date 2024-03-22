@@ -66,7 +66,7 @@ export default function HomePage(
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>
             }
-            <NavBar user={user} />
+            <NavBar user={user} setUser={setUser}/>
             
         </>
     )
