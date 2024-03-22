@@ -1,0 +1,33 @@
+.SearchBar{
+   
+    input {
+        width: 100%;
+        margin: 1rem 1rem;
+        position: relative;
+    }
+    input[type=text] {
+        color: black;
+        width: 100%;
+        box-sizing: border-box;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        font-size: 20px;
+        background-color: white;
+        background-image: url('https://i.imgur.com/jtHO3uy.png');
+        background-position: 10px 10px; 
+        background-repeat: no-repeat;
+        padding: 12px 20px 12px 40px;
+
+      }
+    input[type=text]:focus {
+        border: 3px solid #555;
+    }
+
+    .icon {
+        position: absolute;
+        left: 1.5rem;
+        top: 30px;
+        height: 24px;
+      }
+    
+}
