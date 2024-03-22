@@ -49,3 +49,47 @@
 }
   
   
+=======
+
+form {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-light);
+  }
+
+  label {
+    font-size: 2vmax;
+    display: flex;
+    align-items: center;
+    color:var(--black)
+  }
+  
+  input {
+    padding: 1vmin;
+    font-size: 2vmin;
+    border: .1vmin solid black;
+    border-radius: .5vmin;
+    color: var(--azure);
+    background-image: none !important; /* prevent lastpass */
+    outline: none;
+  }
+  
+  input:focus {
+    border-color: var(--mint);
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .blackBtn {
+    background-color: #000000;
+    color: #ffffff;
+}

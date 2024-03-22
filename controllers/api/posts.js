@@ -1,4 +1,5 @@
 const Post = require('../../models/post')
+const User = require('../../models/user')
 const Restaurant = require('../../models/restaurant')
 
 
@@ -32,16 +33,22 @@ function jsonPosts (_, res) {
 async function create(req, res, next) {
     try {
         req.body.user = req.user._id
-        const { content, restaurantId } = req.body
+        // const { content, restaurantId } = req.body
+      
+       const userId = req.user._id
 
-        const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
+       const postUser = await User.findById(userId)
+
+        // const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
+        const post = await Post.create(req.body)
+       
+        // if (restaurantId) {
+        //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
+        // }
+
+        postUser.posts.push(post._id)
         
-        if (restaurantId) {
-            await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
-        }
-
-        req.user.posts.addToSet(post)
-        req.user.save()
+        await postUser.save()
         res.locals.data.post = post
         next()
     } catch (error) {
@@ -55,7 +62,7 @@ async function create(req, res, next) {
 
 async function index(_, res, next) {
     try {
-        const posts = await Post.find({}).populate('restaurant')
+        const posts = await Post.find({}).populate('restaurant').populate('user')
         res.locals.data.posts = posts
         next()
     } catch (error) {

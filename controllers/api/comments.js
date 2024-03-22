@@ -9,6 +9,7 @@ module.exports = {
    updateComment, //auth
    deleteComment, //auth
    likeComment, //auth
+   unlikeComment,
    replyComment, //auth
    jsonComments,
    jsonComment
@@ -113,12 +114,6 @@ async function likeComment(req, res, next) {
            comment.likedBy.addToSet(user._id)
            await comment.save()
        }
-       // remove the userId from the comment.likedBy array
-       if(commentWriter !== user._id && comment.likedBy.includes(user._id)){
-           const index = comment.likedBy.indexOf(user._id)
-           comment.likedBy.splice(index, 1)
-           await comment.save()
-       }
        
        res.locals.data.comment=comment
        next()
@@ -126,6 +121,27 @@ async function likeComment(req, res, next) {
        res.status(400).json({ msg: error.message })
    }
 }
+
+async function unlikeComment(req, res, next) {
+    try {
+        const comment = await Comment.findOne({_id:req.params.id})
+        const commentWriter = comment.user 
+        const user = req.user
+ 
+       
+        // remove the userId from the comment.likedBy array
+        if(commentWriter !== user._id && comment.likedBy.includes(user._id)){
+            const index = comment.likedBy.indexOf(user._id)
+            comment.likedBy.splice(index, 1)
+            await comment.save()
+        }
+        
+        res.locals.data.comment=comment
+        next()
+    } catch(error) {
+        res.status(400).json({ msg: error.message })
+    }
+ }
 
 
 /********* reply to the comment */

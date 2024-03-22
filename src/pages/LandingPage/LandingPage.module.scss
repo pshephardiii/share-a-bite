@@ -38,17 +38,22 @@ p {
     width: 100%;
     position: absolute;
     top: 0;
-    opacity: 0.8;
+    opacity: 0.85;
     z-index: 2;
-
 }
+
 .showforms {
-    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 470px;
     width: 50%;
     position: absolute;
     top: 25%;
     right: 25%;
-    background-color: whitesmoke;
+    background-color: #E8FAFA;
+    opacity: 1;
 }
 
 .logoContainer {

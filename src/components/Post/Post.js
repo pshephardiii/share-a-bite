@@ -1,44 +1,68 @@
 import CommentList from '../CommentList/CommentList'
+import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
+import * as postAPI from '../../utilities/posts-api'
 import {Heart} from 'lucide-react'
+import { FaHeart } from "react-icons/fa";
 import { Rating } from 'react-simple-star-rating'
-import { createComment } from '../../utilities/comments-api'
 import {useState, useEffect} from 'react'
-import {getDownloadURL} from 'firebase/storage'
+
+// import {getDownloadURL} from 'firebase/storage'
 
 export default function Post(
-    {post,handleLikePost,handleUnlikePost }
+    {post}
 ){
-    const[comment, setComment] =useState(
-        {body: ''}
-    )
 
     //setup the url for the image to show it
     const [image, setImage] = useState('')
-    useEffect(()=>{getDownloadURL(post.pic).then((url)=>{
-        setImage(url)
-    })},[])
+    // useEffect(()=>{getDownloadURL(post.pic).then((url)=>{
+    //     setImage(url)
+    // })},[])
+    const[liked, setLiked] = useState(false);
+   
+
+    async function handleLikePost(postId) {
+        
+        try {
+            await postAPI.likePost(postId);
+            console.log('Post successfully liked');
+           
+        } catch (error) {
+            console.error('Error liking post:', error);
+        }
+    }
+
+    async function handleUnlikePost(postId) {
+        
+        try {
+            await postAPI.unlikePost(postId);
+            console.log('Post successfully unliked');
+           
+        } catch (error) {
+            console.error('Error liking post:', error);
+        }
+    }
     return(
         <>
-            <h3>{post.user}</h3>
+            <h3>{post.user.name}</h3>
             <h3>{post.title}</h3>
             <h3>{post.body}</h3>
-            <img src={image}/>
+            {/* <img src={image}/> */}
             <h3>{post.dish}</h3>
-            {/* <h3>{post.rating}</h3> */}
+            <h3>{post.likes}</h3>
             <Rating
-                value={post.rating}
+                initialValue={post.rating}
+                readonly={true}
             />
-            <button onClick={()=>{handleLikePost(post._id)}}/><button/>
-            <button onClick={()=>{handleUnlikePost(post._id)}}/><button/>
+            {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
+            <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
+
+{
+                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><FaHeart style={{color: 'red', fontSize: '30px'}} /></div>:
+                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='black' fontSize='40px'/></div>
+              }
 
             <CommentList postId={post._id}/>
-          
-            <form onSubmit={(e) => {
-                e.preventDefault()
-                createComment(post._id,comment)
-            }}>
-                <input type='text' placeholder='comment' value={Comment.body} onChange={(e)=>{setComment(e.target.value)}} />
-            </form>
+            <CreateCommentForm postId={post._id}/>
 
         </>
     )

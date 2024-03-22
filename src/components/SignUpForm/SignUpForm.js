@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import HomePage from "../../pages/HomePage/HomePage";
 import styles from "./SignUpForm.module.scss"
 import { CircleX } from 'lucide-react'
+import styles from './SignUpForm.module.scss'
 
 export default class SignUpForm extends Component {
 state = {

@@ -2,7 +2,7 @@ import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
-import LogOut from '../../components/LogOut/LogOut'
+
 import * as postAPI from '../../utilities/posts-api'
 import * as commentAPI from '../../utilities/comments-api'
 
@@ -55,18 +55,18 @@ export default function HomePage(
     return(
         <> 
             <h1>Share a Bite</h1>
-            <LogOut user={user} setUser={setUser}/>
+         
             {
                 allPosts && 
                 <PostList 
                 allPosts={allPosts} 
                 handleLikePost={handleLikePost} 
-                handleUnikePost={handleUnlikePost} 
+                handleUnlikePost={handleUnlikePost} 
                 handleAllComments={handleAllComments}
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>
             }
-            <NavBar user={user} />
+            <NavBar user={user} setUser={setUser}/>
             
         </>
     )

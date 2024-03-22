@@ -4,8 +4,8 @@ const postSchema = new Schema ({
     title: { type: String, required: true },
     body: { type: String, required: false }, 
     pic: { type: String, required: false }, // picture of dish
-    dish: { type: String, required: false }, // dish name
-    rating: { type: Boolean, required: false }, 
+    dish: { type: String, required: true }, // dish name
+    rating: { type: Number, required: false }, 
     user: { type: Schema.Types.ObjectId, ref: 'User'}, 
 
     restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' }, 
