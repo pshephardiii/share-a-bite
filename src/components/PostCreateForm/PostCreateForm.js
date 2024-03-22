@@ -13,7 +13,6 @@ export default function PostCreateForm({user}){
     const [post, setNewPost] = useState({
         title:'',
         body: '', 
-        restaurant: '',
         pic: '', 
         dish: '', 
         rating: 0
@@ -69,7 +68,7 @@ export default function PostCreateForm({user}){
           <div className={styles.textInputContainer}>
             <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange} className={styles.inputBox}/>
             <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange} className={styles.inputBox}/>
-            <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange} className={styles.inputBox}/> 
+            {/* <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange} className={styles.inputBox}/>  */}
           </div>
           <div className={styles.imageInputContainer}>
             {/*<input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>*/}

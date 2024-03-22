@@ -4,6 +4,7 @@ import * as postAPI from '../../utilities/posts-api'
 import {Heart} from 'lucide-react'
 import { Rating } from 'react-simple-star-rating'
 import {useState, useEffect} from 'react'
+
 // import {getDownloadURL} from 'firebase/storage'
 
 export default function Post(
@@ -39,7 +40,7 @@ export default function Post(
     }
     return(
         <>
-            <h3>{post.user}</h3>
+            <h3>{post.user.name}</h3>
             <h3>{post.title}</h3>
             <h3>{post.body}</h3>
             {/* <img src={image}/> */}
@@ -47,7 +48,7 @@ export default function Post(
             <h3>{post.likes}</h3>
             {/* <h3>{post.rating}</h3> */}
             <Rating
-                value={post.rating}
+                initialValue={post.rating}
             />
             {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
             <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
