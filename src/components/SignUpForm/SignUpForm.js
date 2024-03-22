@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { signUp } from '../../utilities/users-service';
 import { useNavigate, Link } from "react-router-dom";
+import styles from './SignUpForm.module.scss'
 
 
 export default class SignUpForm extends Component {
@@ -55,11 +56,11 @@ render() {
           <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
           <label>Confirm</label>
           <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-          <button type="submit" disabled={disable}>SIGN UP</button>
+          <button className={styles.blackBtn} type="submit" disabled={disable}>SIGN UP</button>
         </form>
       </div>
       <p className="error-message">&nbsp;{this.state.error}</p>
-      <button onClick={(e)=>{this.props.setShowSignUpForm(false)}}>X</button>
+      <button className={styles.close} onClick={(e)=>{this.props.setShowSignUpForm(false)}}>X</button>
     </div>
   );
 }
