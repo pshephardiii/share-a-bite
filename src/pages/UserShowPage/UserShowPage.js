@@ -10,10 +10,12 @@ import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantL
 import Contact from '../../components/Contact/Contact'
 import Post from '../../components/Post/Post'
 import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
+import styles from './UserShowPage.module.scss'
 
 
 export default function UserShowPage(
     { user, setUser }
+    // let { userId } = useParams()
 ){
     console.log(user)
     //below is to show the current logged-in user's info
@@ -58,6 +60,11 @@ export default function UserShowPage(
           {/* <ContactList newContacts={newContacts}/>
           <PostList newPosts={newPosts}/>
           <UpdateUserForm/> */}
+          <img className={styles.profilePic} src="https://picsum.photos/200"/>
+          {user.name}
+          {user.email}
+          <NavBar/>
+          {/* <NavBar user={user} /> */}
         </>
        
     )
