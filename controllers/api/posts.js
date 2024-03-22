@@ -1,4 +1,5 @@
 const Post = require('../../models/post')
+const User = require('../../models/user')
 const Restaurant = require('../../models/restaurant')
 
 
@@ -33,18 +34,21 @@ async function create(req, res, next) {
     try {
         req.body.user = req.user._id
         // const { content, restaurantId } = req.body
-        console.log(req.body)
-       
+      
+       const userId = req.user._id
+
+       const postUser = await User.findById(userId)
 
         // const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
-        const post = Post.create(req.body)
+        const post = await Post.create(req.body)
        
         // if (restaurantId) {
         //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
         // }
 
-        req.user.posts.addToSet(post._id)
-        req.user.save()
+        postUser.posts.push(post._id)
+        
+        await postUser.save()
         res.locals.data.post = post
         next()
     } catch (error) {
