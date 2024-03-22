@@ -1,7 +1,25 @@
-.Post{
-    .left_align{
-        text-align: left;
+.post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 5rem;
+
+    .likeContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;
     }
+
+    .commentsContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+ 
+    }
+
+    
 
     
 
