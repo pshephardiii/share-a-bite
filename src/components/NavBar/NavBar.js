@@ -22,7 +22,7 @@ export default function NavBar(
             <div onClick={()=>{navigate('/search')}}><Search size={48}/></div>
             <div onClick={()=>{navigate('/createpost')}}><SquarePlus size={48}/></div>
             <div onClick={()=>{navigate(`/usershowpage/${user._id}`)}}><User size={48}/></div>
-            <div><LogOut /></div>
+            <div><LogOut user={user} setUser={setUser}/></div>
 
         {/* <Link to="/search"><Home size={48}/></Link>
         <Link to="/search"><Search size={48}/></Link>
