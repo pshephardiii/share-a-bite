@@ -17,9 +17,10 @@ export default function UserShowPage(
 ){
     console.log(user)
     //below is to show the current logged-in user's info
-    const contacts = user[contacts]
-    const posts = user[posts]
-    const favRestaurants = user[favRestaurants]
+
+    const [contacts, setContacts] = useState(user.contacts)
+    const [posts, setPosts] = useState(user.posts)
+    const [favRestaurants, setFavRestaurants] = useState(user.favRestaurants)
 
     //below is to make it versatile and show any user's info & this requires passing down the params --userId
     // const [newUser, setNewUser] = useState(user)
