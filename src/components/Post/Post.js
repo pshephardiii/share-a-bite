@@ -51,6 +51,7 @@ export default function Post(
             <h3>{post.likes}</h3>
             <Rating
                 initialValue={post.rating}
+                readonly={true}
             />
             {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
             <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
