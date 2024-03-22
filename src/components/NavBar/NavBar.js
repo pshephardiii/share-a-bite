@@ -17,11 +17,11 @@ export default function NavBar(
 //   const [showSearchPage, setShowSearchPage] = useState(false)
 //   const [showNewPostPage, setShowNewPostPage] = useState(false)
     return (
-        <div>
-            <div onClick={()=>{navigate('/home')}} ><Home size={48}/></div>
-            <div onClick={()=>{navigate('/search')}}><Search size={48}/></div>
-            <div onClick={()=>{navigate('/createpost')}}><SquarePlus size={48}/></div>
-            <div onClick={()=>{navigate(`/usershowpage/${user._id}`)}}><User size={48}/></div>
+        <div className={styles.NavBar}>
+            <div className={styles.home} onClick={()=>{navigate('/home')}} ><Home size={48}/></div>
+            <div className={styles.search} onClick={()=>{navigate('/search')}}><Search size={48}/></div>
+            <div className={styles.createpost} onClick={()=>{navigate('/createpost')}}><SquarePlus size={48}/></div>
+            <div className={styles.usershowpage} onClick={()=>{navigate(`/usershowpage/${user._id}`)}}><User size={48}/></div>
             <div><LogOut /></div>
 
         {/* <Link to="/search"><Home size={48}/></Link>

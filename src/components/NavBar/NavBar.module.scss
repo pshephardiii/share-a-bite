@@ -1,0 +1,68 @@
+.NavBar {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: var(--white);
+    
+    background-color: whitesmoke;
+    opacity: 0.6;
+    z-index: 2;
+
+  }
+  
+h1 {
+    background-color: whitesmoke;
+    opacity: 0.9;
+}
+
+.home {
+    border-radius: 2vmin;
+    background-color: white;
+}
+
+.home:hover {
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+}
+    
+.search {
+    border-radius: 2vmin;
+    background-color: white;
+}
+
+.search:hover {
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+}
+
+.createpost {
+    border-radius: 2vmin;
+    background-color: white;
+}
+
+.createpost:hover {
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+}
+
+.usershowpage {
+    border-radius: 2vmin;
+    background-color: white;
+    
+}
+
+.usershowpage:hover {
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+}
+
+  .NavBar div {
+    margin-top: 1vmin;
+    text-align: center;
+    color: var(--text-light);
+    cursor: pointer;
+  }
+
+  
