@@ -37,7 +37,7 @@ async function create(req, res, next) {
        
 
         // const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
-        const post = await Post.create(req.body)
+        const post = Post.create(req.body)
        
         // if (restaurantId) {
         //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
@@ -58,7 +58,7 @@ async function create(req, res, next) {
 
 async function index(_, res, next) {
     try {
-        const posts = await Post.find({}).populate('restaurant')
+        const posts = await Post.find({}).populate('restaurant').populate('user')
         res.locals.data.posts = posts
         next()
     } catch (error) {
