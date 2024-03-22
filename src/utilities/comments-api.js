@@ -45,7 +45,10 @@ export function createComment(postId, commentData) {
 export function likeComment(id) {
     return sendRequest(`${BASE_URL}/${id}/like`, 'POST');
   }
-
+//unlike comment
+export function unlikeComment(id) {
+  return sendRequest(`${BASE_URL}/${id}/unlike`, 'POST');
+}
 // reply to comment 
 export function replyComment(id) {
     return sendRequest(`${BASE_URL}/${id}/reply`, 'POST');
