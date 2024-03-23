@@ -2,7 +2,7 @@ import CommentList from '../CommentList/CommentList'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
 import {Heart} from 'lucide-react'
-import { FaHeart } from "react-icons/fa";
+// import { FaHeart } from "react-icons/fa"; /* used lucide & fill: red */
 import { Rating } from 'react-simple-star-rating'
 import {useState, useEffect} from 'react'
 
@@ -57,8 +57,8 @@ export default function Post(
             <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
 
 {
-                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><FaHeart style={{color: 'red', fontSize: '30px'}} /></div>:
-                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='black' fontSize='40px'/></div>
+                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><Heart color='red' fill='red' fontSize='30px'/></div>:
+                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='gray' fontSize='30px'/></div>
               }
 
             <CommentList postId={post._id}/>
