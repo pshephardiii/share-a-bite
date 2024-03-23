@@ -21,7 +21,6 @@ export default function CommentList(
 
     return(
         <>
-        <div>Comment Lists</div>
         {
             comments.length>0 && (comments.map(comment=>(
                 <Comment 

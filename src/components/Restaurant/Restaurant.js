@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { getAllRestaurants, getIndividualRestaurant } from '../../utilities/restaurants-api'
 
-const RestaurantComponent = () => {
+const RestaurantComponent = ({ user }) => {
     const [restaurant, setRestaurant] = useState(null)
     const [restaurants, setRestaurants] = useState([])
 
