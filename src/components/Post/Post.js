@@ -17,6 +17,7 @@ export default function Post({post}) {
 
     const[comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
+    const [likesNumber, setlikesNumber] = useState(post.likes)
    
 
     useEffect(function(){
@@ -32,7 +33,10 @@ export default function Post({post}) {
         fetchComments()
     },[comment])
 
-
+    // useEffect(()=>{
+    //    setlikesNumber(post.likes)
+    // },[liked]
+    // )
 
     async function handleLikePost(postId) {
         try {
@@ -68,6 +72,7 @@ export default function Post({post}) {
                     readonly={true}
                 />
             </div>
+            <h3>{post.likes}</h3>
             {
                 liked ?
                 <div onClick={() => {handleUnlikePost(post._id); setLiked(!liked)}}>
