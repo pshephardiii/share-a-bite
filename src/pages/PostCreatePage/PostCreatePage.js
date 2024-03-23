@@ -7,9 +7,11 @@ export default function PostCreatePage(
     {user, setUser}
 ){
     return(
-        <div className={styles.postCreatePage}>
-            <NavBar user={user} />
+        <>
+          <div className={styles.postCreatePage}>
             <PostCreateForm user={user}/>
-        </div>
+          </div>
+          <NavBar user={user} />
+        </>
     )
 }
