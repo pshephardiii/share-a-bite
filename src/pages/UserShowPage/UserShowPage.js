@@ -25,9 +25,6 @@ export default function UserShowPage(
     const [contacts, setContacts] = useState([])
     const [posts, setPosts] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
-    
-
-    console.log(user)
 
 
 
@@ -89,10 +86,10 @@ export default function UserShowPage(
     return(
         <>
           {/* Below is only show the current loggedin user's profile */}
-          <ContactList contacts={contacts} user={user}/>
+          <ContactList contacts={contacts} user={user}/> 
           <PostList allPosts={posts} user={user}/>
           <UpdateUserForm user={user}/> {/* might display a button and use onclick function to show the form*/}
-          <FavRestaurantList restaurants={favRestaurants} user={user}/>
+          <FavRestaurantList restaurants={favRestaurants} user={user}/> 
           {/* Below is to show the any user's profile */}
           {/* <ContactList newContacts={newContacts}/>
           <PostList newPosts={newPosts}/>
@@ -101,7 +98,6 @@ export default function UserShowPage(
           {user.name}
           {user.email}
           <NavBar user={user}/>
-          {/* <NavBar user={user} /> */}
         </>
        
     )
