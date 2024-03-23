@@ -17,6 +17,7 @@ export default function Post({post}) {
 
     const[comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
+    const [updatedPost, setUpdatedPost] = useState(post)
    
     useEffect(function(){
         async function fetchComments(){
