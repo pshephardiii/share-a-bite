@@ -19,7 +19,7 @@ export function deleteUser(id) {
 }
 
 export function showUser(id) {
-    return sendRequest(`${BASE_URL}/${id}`);
+    return sendRequest(`${BASE_URL}/${id}/show`);
 }
 
 export function contactIndex() {
