@@ -1,5 +1,4 @@
 import styles from './SearchBar.module.scss';
-import { Search } from 'lucide-react';
 
 export default function SearchBar({ searchInput, setSearchInput }) {
 
@@ -7,7 +6,7 @@ export default function SearchBar({ searchInput, setSearchInput }) {
         <div className={styles.SearchBar}>
             <input
                 type='text'
-                placeholder={<><Search /> Search</>}
+                placeholder='Search'
                 value={searchInput}
                 onChange={(e) => setSearchInput(e.target.value)}
             />
