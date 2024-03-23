@@ -3,6 +3,7 @@ require('./database')
 
 const Restaurant = require('../models/restaurant')
 
+
 function log() {
     console.log(Restaurant)
 }

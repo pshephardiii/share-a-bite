@@ -20,6 +20,10 @@ export function getAllPosts() {
   return sendRequest(BASE_URL);
 }
 
+export function getAllUserPosts(userId) {
+  return sendRequest(`${BASE_URL}/all/${userId}`)
+}
+
 //fetch individual post
 export function getIndividualPost(id) {
   return sendRequest(`${BASE_URL}/${id}`);
@@ -41,11 +45,11 @@ export function deletePost(id) {
 }
 
 export function likePost(id) {
-  return sendRequest(`${BASE_URL}/${id}/like`)
+  return sendRequest(`${BASE_URL}/${id}/like`, 'POST')
 }
 
 export function unlikePost(id) {
-  return sendRequest(`${BASE_URL}/${id}/unlike`)
+  return sendRequest(`${BASE_URL}/${id}/unlike`,'POST')
 }
 
 

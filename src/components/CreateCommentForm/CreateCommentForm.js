@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
 
-export default function CreateCommentForm() {
-    const [comment, setComment] = useState({ body: '' });
+export default function CreateCommentForm({ postId, comment,setComment}) {
+    // const [comment, setComment] = useState({ body: '' });
 
     function handleChange(e) {
         setComment({ ...comment, [e.target.name]: e.target.value });
@@ -12,7 +12,7 @@ export default function CreateCommentForm() {
         evt.preventDefault();
         try {
             // Call the createComment function to upload the comment
-            await createComment(comment);
+            await createComment(postId, comment);
             console.log('Comment successfully uploaded');
             // Reset the comment state after successful upload
             setComment({ body: '' });
@@ -23,16 +23,19 @@ export default function CreateCommentForm() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
-                <input 
-                    type='text' 
-                    placeholder='comment' 
-                    value={comment.body} 
-                    name='body' 
-                    onChange={handleChange} 
+            <br/>
+            <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
+                <input
+                    type='text'
+                    placeholder='Add a comment'
+                    value={comment.body}
+                    name='body'
+                    onChange={handleChange}
+                    style={{ width: '50%', marginRight: '5px' }}
                 />
-                <button type='submit'>Upload comment</button>
+                <button type='submit' style={{ fontSize: '15px', textAlign: 'center' }}>Comment</button>
             </form>
+            <br/>
         </>
     );
 }

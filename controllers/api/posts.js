@@ -1,4 +1,5 @@
 const Post = require('../../models/post')
+const User = require('../../models/user')
 const Restaurant = require('../../models/restaurant')
 
 
@@ -6,6 +7,7 @@ module.exports = {
     create,
     index, 
     show,
+    showUserPosts,
     destroy, // auth
     update, // auth
     create, // auth
@@ -32,16 +34,22 @@ function jsonPosts (_, res) {
 async function create(req, res, next) {
     try {
         req.body.user = req.user._id
-        const { content, restaurantId } = req.body
+        // const { content, restaurantId } = req.body
+      
+       const userId = req.user._id
 
-        const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
+       const postUser = await User.findById(userId)
+
+        // const post = await Post.create({ content, user: req.user._id, restaurant: restaurantId })
+        const post = await Post.create(req.body)
+       
+        // if (restaurantId) {
+        //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
+        // }
+
+        postUser.posts.push(post._id)
         
-        if (restaurantId) {
-            await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
-        }
-
-        req.user.posts.addToSet(post)
-        req.user.save()
+        await postUser.save()
         res.locals.data.post = post
         next()
     } catch (error) {
@@ -55,7 +63,17 @@ async function create(req, res, next) {
 
 async function index(_, res, next) {
     try {
-        const posts = await Post.find({}).populate('restaurant')
+        const posts = await Post.find({}).populate('restaurant').populate('user').populate('comments')
+        res.locals.data.posts = posts
+        next()
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+async function showUserPosts(req, res, next) {
+    try {
+        const posts = await Post.find({ user: req.params.userId })
         res.locals.data.posts = posts
         next()
     } catch (error) {
@@ -123,7 +141,7 @@ async function likePost(req, res, next) {
         post.likes = post.likes + 1
         await post.save()
 
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {
@@ -159,7 +177,7 @@ async function unlikePost(req, res, next) {
             await post.save()
         }
         
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { Navigation } from '../../components/NavBar/NavBar'
+import NavBar from '../../components/NavBar/NavBar'
 import { useParams } from 'react-router-dom'
 import * as userAPI from '../../utilities/users-api'
+import * as postsAPI from '../../utilities/posts-api'
+import * as restaurantsAPI from '../../utilities/restaurants-api'
 import ContactList from '../../components/ContactList/ContactList'
 import PostList from '../../components/PostList/PostList'
 import UpdateUserForm from '../../components/Post/Post'
@@ -10,16 +12,51 @@ import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantL
 import Contact from '../../components/Contact/Contact'
 import Post from '../../components/Post/Post'
 import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
+import styles from './UserShowPage.module.scss'
 
 
 export default function UserShowPage(
     { user, setUser }
 ){
-    console.log(user)
+    const {userId} = useParams() 
+    console.log(userId)
     //below is to show the current logged-in user's info
-    const contacts = user[contacts]
-    const posts = user[posts]
-    const favRestaurants = user[favRestaurants]
+
+    const [contacts, setContacts] = useState([])
+    const [posts, setPosts] = useState([])
+    const [favRestaurants, setFavRestaurants] = useState([])
+
+
+
+    useEffect(function(){
+        async function getAllPosts(){
+           try{
+            const data = await postsAPI.getAllUserPosts(userId)
+            setPosts(data)
+           } catch(error){
+            console.log(error)
+           }
+        }
+        async function getAllUserFav(){
+            try{
+             const data = await restaurantsAPI.getAllUserFav(userId)
+             setFavRestaurants(data)
+            } catch(error){
+             console.log(error)
+            }
+         }
+         async function getAllContacts(){
+            try {
+                const data = await userAPI.contactIndex()
+                setContacts(data)
+            } catch (error) {
+                console.log(error)
+            }
+         }
+            getAllPosts()
+            getAllUserFav()
+            getAllContacts()
+    },[])
 
     //below is to make it versatile and show any user's info & this requires passing down the params --userId
     // const [newUser, setNewUser] = useState(user)
@@ -49,14 +86,18 @@ export default function UserShowPage(
     return(
         <>
           {/* Below is only show the current loggedin user's profile */}
-          <ContactList contacts={contacts}/>
-          <PostList posts={posts}/>
-          <UpdateUserForm/> {/* might display a button and use onclick function to show the form*/}
-          <FavRestaurantList favRestaurants={favRestaurants}/>
+          <ContactList contacts={contacts} user={user}/> 
+          <PostList allPosts={posts} user={user}/>
+          <UpdateUserForm user={user}/> {/* might display a button and use onclick function to show the form*/}
+          <FavRestaurantList restaurants={favRestaurants} user={user}/> 
           {/* Below is to show the any user's profile */}
           {/* <ContactList newContacts={newContacts}/>
           <PostList newPosts={newPosts}/>
           <UpdateUserForm/> */}
+          <img className={styles.profilePic} src="https://picsum.photos/200"/>
+          {user.name}
+          {user.email}
+          <NavBar user={user}/>
         </>
        
     )

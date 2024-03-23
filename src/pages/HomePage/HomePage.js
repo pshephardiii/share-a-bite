@@ -2,9 +2,10 @@ import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
-import LogOut from '../../components/LogOut/LogOut'
+
 import * as postAPI from '../../utilities/posts-api'
 import * as commentAPI from '../../utilities/comments-api'
+import styles from './homepage.module.scss'
 
 export default function HomePage(
     {user, setUser}
@@ -17,6 +18,7 @@ export default function HomePage(
         async function fetchAllPosts(){
            try{
             const data = await postAPI.getAllPosts()
+            console.log(data)
             setAllPosts(data)
            } catch(error){
             console.log(error)
@@ -54,19 +56,26 @@ export default function HomePage(
     console.log(allPosts)
     return(
         <> 
-            <h1>Share a Bite</h1>
-            <LogOut user={user} setUser={setUser}/>
+        <div className={styles.HomePage}>
+        <div className={styles.logoContainer}>
+            <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
+                    <div className={styles.companyName}>
+                        <h1>Share-A-Bite</h1>
+                    </div>
+        
+         </div>
             {
                 allPosts && 
                 <PostList 
                 allPosts={allPosts} 
                 handleLikePost={handleLikePost} 
-                handleUnikePost={handleUnlikePost} 
+                handleUnlikePost={handleUnlikePost} 
                 handleAllComments={handleAllComments}
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>
             }
-            <NavBar user={user} />
+            </div>
+            <NavBar user={user} setUser={setUser}/>
             
         </>
     )

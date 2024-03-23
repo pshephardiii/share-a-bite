@@ -1,14 +1,17 @@
 import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
-export default function HomePage(
+import styles from './PostCreatePage.module.scss'
+
+export default function PostCreatePage(
     {user, setUser}
 ){
-
     return(
         <>
-            <NavBar user={user} />
+          <div className={styles.postCreatePage}>
             <PostCreateForm user={user}/>
+          </div>
+          <NavBar user={user} />
         </>
     )
 }
