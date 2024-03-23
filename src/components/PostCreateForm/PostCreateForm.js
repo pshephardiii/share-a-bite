@@ -6,6 +6,7 @@ import { Rating } from 'react-simple-star-rating'
 import {storage} from '../../firebase'
 import {ref, uploadBytes,getDownloadURL,uploadBytesResumable} from 'firebase/storage'
 import {v4} from 'uuid'
+import * as restaurantsAPI from '../../utilities/restaurants-api'
 import styles from './PostCreateForm.module.scss'
 
 // Need to change the the rating in post model to be Number instead of Boolean 
@@ -15,8 +16,29 @@ export default function PostCreateForm({user}){
         body: '', 
         pic: '', 
         dish: '', 
+        restaurant: '',
         rating: 0
     })
+    const [restaurants, setRestaurants] = useState([])
+    
+    const options = restaurants.map((eatery, i) => {
+      return (
+        <option value={`${eatery._id}`} key={`${eatery._id}`}>{eatery.name}</option>
+      )
+    })
+    console.log(options)
+
+    useEffect(function(){
+      async function fetchAllRestaurants(){
+         try{
+          const data = await restaurantsAPI.getAllRestaurants()
+          setRestaurants(data)
+         } catch(error){
+          console.log(error)
+         }
+      }
+      fetchAllRestaurants()
+  },[])
 
      function handleChange(e){
         setNewPost({...post, [e.target.name]: e.target.value})
@@ -104,7 +126,7 @@ export default function PostCreateForm({user}){
           </div>
           <div className={styles.dishRatingInputContainer}>
             <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange} className={styles.inputBox}/>
-
+            <select name='restaurant' onChange={handleChange}>{options}</select>
             {/* <input type='number' placeholder='number' value={post.rating} name='rating' onChange={handleChange}/> */}
             <Rating
                 onClick={handleRating}
