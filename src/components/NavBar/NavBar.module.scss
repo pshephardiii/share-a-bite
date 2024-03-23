@@ -20,6 +20,7 @@ h1 {
 .home {
     border-radius: 2vmin;
     background-color: white;
+    transition: 0.8s;
 }
 
 .home:hover {
@@ -30,6 +31,7 @@ h1 {
 .search {
     border-radius: 2vmin;
     background-color: white;
+    transition: 0.8s;
 }
 
 .search:hover {
@@ -40,6 +42,7 @@ h1 {
 .createpost {
     border-radius: 2vmin;
     background-color: white;
+    transition: 0.8s;
 }
 
 .createpost:hover {
@@ -50,10 +53,22 @@ h1 {
 .usershowpage {
     border-radius: 2vmin;
     background-color: white;
+    transition: 0.8s;
     
 }
 
 .usershowpage:hover {
+    background: rgba(0,0,0,0.7);
+    border-radius: 6px;
+}
+
+.logout {
+    border-radius: 2vmin;
+    background-color: white;
+    transition: 0.8s;
+}
+
+.logout:hover {
     background: rgba(0,0,0,0.7);
     border-radius: 6px;
 }
