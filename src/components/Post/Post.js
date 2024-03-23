@@ -17,7 +17,7 @@ export default function Post({post}) {
 
     const[comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
-    const [likesNumber, setlikesNumber] = useState(post.likes)
+    const [updatedPost, setUpdatedPost] = useState(post)
    
 
     useEffect(function(){
@@ -33,14 +33,22 @@ export default function Post({post}) {
         fetchComments()
     },[comment])
 
-    // useEffect(()=>{
-    //    setlikesNumber(post.likes)
-    // },[liked]
-    // )
+    useEffect(function(){
+        async function fetchPost(){
+            try{
+                const data = await postAPI.getIndividualPost(post._id)
+                setUpdatedPost(data)     
+            }catch(error){
+                console.log(error)
+            }
+        }
+        fetchPost()
+    },[liked])
 
     async function handleLikePost(postId) {
         try {
             await postAPI.likePost(postId);
+            setLiked(!liked)
             console.log('Post successfully liked');
         } catch (error) {
             console.error('Error liking post:', error);
@@ -50,6 +58,7 @@ export default function Post({post}) {
     async function handleUnlikePost(postId) {
         try {
             await postAPI.unlikePost(postId);
+            setLiked(!liked)
             console.log('Post successfully unliked');
         } catch (error) {
             console.error('Error unliking post:', error);
@@ -72,13 +81,13 @@ export default function Post({post}) {
                     readonly={true}
                 />
             </div>
-            <h3>{post.likes}</h3>
+            <h3>{updatedPost.likes}</h3>
             {
                 liked ?
-                <div onClick={() => {handleUnlikePost(post._id); setLiked(!liked)}}>
+                <div onClick={() => {handleUnlikePost(post._id)}}>
                     <Heart style={{color: 'red', fill: 'red', fontSize: '30px'}} />
                 </div> :
-                <div onClick={() => {handleLikePost(post._id); setLiked(!liked)}}>
+                <div onClick={() => {handleLikePost(post._id)}}>
                     <Heart color='gray' fontSize='30px'/>
                 </div>
             }
@@ -89,8 +98,8 @@ export default function Post({post}) {
             <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
 
 {
-                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><Heart color='red' fill='red' fontSize='30px'/></div>:
-                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='gray' fontSize='30px'/></div>
+                liked?  <div  onClick={()=>{handleUnlikePost(post._id)}} ><Heart color='red' fill='red' fontSize='30px'/></div>:
+                <div  onClick={()=>{handleLikePost(post._id)}} ><Heart color='gray' fontSize='30px'/></div>
               }
 
             <CommentList comments={comments}/>
