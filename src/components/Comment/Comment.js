@@ -1,9 +1,11 @@
 import styles from './Comment.module.scss'
 import React, { useState } from 'react'
 import { likeComment, unlikeComment } from '../../utilities/comments-api'
+import { getIndividualComment } from '../../utilities/comments-api';
 import { Heart } from 'lucide-react'
 
 export default function Comment({ comment }) {
+
     const [liked, setLiked] = useState(false)
 
     async function handleLikeComment(CommentId) {
