@@ -56,15 +56,9 @@ export default function UserShowPage(
                 console.log(error)
             }
          }
-        if (posts) {
             getAllPosts()
-        }
-        if (favRestaurants) {
             getAllUserFav()
-        }
-        if (contacts) {
             getAllContacts()
-        }
     },[])
 
     //below is to make it versatile and show any user's info & this requires passing down the params --userId

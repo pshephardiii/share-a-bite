@@ -32,7 +32,9 @@ export default function Post({post}) {
     }
 
     return (
+
         post ?
+        
         <div className={styles.post}>
             <h3 className={styles.userName}>{post.user.name}</h3>
             <h3 className={styles.title}>{post.title}</h3>
@@ -67,8 +69,8 @@ export default function Post({post}) {
 
             <CommentList postId={post._id}/>
             <CreateCommentForm postId={post._id}/>
-
-        </>
-
+            </div>
+        </div> :
+        <></>
     )
 }
