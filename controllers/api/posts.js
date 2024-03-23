@@ -141,7 +141,7 @@ async function likePost(req, res, next) {
         post.likes = post.likes + 1
         await post.save()
 
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {
@@ -177,7 +177,7 @@ async function unlikePost(req, res, next) {
             await post.save()
         }
         
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {
