@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
 
-export default function CreateCommentForm({ postId }) {
-    const [comment, setComment] = useState({ body: '' });
+export default function CreateCommentForm({ postId, comment,setComment}) {
+    // const [comment, setComment] = useState({ body: '' });
 
     function handleChange(e) {
         setComment({ ...comment, [e.target.name]: e.target.value });
