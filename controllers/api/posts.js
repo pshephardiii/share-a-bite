@@ -7,6 +7,7 @@ module.exports = {
     create,
     index, 
     show,
+    showUserPosts,
     destroy, // auth
     update, // auth
     create, // auth
@@ -63,6 +64,16 @@ async function create(req, res, next) {
 async function index(_, res, next) {
     try {
         const posts = await Post.find({}).populate('restaurant').populate('user')
+        res.locals.data.posts = posts
+        next()
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+async function showUserPosts(req, res, next) {
+    try {
+        const posts = await Post.find({ user: req.params.userId })
         res.locals.data.posts = posts
         next()
     } catch (error) {

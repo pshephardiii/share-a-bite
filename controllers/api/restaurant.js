@@ -6,6 +6,7 @@ const User = require('../../models/user')
 module.exports = {
     index,
     show,
+    showUserFav,
     favRestaurants,
     favRestaurantsDelete,
     jsonRestaurant,
@@ -26,6 +27,16 @@ function jsonRestaurants (_, res) {
 async function index(_, res ,next) {
     try {
         const restaurants = await Restaurant.find({})
+        res.locals.data.restaurants = restaurants
+        next()
+    } catch (error) {
+        res.status(400).json({ msg: error.message })
+    }
+}
+
+async function showUserFav(req, res, next) {
+    try {
+        const restaurants = await Restaurant.find({ user: req.params.userId})
         res.locals.data.restaurants = restaurants
         next()
     } catch (error) {
