@@ -5,6 +5,7 @@ import PostList from '../../components/PostList/PostList'
 
 import * as postAPI from '../../utilities/posts-api'
 import * as commentAPI from '../../utilities/comments-api'
+import styles from './homepage.module.scss'
 
 export default function HomePage(
     {user, setUser}
@@ -17,6 +18,7 @@ export default function HomePage(
         async function fetchAllPosts(){
            try{
             const data = await postAPI.getAllPosts()
+            console.log(data)
             setAllPosts(data)
            } catch(error){
             console.log(error)
@@ -54,8 +56,14 @@ export default function HomePage(
     console.log(allPosts)
     return(
         <> 
-            <h1>Share a Bite</h1>
-         
+        <div className={styles.HomePage}>
+        <div className={styles.logoContainer}>
+            <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
+                    <div className={styles.companyName}>
+                        <h1>Share-A-Bite</h1>
+                    </div>
+        
+         </div>
             {
                 allPosts && 
                 <PostList 
@@ -66,6 +74,7 @@ export default function HomePage(
                 handleLikeComment={handleLikeComment} 
                 handleCreateComment={handleCreateComment}/>
             }
+            </div>
             <NavBar user={user} setUser={setUser}/>
             
         </>
