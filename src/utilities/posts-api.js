@@ -20,6 +20,10 @@ export function getAllPosts() {
   return sendRequest(BASE_URL);
 }
 
+export function getAllUserPosts(userId) {
+  return sendRequest(`${BASE_URL}/all/${userId}`)
+}
+
 //fetch individual post
 export function getIndividualPost(id) {
   return sendRequest(`${BASE_URL}/${id}`);

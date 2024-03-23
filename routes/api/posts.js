@@ -11,6 +11,8 @@ router.delete('/:id', userCtrl.auth, postCtrl.destroy, postCtrl.jsonPost)
 router.put('/:id', userCtrl.auth, postCtrl.update, postCtrl.jsonPost)
 // Create GET /posts
 router.post('/', userCtrl.auth, postCtrl.create, postCtrl.jsonPost)
+
+router.get('/all/:userId', postCtrl.showUserPosts, postCtrl.jsonPosts)
 // Show GET /posts/:id
 router.get('/:id', postCtrl.show, postCtrl.jsonPost)
 

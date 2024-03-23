@@ -17,6 +17,10 @@ router.post('/:id/remove', userCtrl.auth, restaurantCtrl.favRestaurantsDelete, r
 export function getAllRestaurants() {
     return sendRequest(BASE_URL);
   }
+
+  export function getAllUserFav(userId) {
+    return sendRequest(`${BASE_URL}/all/${userId}`)
+  }
   
   //fetch individual restaurant
   export function getIndividualRestaurant(id) {

@@ -6,6 +6,8 @@ const userCtrl = require('../../controllers/api/users')
 // Index
 router.get('/', userCtrl.auth, restaurantCtrl.index, restaurantCtrl.jsonRestaurants)
 
+router.get('/all/:userId', restaurantCtrl.showUserFav, restaurantCtrl.jsonRestaurants)
+
 // Show
 router.get('/:id', userCtrl.auth, restaurantCtrl.show, restaurantCtrl.jsonRestaurant)
 
