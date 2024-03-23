@@ -4,7 +4,7 @@ import {createPost} from '../../utilities/posts-api'
 //import star rating package npm i react-simple-star-rating
 import { Rating } from 'react-simple-star-rating'
 import {storage} from '../../firebase'
-import {ref, uploadBytes} from 'firebase/storage'
+import {ref, uploadBytes,getDownloadURL,uploadBytesResumable} from 'firebase/storage'
 import {v4} from 'uuid'
 import styles from './PostCreateForm.module.scss'
 
@@ -45,20 +45,42 @@ export default function PostCreateForm({user}){
         }
       }
 
-      // const[imageUpload, setImageUpload] = useState(null)
-      // const uploadImage=() => {
-      //   if (imageUpload == null) return;
-      //   //define the path to store the image and give the path a unique name
-      //   const imageRef = ref(storage, `images/${imageUpload.name +v4()}`)
-      
-      //   uploadBytes(imageRef, imageUpload).then(()=>{
-      //     console.log('image successfully uploaded')
-      //       // update the post object 
-      //     setNewPost({...post, pic:imageRef})
-      //   })}
+      const handleImageUpload =  (e) => {
 
+          const imageFile = e.target.files[0];
+          const imageRef = ref(storage, `images/${imageFile.name + v4()}`);
 
-     
+          const uploadTask = uploadBytesResumable(imageRef, imageFile);
+
+          uploadTask.on('state_changed', 
+          (snapshot) => {
+            // Observe state change events such as progress, pause, and resume
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log('Upload is ' + progress + '% done');
+            switch (snapshot.state) {
+              case 'paused':
+                console.log('Upload is paused');
+                break;
+              case 'running':
+                console.log('Upload is running');
+                break;
+            }
+          }, 
+          (error) => {
+            console.error('Error getting uploding pic:', error);
+          }, 
+          () => {
+            // Handle successful uploads on complete
+            // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+            getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+              console.log('File available at', downloadURL);
+              setNewPost({ ...post, pic: downloadURL})
+            });
+          }
+        );
+
+          }
 
     return(
 
@@ -68,18 +90,12 @@ export default function PostCreateForm({user}){
           <div className={styles.textInputContainer}>
             <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange} className={styles.inputBox}/>
             <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange} className={styles.inputBox}/>
-            {/* <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange} className={styles.inputBox}/>  */}
           </div>
           <div className={styles.imageInputContainer}>
-            {/*<input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>*/}
-            <input type='file' placeholder='pic' className={styles.fileUpload}></input>
-           {/* <button onClick={uploadImage}>Upload Image</button> */}
-           <button className={styles.button}>Upload image</button>
+                    <input type="file" placeholder="Pic" onChange={handleImageUpload} className={styles.fileUpload} />
           </div>
           <div className={styles.dishRatingInputContainer}>
             <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange} className={styles.inputBox}/>
-
-            {/* <input type='number' placeholder='number' value={post.rating} name='rating' onChange={handleChange}/> */}
             <Rating
                 onClick={handleRating}
                 value={post.rating}
