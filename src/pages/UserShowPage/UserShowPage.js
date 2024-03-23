@@ -29,14 +29,26 @@ export default function UserShowPage(
 
 
     useEffect(function(){
+        // async function getAllPosts(){
+        //    try{
+        //     const data = await postsAPI.getAllUserPosts(userId)
+        //     setPosts(data)
+        //    } catch(error){
+        //     console.log(error)
+        //    }
+        // }
         async function getAllPosts(){
-           try{
-            const data = await postsAPI.getAllUserPosts(userId)
-            setPosts(data)
-           } catch(error){
-            console.log(error)
-           }
-        }
+               try{
+                const data = await userAPI.showUser(userId)
+                if(data){
+                    const newData = data.user.posts
+                    setPosts(newData)
+                }
+               } catch(error){
+                console.log(error)
+               }
+            }
+        
         async function getAllUserFav(){
             try{
              const data = await restaurantsAPI.getAllUserFav(userId)
