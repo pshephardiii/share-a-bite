@@ -12,17 +12,10 @@ import styles from './Post.module.scss'
 export default function Post(
     {post}
 ){
-
-    //setup the url for the image to show it
-    const [image, setImage] = useState('')
-    // useEffect(()=>{getDownloadURL(post.pic).then((url)=>{
-    //     setImage(url)
-    // })},[])
-    const[liked, setLiked] = useState(false);
    
+    const[liked, setLiked] = useState(false);
 
-    async function handleLikePost(postId) {
-        
+    async function handleLikePost(postId) {     
         try {
             await postAPI.likePost(postId);
             console.log('Post successfully liked');
@@ -32,8 +25,7 @@ export default function Post(
         }
     }
 
-    async function handleUnlikePost(postId) {
-        
+    async function handleUnlikePost(postId) { 
         try {
             await postAPI.unlikePost(postId);
             console.log('Post successfully unliked');

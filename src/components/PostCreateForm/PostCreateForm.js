@@ -90,22 +90,12 @@ export default function PostCreateForm({user}){
           <div className={styles.textInputContainer}>
             <input type='text' placeholder='title' value={post.title} name='title' onChange={handleChange} className={styles.inputBox}/>
             <input type='text' placeholder='body' value={post.body} name='body' onChange={handleChange} className={styles.inputBox}/>
-            {/* <input type='text' placeholder='pic' value={post.pic} name='pic' onChange={handleChange} className={styles.inputBox}/>  */}
           </div>
           <div className={styles.imageInputContainer}>
-            {/*<input type='file' placeholder='pic' onChange={(e)=>{setImageUpload(e.target.files[0])}} className={styles.fileUpload}/>*/}
-            {/* <input type='file' placeholder='pic' className={styles.fileUpload}></input> */}
-           {/* <button onClick={uploadImage}>Upload Image</button> */}
-           {/* <button className={styles.button}>Upload image</button> */}
-          
                     <input type="file" placeholder="Pic" onChange={handleImageUpload} className={styles.fileUpload} />
-                    <button className={styles.button}>Upload Image</button>
-              
           </div>
           <div className={styles.dishRatingInputContainer}>
             <input type='text' placeholder='dish Name' value={post.dish} name='dish' onChange={handleChange} className={styles.inputBox}/>
-
-            {/* <input type='number' placeholder='number' value={post.rating} name='rating' onChange={handleChange}/> */}
             <Rating
                 onClick={handleRating}
                 value={post.rating}
