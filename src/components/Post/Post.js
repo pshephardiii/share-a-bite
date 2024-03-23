@@ -1,6 +1,8 @@
 import CommentList from '../CommentList/CommentList'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
+import {getAllComments} from '../../utilities/comments-api'
+import { createComment } from '../../utilities/comments-api';
 import {Heart} from 'lucide-react'
 
 // import { FaHeart } from "react-icons/fa"; /* used lucide & fill: red */
@@ -12,6 +14,25 @@ import styles from './Post.module.scss'
 
 export default function Post({post}) {
     const [liked, setLiked] = useState(false);
+
+    const[comments, setComments] = useState([])
+    const [comment, setComment] = useState({ body: '' });
+   
+
+    useEffect(function(){
+        async function fetchComments(){
+            try{
+                const data = await getAllComments()
+                const filteredComments = data.filter(comment => comment.post === post._id);
+                setComments(filteredComments)
+            }catch(error){
+                console.log(error)
+            }
+        }
+        fetchComments()
+    },[comment])
+
+
 
     async function handleLikePost(postId) {
         try {
@@ -39,7 +60,7 @@ export default function Post({post}) {
             <h3 className={styles.userName}>{post.user.name}</h3>
             <h3 className={styles.title}>{post.title}</h3>
             <p className={styles.body}>{post.body}</p>
-            <img src={post.pic} alt={post.dish}/>
+            <img src={post.pic}/>
             <div className={styles.ratingContainer}>
                 <h2 className={styles.dish}>{post.dish}</h2>
                 <Rating
@@ -67,8 +88,8 @@ export default function Post({post}) {
                 <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='gray' fontSize='30px'/></div>
               }
 
-            <CommentList postId={post._id}/>
-            <CreateCommentForm postId={post._id}/>
+            <CommentList comments={comments}/>
+            <CreateCommentForm postId={post._id} setComment={setComment} comment={comment}/>
             </div>
         </div> :
         <></>
