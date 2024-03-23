@@ -2,6 +2,9 @@ import CommentList from '../CommentList/CommentList'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
 import {Heart} from 'lucide-react'
+
+// import { FaHeart } from "react-icons/fa"; /* used lucide & fill: red */
+
 import { Rating } from 'react-simple-star-rating'
 import { Cookie } from 'lucide-react'
 import {useState, useEffect} from 'react'
@@ -53,15 +56,19 @@ export default function Post({post}) {
             }
             <div className={styles.likeContainer}>
                 <p className={styles.likes}>{post.likes}</p>
-            </div>
-            <div className={styles.commentsContainer}>
-                <CommentList postId={post._id}/>
-                <CreateCommentForm postId={post._id}/>
-            </div>
-        </div> :
-        <div>
-            <Cookie />
-            <h3>No posts yet</h3>
-        </div>
+
+            {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
+            <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
+
+{
+                liked?  <div  onClick={()=>{handleUnlikePost(post._id),setLiked(!liked)}} ><Heart color='red' fill='red' fontSize='30px'/></div>:
+                <div  onClick={()=>{handleLikePost(post._id),setLiked(!liked)}} ><Heart color='gray' fontSize='30px'/></div>
+              }
+
+            <CommentList postId={post._id}/>
+            <CreateCommentForm postId={post._id}/>
+
+        </>
+
     )
 }
