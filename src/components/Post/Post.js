@@ -48,7 +48,7 @@ export default function Post(
             <h2 className={styles.title}>{post.title}</h2>
             <h3 className={styles.userName}>{post.user.name}</h3>
             <p className={styles.body}>{post.body}</p>
-            {/* <img src={image}/> */}
+            <img src={post.pic}/>
             <h2 className={styles.dish}>{post.dish}</h2>
            
             <Rating
