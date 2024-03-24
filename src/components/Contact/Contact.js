@@ -1,11 +1,11 @@
 import styles from "./Contact.module.scss"
 
-export default function Contact({ user,
+export default function Contact({
     contact}){
     return(
         <div className={styles.contact}> 
         
-        <h1>{contact.name}</h1>
+        <h3>{contact.name}</h3>
            
         </div>
     )

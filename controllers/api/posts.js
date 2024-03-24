@@ -47,7 +47,7 @@ async function create(req, res, next) {
         //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
         // }
 
-        postUser.posts.push(post._id)
+        postUser.posts.addToSet(post._id)
         
         await postUser.save()
         res.locals.data.post = post
@@ -141,7 +141,7 @@ async function likePost(req, res, next) {
         post.likes = post.likes + 1
         await post.save()
 
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {
@@ -177,7 +177,7 @@ async function unlikePost(req, res, next) {
             await post.save()
         }
         
-        res.locals.data.post = Post
+        res.locals.data.post = post
         next()
 
     } catch (error) {

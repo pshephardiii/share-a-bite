@@ -1,0 +1,10 @@
+.ShowPagePosts{
+    width:100%;
+    .gridContainer{
+        display:grid;
+        grid-gap: 2vmin;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+
+    }  
+}
