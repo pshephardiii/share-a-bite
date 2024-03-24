@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import * as userAPI from '../../utilities/users-api'
 import * as postsAPI from '../../utilities/posts-api'
 import * as restaurantsAPI from '../../utilities/restaurants-api'
+import {logOut} from '../../utilities/users-service'
 import ContactList from '../../components/ContactList/ContactList'
 import PostList from '../../components/PostList/PostList'
 import UpdateUserForm from '../../components/UpdateUserForm/UpdateUserForm'
@@ -13,6 +14,7 @@ import Contact from '../../components/Contact/Contact'
 import Post from '../../components/Post/Post'
 import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
 import styles from './UserShowPage.module.scss'
+import ShowPagePosts from '../../components/ShowPagePosts/ShowPagePosts'
 
 
 export default function UserShowPage(
@@ -27,6 +29,7 @@ export default function UserShowPage(
     const [posts, setPosts] = useState([])
     const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
+    const [showUpdateUserForm, setShowUpdateUserForm] = useState(false)
 
 
     useEffect(function(){
@@ -73,7 +76,14 @@ export default function UserShowPage(
             getAllContacts()
     },[])
 
-
+    const deleteAccount = async(userId) =>{
+        try{
+            await userAPI.deleteUser(userId)
+            console.log('succeeded in deleting this account')
+        }catch(error){
+            console.log(error)
+        }
+    }
     const addContact = async(userId) =>{
         try{
             await userAPI.addContact(userId)
@@ -123,11 +133,19 @@ export default function UserShowPage(
           <img src={profilePic}/>
           <ContactList contacts={contacts} user={user}/> 
 
-          <PostList allPosts={posts} user={user}/>
-          {
-            user._id === userId? <UpdateUserForm userId={userId} user={user} setUser={setUser}/>:<></>
-          }
-           {/* might display a button and use onclick function to show the form*/}
+          {/* <PostList allPosts={posts} user={userId}/> */}
+          <ShowPagePosts allPosts={posts} user={userId}/>
+
+          {/* click button to display or hid the UpdateUserForm*/}
+          {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
+
+          {showUpdateUserForm? 
+          <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
+          :<></>}
+          
+          {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
+
+        
           <FavRestaurantList restaurants={favRestaurants} user={user}/> 
           {/* Below is to show the any user's profile */}
           {/* <ContactList newContacts={newContacts}/>
