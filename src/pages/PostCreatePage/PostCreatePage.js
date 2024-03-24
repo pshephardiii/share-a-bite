@@ -11,7 +11,7 @@ export default function PostCreatePage(
           <div className={styles.postCreatePage}>
             <PostCreateForm user={user}/>
           </div>
-          <NavBar user={user} />
+          <NavBar user={user} setUser={setUser}/>
         </>
     )
 }

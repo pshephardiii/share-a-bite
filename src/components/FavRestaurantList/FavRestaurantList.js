@@ -7,6 +7,7 @@ export default function FavRestaurantList ({
     deleteRestaurant
 }){
     return(
+        restaurants ?
     <div>
         <h3>FavRestaurantList</h3>
         {restaurants.map(restaurant =>(
@@ -17,7 +18,8 @@ export default function FavRestaurantList ({
                 
             />
         ))}
-        </div>
+        </div> :
+        <h3>No Favorites!</h3>
         ) 
     }
 
