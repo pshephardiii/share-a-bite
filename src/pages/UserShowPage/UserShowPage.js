@@ -30,6 +30,8 @@ export default function UserShowPage(
     const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
     const [showUpdateUserForm, setShowUpdateUserForm] = useState(false)
+    const [userName, setUserName] = useState([])
+    const [changeFollowBtn,setChangeFollowBtn] = useState(false)
 
 
     useEffect(function(){
@@ -47,8 +49,10 @@ export default function UserShowPage(
                 if(data){
                     const newData = data.user.posts
                     const newPic = data.user.pic
+                    const newName = data.user.name
                     setPosts(newData)
                     setProfilePic(newPic)
+                    setUserName(newName)
                 }
                } catch(error){
                 console.log(error)
@@ -74,7 +78,7 @@ export default function UserShowPage(
             getAllPosts()
             getAllUserFav()
             getAllContacts()
-    },[])
+    },[userId])
 
     console.log(posts)
 
@@ -89,15 +93,19 @@ export default function UserShowPage(
     const addContact = async(userId) =>{
         try{
             await userAPI.addContact(userId)
+            setChangeFollowBtn(!changeFollowBtn)
             console.log('succeeded in adding this new contact')
+
         }catch(error){
             console.log(error)
         }
     }
 
+
     const deleteContact = async(userId) =>{
         try{
             await userAPI.deleteContact(userId)
+            setChangeFollowBtn(!changeFollowBtn)
             console.log('succeeded in deleting this new contact')
         }catch(error){
             console.log(error)
@@ -133,7 +141,17 @@ export default function UserShowPage(
           {/* Below is only show the current loggedin user's profile */}
 
           <img src={profilePic}/>
-          <ContactList contacts={contacts} user={user}/> 
+          <h1>{userName}</h1>
+          {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
+          
+          {/* following and add contact */}
+          {
+            user._id !== userId && !user.contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button>:<></>
+          }
+          {/* unfollowing and delete contact */}
+           {
+            user._id !== userId && user.contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button>:<></>
+          }
 
           {/* <PostList allPosts={posts} user={userId}/> */}
           <ShowPagePosts allPosts={posts} user={userId}/>
