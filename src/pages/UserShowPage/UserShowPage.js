@@ -76,6 +76,8 @@ export default function UserShowPage(
             getAllContacts()
     },[])
 
+    console.log(posts)
+
     const deleteAccount = async(userId) =>{
         try{
             await userAPI.deleteUser(userId)
