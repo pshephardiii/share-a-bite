@@ -13,8 +13,8 @@ import styles from './PostCreateForm.module.scss'
 export default function PostCreateForm({user}){
     const [post, setNewPost] = useState({
         title:'',
+        pic: '',
         body: '', 
-        pic: '', 
         dish: '', 
         restaurant: '',
         rating: 0
