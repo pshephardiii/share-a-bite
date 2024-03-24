@@ -25,6 +25,7 @@ export default function UserShowPage(
 
     const [contacts, setContacts] = useState([])
     const [posts, setPosts] = useState([])
+    const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
 
 
@@ -42,7 +43,9 @@ export default function UserShowPage(
                 const data = await userAPI.showUser(userId)
                 if(data){
                     const newData = data.user.posts
+                    const newPic = data.user.pic
                     setPosts(newData)
+                    setProfilePic(newPic)
                 }
                } catch(error){
                 console.log(error)
@@ -116,15 +119,9 @@ export default function UserShowPage(
     return(
         <>
           {/* Below is only show the current loggedin user's profile */}
-          <ContactList contacts={contacts} user={user} userId={userId}/> 
-          {/* following and add contact */}
-          {
-            user._id !== userId && !user.contacts.includes(userId)? <button onClick={()=>addContact(userId)}>following</button>:<></>
-          }
-          {/* unfollowing and delete contact */}
-           {
-            user._id !== userId && user.contacts.includes(userId)? <button onClick={()=>addContact(userId)}>unfollowing</button>:<></>
-          }
+
+          <img src={profilePic}/>
+          <ContactList contacts={contacts} user={user}/> 
 
           <PostList allPosts={posts} user={user}/>
           {
