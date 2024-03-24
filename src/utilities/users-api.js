@@ -27,11 +27,11 @@ export function contactIndex() {
 }
 
 export function addContact(id) {
-  return sendRequest(`${BASE_URL}/${id}/add`)
+  return sendRequest(`${BASE_URL}/${id}/add`,'POST')
 }
 
 export function deleteContact(id) {
-  return sendRequest(`${BASE_URL}/${id}/delete`)
+  return sendRequest(`${BASE_URL}/${id}/delete`,'POST')
 }
 /*
 router.put('/:id', userController.auth, userController.updateUser)
