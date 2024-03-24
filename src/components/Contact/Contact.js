@@ -5,7 +5,7 @@ export default function Contact({
     return(
         <div className={styles.contact}> 
         
-        <h1>{contact.name}</h1>
+        <h3>{contact.name}</h3>
            
         </div>
     )

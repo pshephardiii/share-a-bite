@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import * as usersService from '../../utilities/users-service';
+import { CircleX } from 'lucide-react'
 import styles from './LoginForm.module.scss'
 
 export default function LoginForm({ setUser, setShowLoginForm }) {
@@ -40,7 +41,8 @@ return (
       </form>
     </div>
     <p className="error-message">&nbsp;{error}</p>
-    <button className={styles.close} onClick={(e)=>{setShowLoginForm(false)}}>X</button>
+    <button className={styles.close} onClick={(e)=>{setShowLoginForm(false)}}><CircleX /></button>
+    {/* <button className={styles.close} onClick={(e)=>{setShowLoginForm(false)}}>X</button> */}
   </div>
 );
 }
