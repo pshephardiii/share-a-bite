@@ -48,6 +48,8 @@ exports.loginUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
+        // delete the __v so the user can update the user
+        delete req.body.__v;
         const updates = Object.keys(req.body)
         updates.forEach(update => req.user[update] = req.body[update])
         await req.user.save()
@@ -118,7 +120,7 @@ exports.deleteUser = async (req, res) => {
 
 exports.show = async (req, res) => {
     try {
-        const user = await User.findOne({ _id: req.params.id })
+        const user = await User.findOne({ _id: req.params.id }).populate('posts')
        
         res.json({ user })
     } catch (error) {
