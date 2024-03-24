@@ -47,7 +47,7 @@ async function create(req, res, next) {
         //     await Restaurant.findByIdAndUpdate(restaurantId, { $addToSet: { featuredIn: post._id } })
         // }
 
-        postUser.posts.push(post._id)
+        postUser.posts.addToSet(post._id)
         
         await postUser.save()
         res.locals.data.post = post
