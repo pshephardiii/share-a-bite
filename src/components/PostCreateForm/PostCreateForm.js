@@ -23,10 +23,18 @@ export default function PostCreateForm({user}){
     
     const options = restaurants.map((eatery, i) => {
       return (
+        eatery === restaurants[0] ?
+        <>
+        <option value="none" selected disabled hidden>Select</option>
+        <option value={`${eatery._id}`} key={`${eatery._id}`}>{eatery.name}</option>
+        </>
+        :
         <option value={`${eatery._id}`} key={`${eatery._id}`}>{eatery.name}</option>
       )
     })
     console.log(options)
+
+    
 
     useEffect(function(){
       async function fetchAllRestaurants(){
