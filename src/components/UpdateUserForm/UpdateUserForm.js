@@ -1,9 +1,10 @@
 import {updateUser}from '../../utilities/users-api'
+import { CircleX } from 'lucide-react'
 import {useState, useEffect} from 'react'
 import styles from './UpdateUserForm.module.scss'
 
 export default function UpdateUserForm(
-    {user, setUser}
+    {user, setUser,setShowUpdateUserForm}
 ){
     const handleChange=(e) => {
         setUser({...user, [e.target.name]: e.target.value})
@@ -19,15 +20,18 @@ export default function UpdateUserForm(
         }
     }
     return (
-        <>
-        <h1>Update User info</h1>
-        <form  
-        onSubmit={handleSubmit}>
-            <input type='text' placeholder='name' name='name' value={user.name} onChange={handleChange}/>
-            <input type='email' placeholder='email' name='email' value={user.email} onChange={handleChange}/>
-            <input type='password' placeholder='password' name='password' value={user.password} onChange={handleChange}/>
-            <input type='submit'  value='Submit Update Data'/>
-        </form>
-        </>
+        <div className={styles.UpdateUserForm}>
+            <>
+                <h1>Update User info</h1>
+                <form  
+                onSubmit={handleSubmit}>
+                    <input type='text' placeholder='name' name='name' value={user.name} onChange={handleChange}/>
+                    <input type='email' placeholder='email' name='email' value={user.email} onChange={handleChange}/>
+                    <input type='password' placeholder='password' name='password' value={user.password} onChange={handleChange}/>
+                    <input type='submit'  value='Submit Update Data'/>
+                </form>
+                <div onClick={(e)=>{setShowUpdateUserForm(false)}}><CircleX /></div>
+             </>
+        </div>
     )
 }

@@ -1,0 +1,32 @@
+.ShowPagePost{
+    img{
+        width: 25vmax;
+        overflow-x: hidden;
+    }
+    .wrapper {
+        background-color: black;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        opacity: 0.85;
+        z-index: 2;
+    }
+    
+    .showPost {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 70%;
+        position: absolute;
+        top: 5%;
+        right: 25%;
+        background-color: #E8FAFA;
+        opacity: 1;
+    }
+
+}
+
+
