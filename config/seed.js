@@ -47,6 +47,12 @@ function log() {
     await User.findOneAndUpdate({name: "Rachail"}, {posts: posts[3]}, {new: true})
     await User.findOneAndUpdate({name: "Omar"}, {posts: posts[4]}, {new: true})
 
+    await Restaurant.findOneAndUpdate({name: "Paul's Tasty Food"}, {featuredIn: posts[1]},{new:true})
+    await Restaurant.findOneAndUpdate({name: "Junfeng's Yummy Meals"}, {featuredIn: posts[2]},{new:true})
+    await Restaurant.findOneAndUpdate({name: "Nicole's Delicious Eatery"}, {featuredIn: posts[0]},{new:true})
+    await Restaurant.findOneAndUpdate({name: "Rachail's Amazing Refreshments"}, {featuredIn: posts[4]},{new:true})
+    await Restaurant.findOneAndUpdate({name: "Omar's Kitchen of Sustenance"}, {featuredIn: posts[3]},{new:true})
+
     console.log(restaurants)
     console.log(users)
     console.log(posts)
