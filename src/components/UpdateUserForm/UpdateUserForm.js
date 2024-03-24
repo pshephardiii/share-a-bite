@@ -5,18 +5,18 @@ import styles from './UpdateUserForm.module.scss'
 export default function UpdateUserForm(
     {user, setUser}
 ){
+    const handleChange=(e) => {
+        setUser({...user, [e.target.name]: e.target.value})
+
+    }
     const handleSubmit = async(e) => {
         e.preventDefault()
         try {
             await updateUser(user._id, user) 
+            console.log(user)
         } catch(error){
             console.error(error)
         }
-    }
-
-    const handleChange=(e) => {
-        setUser({...user, [e.target.name]: e.target.value})
-
     }
     return (
         <>

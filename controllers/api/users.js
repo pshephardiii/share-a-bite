@@ -48,6 +48,8 @@ exports.loginUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
+        // delete the __v so the user can update the user
+        delete req.body.__v;
         const updates = Object.keys(req.body)
         updates.forEach(update => req.user[update] = req.body[update])
         await req.user.save()
