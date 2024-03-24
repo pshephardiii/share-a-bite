@@ -109,7 +109,7 @@ export default function UserShowPage(
           <img className={styles.profilePic} src="https://picsum.photos/200"/>
           {user.name}
           {user.email}
-          <NavBar user={user}/>
+          <NavBar user={user} setUser={setUser}/>
         </>
        
     )
