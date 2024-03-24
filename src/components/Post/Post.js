@@ -4,6 +4,7 @@ import * as postAPI from '../../utilities/posts-api'
 import {getAllComments} from '../../utilities/comments-api'
 import { createComment } from '../../utilities/comments-api';
 import {Heart} from 'lucide-react'
+import { useNavigate } from 'react-router-dom';
 
 // import { FaHeart } from "react-icons/fa"; /* used lucide & fill: red */
 
@@ -18,6 +19,7 @@ export default function Post({post}) {
     const[comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
     const [updatedPost, setUpdatedPost] = useState(post)
+    const navigate = useNavigate()
    
     useEffect(function(){
         async function fetchComments(){
@@ -69,7 +71,7 @@ export default function Post({post}) {
         post ?
         
         <div className={styles.post}>
-            <h3 className={styles.userName}>{post.user.name}</h3>
+            <h3 onClick = {()=>navigate(`/usershowpage/${post.user._id}`)} className={styles.userName}>{post.user.name}</h3>
             <h3 className={styles.title}>{post.title}</h3>
             <p className={styles.body}>{post.body}</p>
             <img src={post.pic}/>
