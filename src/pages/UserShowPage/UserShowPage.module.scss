@@ -8,8 +8,8 @@
         align-items: center;
     }
     .profilePic{
-        width:10vmax;
-        height: 10vmax;
+        width:8vmax;
+        height: 8vmax;
         border-radius: 50%;
         background-image: url('https://i.imgur.com/1Q36Y5C.png');
         background-size: cover;
@@ -28,5 +28,7 @@
         border:none;
         border-radius:10px;
         text-align: center;
+        white-space: nowrap;
+        width: 7rem;
     }
 }
