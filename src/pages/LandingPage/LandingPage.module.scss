@@ -24,7 +24,7 @@ p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-items: space-evenly;
+    justify-content:space-between;
     position: fixed;
     height: 50px; 
     width: 100%; 
@@ -32,6 +32,12 @@ p {
     z-index: 1;
 }
 
+.authContainer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
 .wrapper {
     background-color: black;
     height: 100%;
@@ -47,11 +53,11 @@ p {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 470px;
+    height: 75%;
     width: 50%;
-    position: absolute;
-    top: 25%;
-    right: 25%;
+    position: relative;
+    margin: 0 auto;
+    top: 10%;
     background-color: #E8FAFA;
     opacity: 1;
 }
