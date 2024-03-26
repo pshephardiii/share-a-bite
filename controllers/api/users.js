@@ -48,6 +48,8 @@ exports.loginUser = async (req, res) => {
 
 exports.updateUser = async (req, res) => {
     try {
+        // delete the __v so the user can update the user
+        delete req.body.__v;
         const updates = Object.keys(req.body)
         updates.forEach(update => req.user[update] = req.body[update])
         await req.user.save()
@@ -94,7 +96,7 @@ exports.deleteUser = async (req, res) => {
             newUser.contacts.addToSet(req.user._id)
             await req.user.save()
             await newUser.save()
-            res.status(200).json({ newUser })
+            res.status(200).json(req.user)
         }catch(error){
             res.status(400).json({ message: error.message })
         }

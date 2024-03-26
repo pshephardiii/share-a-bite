@@ -3,7 +3,8 @@ import Contact from '../../components/Contact/Contact'
  
 export default function ContactList ({ 
     user,
-    contacts
+    contacts,
+    userId
 }){
     const userContacts = contacts.map(contact =>
         <Contact
