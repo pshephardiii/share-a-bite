@@ -29,7 +29,7 @@ export default function UserShowPage(
     const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
 
-
+   
     useEffect(function(){
         // async function getAllPosts(){
         //    try{
@@ -42,7 +42,7 @@ export default function UserShowPage(
         async function getAllPosts(){
                try{
                 const data = await userAPI.showUser(userId)
-                if(data){
+             
                     const newData = data.user.posts
                     const newPic = data.user.pic
                     const newName = data.user.name
@@ -52,7 +52,7 @@ export default function UserShowPage(
                     setProfilePic(newPic)
                     setUserName(newName)
                     setNewUserContacts(newconnections)
-                }
+                
                } catch(error){
                 console.log(error)
                }
@@ -79,8 +79,19 @@ export default function UserShowPage(
             getAllContacts()
            
     },[userId])
-
-    console.log(posts)
+   
+    useEffect(function(){
+        async function getnewContacts(){
+            try {
+                const data = await userAPI.contactIndex()
+                setContacts(data)
+            } catch (error) {
+                console.log(error)
+            }
+         }
+         getnewContacts()
+         setUser(user)
+    },[changeFollowBtn])
 
     const deleteAccount = async(userId) =>{
         try{
@@ -94,7 +105,7 @@ export default function UserShowPage(
     const addContact = async(userId) =>{
         try{
             await userAPI.addContact(userId)
-            setChangeFollowBtn(!changeFollowBtn)
+            setChangeFollowBtn(true)
             console.log('succeeded in adding this new contact')
 
         }catch(error){
@@ -106,12 +117,15 @@ export default function UserShowPage(
     const deleteContact = async(userId) =>{
         try{
             await userAPI.deleteContact(userId)
-            setChangeFollowBtn(!changeFollowBtn)
+            setChangeFollowBtn(false)
             console.log('succeeded in deleting this new contact')
         }catch(error){
             console.log(error)
         }
     }
+    console.log(contacts)
+    console.log(changeFollowBtn)
+    console.log(user)
 
     return(
         <div className={styles.UserShowPage}>
@@ -124,15 +138,16 @@ export default function UserShowPage(
             <h3>{posts.length} Posts</h3>
             <h3>{newUserContacts.length} Contacts</h3>
           </div>
-          {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
+          {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId} deleteContact={deleteContact}/> :<></>}
           
           {/* following and add contact */}
           {
-            user._id !== userId && !user.contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button>:<></>
+
+            user._id !== userId && !contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn?'unfollow':'follow'}</button>:<></>
           }
           {/* unfollowing and delete contact */}
            {
-            user._id !== userId && user.contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button>:<></>
+            user._id !== userId && contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>unfollowing1</button>:<></>
           }
 
           {/* click button to display or hid the UpdateUserForm*/}
