@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { getAllRestaurants, getIndividualRestaurant } from '../../utilities/restaurants-api'
+import styles from "./Restaurant.module.scss";
 
 const RestaurantComponent = ({ user }) => {
     const [restaurant, setRestaurant] = useState(null)
