@@ -1,5 +1,6 @@
 import Post from '../Post/Post'
 import styles from './PostList.module.scss';
+import { Cookie } from 'lucide-react'
 
 export default function PostList({allPosts,user}) {
   console.log(allPosts)
@@ -15,6 +16,9 @@ export default function PostList({allPosts,user}) {
         <main className={styles.PostList}>
           {posts}
         </main> :
-        <h3>No Posts</h3>
+        <div>
+        <Cookie />
+        <h3>No posts yet</h3>
+        </div>
       );
     }

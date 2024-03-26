@@ -9,36 +9,84 @@
     width: 50%;
     margin: 0 auto;
     font-family: 'Poppins', sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.userContainer {
+    display: flex;
+    align-items: center; /* Align items vertically */
+    justify-content: flex-start;
+    margin-bottom: 10px; 
+}
+
+.userContainer{
+    width: 400px; /* Set width to match postPic */
+    margin-left: 10px; /* Adjust margin as needed */
+    text-align: left; /* Align items to the left */
+}
+
+.profilePic {
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    background: #E8FAFA;
+    border: 1px solid #F9450E;
+    border-radius: 50%;
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.userName {
+    margin: 0; /* Reset any default margin */
+}
+
+.ratingContainer {
+    display: flex;
+    align-items:baseline;
+    justify-content: center;
+    margin-top: 10px; /* Adjust margin as needed */
+    margin-left: 10px;
+}
+
+.dish {
+    font-size: 20px; /* Example font size for dish name */
+    font-weight: bold; /* Example font weight for dish name */
+    margin-right: 10px; /* Add margin to separate from the rating */
+}
+
+.postPic {
+    height: 400px;
+    width: 400px;
+    object-fit: scale-down;
+    border: 1px solid white;
+    border-radius: 10px;
+    object-fit: cover;
+    overflow: hidden;
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center;
 }
 
 .likeContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
+    width: 400px; /* Set width to match postPic */
+    margin-left: 10px; /* Adjust margin as needed */
+    text-align: left; /* Align items to the left */
+    margin-bottom: 25px;
+
+}
+
+.postBody {
+    width: 400px; /* Set width to match postPic */
+    margin-left: 10px; /* Adjust margin as needed */
+    text-align: left; /* Align items to the left */
+    margin-bottom: 25px;
 }
 
 // styled in comments - do we need this?
 .commentsContainer {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-img {
-    width: 50vmax;
-}
-
-.ratingContainer {
-    display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 10px; /* Adjust margin as needed */
-    margin-left: 10px;
-}
-
-.dish {
-    font-size: 24px; /* Example font size for dish name */
-    font-weight: bold; /* Example font weight for dish name */
-    margin-right: 10px; /* Add margin to separate from the rating */
 }

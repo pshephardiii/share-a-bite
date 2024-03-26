@@ -202,10 +202,16 @@ export default function PostCreateForm({ user }) {
             Restaurant: 
           </span>
 
-          <select className={styles.restaurantOptions} name="restaurant" onChange={handleChange} value={options.value}>
+          <select
+            className={styles.restaurantOptions}
+            name="restaurant"
+            onChange={handleChange}
+            value={post.restaurant} // Set the value to post.restaurant
+          >
             <option value='none'>Select</option>
             {options}
           </select>
+
 
         </div>
 

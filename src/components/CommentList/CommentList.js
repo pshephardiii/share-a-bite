@@ -20,7 +20,7 @@ export default function CommentList(
     // },[])
 
     return(
-        <>
+        <div className={StyleSheet.commentList}>
         {
             comments.length>0 && (comments.map(comment=>(
                 <Comment 
@@ -28,6 +28,6 @@ export default function CommentList(
                 comment={comment}/>
             )))
         }
-        </>
+        </div>
     )
 }

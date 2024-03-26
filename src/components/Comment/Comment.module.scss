@@ -21,9 +21,9 @@ button{
 
 .commentContainer {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50%;
+  justify-content: space-evenly;
+  width: 97%; 
+  max-width: 400px;
   margin: 0 auto;
 }
 
