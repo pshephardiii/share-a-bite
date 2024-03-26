@@ -129,6 +129,7 @@ export default function UserShowPage(
           
           {/* following and add contact */}
           {
+
             user._id !== userId && !contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn?'unfollow':'follow'}</button>:<></>
           }
           {/* unfollowing and delete contact */}
