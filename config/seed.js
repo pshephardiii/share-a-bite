@@ -5,12 +5,9 @@ const Restaurant = require('../models/restaurant')
 const User = require('../models/user')
 const Post = require ('../models/post')
 
-
 function log() {
     console.log(Restaurant)
 }
-
-
 
 (async function() {
 

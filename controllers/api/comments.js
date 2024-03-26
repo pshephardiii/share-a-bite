@@ -9,7 +9,7 @@ module.exports = {
    updateComment, //auth
    deleteComment, //auth
    likeComment, //auth
-   unlikeComment,
+   unlikeComment, //auth
    replyComment, //auth
    jsonComments,
    jsonComment

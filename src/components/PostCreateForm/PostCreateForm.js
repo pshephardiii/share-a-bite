@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { createPost } from "../../utilities/posts-api";
-//import star rating package npm i react-simple-star-rating
 import { Rating } from "react-simple-star-rating";
 import { storage } from "../../firebase";
 import {
@@ -15,7 +14,6 @@ import * as restaurantsAPI from "../../utilities/restaurants-api";
 import styles from "./PostCreateForm.module.scss";
 import { Image } from "lucide-react";
 
-// Need to change the the rating in post model to be Number instead of Boolean
 export default function PostCreateForm({ user }) {
   const [post, setNewPost] = useState({
     title: "",
@@ -202,11 +200,15 @@ export default function PostCreateForm({ user }) {
             Restaurant: 
           </span>
 
-          <select className={styles.restaurantOptions} name="restaurant" onChange={handleChange} value={options.value}>
+          <select
+            className={styles.restaurantOptions}
+            name="restaurant"
+            onChange={handleChange}
+            value={post.restaurant} // Set the value to post.restaurant
+          >
             <option value='none'>Select</option>
             {options}
           </select>
-
         </div>
 
         <div className={styles.submitContainer}>

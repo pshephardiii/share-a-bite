@@ -34,7 +34,6 @@ export default function SearchPage({user, setUser}){
     return (
        <>
         <SearchBar searchInput={searchInput} setSearchInput={setSearchInput}/>
-        {/* {searchedItems && <PostList allPosts={searchedItems}/>} */}
         {searchedItems.length > 0 ? (<PostList allPosts={searchedItems}/>):(
                 <p>No matching posts found.</p>
             )}

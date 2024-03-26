@@ -1,8 +1,6 @@
-import { useState } from 'react';
 import { createComment } from '../../utilities/comments-api';
 
 export default function CreateCommentForm({ postId, comment,setComment}) {
-    // const [comment, setComment] = useState({ body: '' });
 
     function handleChange(e) {
         setComment({ ...comment, [e.target.name]: e.target.value });
@@ -31,7 +29,7 @@ export default function CreateCommentForm({ postId, comment,setComment}) {
                     value={comment.body}
                     name='body'
                     onChange={handleChange}
-                    style={{ width: '50%', marginRight: '5px' }}
+                    style={{ width: '100%', marginRight: '5px' }}
                 />
                 <button type='submit' style={{ fontSize: '15px', textAlign: 'center' }}>Comment</button>
             </form>

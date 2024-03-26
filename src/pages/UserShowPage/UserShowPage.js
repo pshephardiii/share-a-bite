@@ -6,8 +6,6 @@ import * as restaurantsAPI from '../../utilities/restaurants-api'
 import ContactList from '../../components/ContactList/ContactList'
 import UpdateUserForm from '../../components/UpdateUserForm/UpdateUserForm'
 import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantList'
-import Contact from '../../components/Contact/Contact'
-import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
 import styles from './UserShowPage.module.scss'
 import ShowPagePosts from '../../components/ShowPagePosts/ShowPagePosts'
 
@@ -16,8 +14,7 @@ export default function UserShowPage(
     { user, setUser }
 ){
     const {userId} = useParams() 
-    console.log(userId)
-    console.log(user)
+
     //below is to show the current logged-in user's info
 
     const [contacts, setContacts] = useState([])
@@ -25,34 +22,45 @@ export default function UserShowPage(
     const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
     const [showUpdateUserForm, setShowUpdateUserForm] = useState(false)
+    const [newUser, setNewUser] = useState(null)
     const [userName, setUserName] = useState([])
     const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
+    const [userContactIds, setUserContactIds] = useState([])
+
+    console.log(userContactIds)
+    console.log(newUserContacts)
+
+    useEffect(function(){
+        async function getUserContactIds(){
+            try {
+                const data = await userAPI.contactIdIndex()
+                setUserContactIds(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getUserContactIds()
+    },[])
 
    
     useEffect(function(){
-        // async function getAllPosts(){
-        //    try{
-        //     const data = await postsAPI.getAllUserPosts(userId)
-        //     setPosts(data)
-        //    } catch(error){
-        //     console.log(error)
-        //    }
-        // }
+        
         async function getAllPosts(){
                try{
                 const data = await userAPI.showUser(userId)
-             
+
                     const newData = data.user.posts
                     const newPic = data.user.pic
                     const newName = data.user.name
                     const newconnections = data.user.contacts
-
+        
+                    setNewUser(data)
                     setPosts(newData)
                     setProfilePic(newPic)
                     setUserName(newName)
                     setNewUserContacts(newconnections)
-                
+
                } catch(error){
                 console.log(error)
                }
@@ -91,7 +99,7 @@ export default function UserShowPage(
          }
          getnewContacts()
          setUser(user)
-    },[changeFollowBtn])
+    },[userContactIds])
 
     const deleteAccount = async(userId) =>{
         try{
@@ -102,10 +110,14 @@ export default function UserShowPage(
         }
     }
     
-    const addContact = async(userId) =>{
+    const addContact = async(id) =>{
         try{
-            await userAPI.addContact(userId)
+            await userAPI.addContact(id)
             setChangeFollowBtn(true)
+            const contactIds = userContactIds.concat(userId)
+            setUserContactIds(contactIds)
+            const otherContactIds = newUserContacts.concat(user._id)
+            setNewUserContacts(otherContactIds)
             console.log('succeeded in adding this new contact')
 
         }catch(error){
@@ -113,20 +125,27 @@ export default function UserShowPage(
         }
     }
 
-
-    const deleteContact = async(userId) =>{
+    const deleteContact = async(id) =>{
         try{
-            await userAPI.deleteContact(userId)
+            await userAPI.deleteContact(id)
             setChangeFollowBtn(false)
+            const index1 = userContactIds.indexOf(userId)
+            const index2 = newUserContacts.indexOf(user._id)
+            userContactIds.splice(index1, 1)
+            newUserContacts.splice(index2, 1)
+            setUserContactIds(userContactIds)
+            setNewUserContacts(newUserContacts)
             console.log('succeeded in deleting this new contact')
         }catch(error){
             console.log(error)
         }
     }
+    
+    console.log(newUser)
+    console.log(!userContactIds.includes(userId))
     console.log(contacts)
-    console.log(changeFollowBtn)
-    console.log(user)
-
+   
+ 
     return(
         <div className={styles.UserShowPage}>
           {/* Below is only show the current loggedin user's profile */}
@@ -142,13 +161,10 @@ export default function UserShowPage(
           
           {/* following and add contact */}
           {
-
-            user._id !== userId && !contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn?'unfollow':'follow'}</button>:<></>
+            user._id !== userId && !userContactIds.includes(userId)? <button onClick={()=>addContact(userId)}>follow</button>:
+            <button onClick={()=>deleteContact(userId)}>unfollow</button>
           }
           {/* unfollowing and delete contact */}
-           {
-            user._id !== userId && contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>unfollowing1</button>:<></>
-          }
 
           {/* click button to display or hid the UpdateUserForm*/}
           {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
