@@ -29,7 +29,7 @@ export default function UserShowPage(
     const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
 
-
+   
     useEffect(function(){
         // async function getAllPosts(){
         //    try{
@@ -79,7 +79,18 @@ export default function UserShowPage(
             getAllContacts()
            
     },[userId])
-
+   
+    useEffect(function(){
+        async function getnewContacts(){
+            try {
+                const data = await userAPI.contactIndex()
+                setContacts(data)
+            } catch (error) {
+                console.log(error)
+            }
+         }
+         getnewContacts()
+    },[changeFollowBtn])
 
     const deleteAccount = async(userId) =>{
         try{
