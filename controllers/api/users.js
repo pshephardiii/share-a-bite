@@ -92,17 +92,16 @@ exports.deleteUser = async (req, res) => {
 
     exports.addUserContact = async (req,res) => {
         try {
-            if(req.user.contacts.includes(req.params.id)){
-                throw new Error('contact was already added.')
-            } else {
+            // if(req.user.contacts.includes(req.params.id)){
+            //     throw new Error('contact was already added.')}
+           
                 const newUser = await User.findById(req.params.id)
                 req.user.contacts.addToSet(newUser._id)
                 newUser.contacts.addToSet(req.user._id)
                 await req.user.save()
                 await newUser.save()
-                res.status(200).json(req.user)
-            }
-            
+                res.status(200).json({ message: 'Contact added' })
+         
         }catch(error){
             res.status(400).json({ message: error.message })
         }
@@ -113,7 +112,7 @@ exports.deleteUser = async (req, res) => {
         try {
             if(!req.user.contacts.includes(req.params.id)){
                 throw new Error('contact is not added.')
-            } else {
+            } 
                 const newUser = await User.findById(req.params.id)
                 const index = req.user.contacts.indexOf(newUser._id )
                 const index2 = newUser.contacts.indexOf(req.user._id)
@@ -122,7 +121,7 @@ exports.deleteUser = async (req, res) => {
                 await req.user.save()
                 await newUser.save()
                 res.status(200).json({ message: 'Contact Deleted' })
-            }  
+             
         }catch(error){
             res.status(400).json({ message: error.message })
         }
