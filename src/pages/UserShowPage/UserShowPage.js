@@ -128,11 +128,11 @@ export default function UserShowPage(
           
           {/* following and add contact */}
           {
-            user._id !== userId && !user.contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button>:<></>
+            user._id !== userId && user.contacts.indexOf(userId) === -1? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button>:<></>
           }
           {/* unfollowing and delete contact */}
            {
-            user._id !== userId && user.contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button>:<></>
+            user._id !== userId && user.contacts.indexOf(userId) !== -1? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}</button>:<></>
           }
 
           {/* click button to display or hid the UpdateUserForm*/}
