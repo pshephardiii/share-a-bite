@@ -26,6 +26,10 @@ export function contactIndex() {
   return sendRequest(`${BASE_URL}/contacts`)
 }
 
+export function contactIdIndex() {
+  return sendRequest(`${BASE_URL}/contacts/ids`)
+}
+
 export function addContact(id) {
   return sendRequest(`${BASE_URL}/${id}/add`,'POST')
 }

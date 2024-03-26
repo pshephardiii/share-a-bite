@@ -64,7 +64,7 @@ exports.userIndex = async (_, res ,next) => {
         const users = await User.find({})
         res.status(200).json(users)
 
-        next()
+        // next()
     } catch (error) {
         res.status(400).json({ message: error.message })
     }
@@ -75,7 +75,18 @@ exports.contactsIndex = async (req, res ,next) => {
         const user = await User.findById(req.user._id).populate('contacts')
         const users =user.contacts
         res.status(200).json(users)
-        next()
+        // next()
+    } catch (error) {
+        res.status(400).json({ message: error.message })
+    }
+}
+
+exports.contactsIdIndex = async (req, res ,next) => {
+    try {
+        const user = await User.findById(req.user._id)
+        const users =user.contacts
+        res.status(200).json(users)
+        // next()
     } catch (error) {
         res.status(400).json({ message: error.message })
     }

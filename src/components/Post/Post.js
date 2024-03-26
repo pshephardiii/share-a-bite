@@ -20,17 +20,17 @@ export default function Post({post}) {
     const [updatedPost, setUpdatedPost] = useState(post)
     const navigate = useNavigate()
 
-    useEffect(() => {
-        async function fetchRestaurant() {
-            try {
-                const restaurant = await restaurantsAPI.getRestaurantById(post.restaurantId); // Adjust this according to your API method
-                setRestaurant(restaurant);
-            } catch (error) {
-                console.error('Error fetching restaurant:', error);
-            }
-        }
-        fetchRestaurant();
-    }, [post.restaurantId]);
+    // useEffect(() => {
+    //     async function fetchRestaurant() {
+    //         try {
+    //             const restaurant = await restaurantsAPI.getIndividualRestaurant(post.restaurant); // Adjust this according to your API method
+    //             setRestaurant(restaurant);
+    //         } catch (error) {
+    //             console.error('Error fetching restaurant:', error);
+    //         }
+    //     }
+    //     fetchRestaurant();
+    // }, [post.restaurantId]);
    
     useEffect(function(){
         async function fetchComments(){
