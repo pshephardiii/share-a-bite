@@ -7,8 +7,9 @@ export default function Contact({
         <div className={styles.contact}> 
         
         <h3>{contact.name}</h3>
+        <div className={styles.button}> 
         <button onClick={()=>{deleteContact(contact._id)}}>unfollow</button>
-           
+           </div>
         </div>
     )
 }
