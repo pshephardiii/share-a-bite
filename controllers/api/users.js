@@ -72,7 +72,8 @@ exports.userIndex = async (_, res ,next) => {
 
 exports.contactsIndex = async (req, res ,next) => {
     try {
-        const users = await User.find({ contacts: [req.user._id] })
+        const user = await User.findById(req.user._id).populate('contacts')
+        const users =user.contacts
         res.status(200).json(users)
         next()
     } catch (error) {
@@ -91,27 +92,37 @@ exports.deleteUser = async (req, res) => {
 
     exports.addUserContact = async (req,res) => {
         try {
-            const newUser = await User.findById(req.params.id)
-            req.user.contacts.addToSet(newUser._id)
-            newUser.contacts.addToSet(req.user._id)
-            await req.user.save()
-            await newUser.save()
-            res.status(200).json(req.user)
+            if(req.user.contacts.includes(req.params.id)){
+                throw new Error('contact was already added.')
+            } else {
+                const newUser = await User.findById(req.params.id)
+                req.user.contacts.addToSet(newUser._id)
+                newUser.contacts.addToSet(req.user._id)
+                await req.user.save()
+                await newUser.save()
+                res.status(200).json(req.user)
+            }
+            
         }catch(error){
             res.status(400).json({ message: error.message })
         }
     }
 
     exports.deleteUserContact = async (req,res) => {
+        
         try {
-            const newUser = await User.findById(req.params.id)
-            const index = req.user.contacts.indexOf(newUser._id )
-            const index2 = newUser.contacts.indexOf(req.user._id)
-            req.user.contacts.splice(index, 1)
-            newUser.contacts.splice(index2, 1)
-            await req.user.save()
-            await newUser.save()
-            res.status(200).json({ message: 'Contact Deleted' })
+            if(!req.user.contacts.includes(req.params.id)){
+                throw new Error('contact is not added.')
+            } else {
+                const newUser = await User.findById(req.params.id)
+                const index = req.user.contacts.indexOf(newUser._id )
+                const index2 = newUser.contacts.indexOf(req.user._id)
+                req.user.contacts.splice(index, 1)
+                newUser.contacts.splice(index2, 1)
+                await req.user.save()
+                await newUser.save()
+                res.status(200).json({ message: 'Contact Deleted' })
+            }  
         }catch(error){
             res.status(400).json({ message: error.message })
         }
