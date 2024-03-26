@@ -13,6 +13,7 @@
         border-radius: 50%;
         background-image: url('https://i.imgur.com/1Q36Y5C.png');
         background-size: cover;
+        
     }
 
      
@@ -20,6 +21,7 @@
         display:flex;
         justify-content: space-between;;
         align-items: center;
+        margin-left: 270px;
     }
 
     button{
@@ -30,5 +32,15 @@
         text-align: center;
         white-space: nowrap;
         width: 7rem;
+        margin-left: 270px
     }
+    .post{
+        padding-left: 25%;
+    }
+
+    h1{
+        padding-left: 25%;
+    }
+
+    
 }

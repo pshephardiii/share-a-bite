@@ -147,8 +147,8 @@ export default function UserShowPage(
           {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
 
           <FavRestaurantList restaurants={favRestaurants} user={user}/> 
-        
-          <img src="https://picsum.photos/200"/>
+        <div className={styles.post}>
+          <img src="https://picsum.photos/200"/></div>
           {user.name}
           {user.email}
           <NavBar user={user} setUser={setUser}/>
