@@ -18,9 +18,15 @@ export default function ContactList ({
 
     return(
         contacts ?
-    <div>
+    <div className={styles.sidebar}>
+        <header>
         <h3>ContactList</h3>
-        {userContacts}
+        </header>
+        <div className={styles.scrollbox}>
+      <div className={styles.innerScrollbox}>
+        <div className={styles.userContacts}>
+        {userContacts}</div></div>  
+        </div>
         
         </div>
         :
