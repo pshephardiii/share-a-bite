@@ -6,8 +6,6 @@ import * as restaurantsAPI from '../../utilities/restaurants-api'
 import ContactList from '../../components/ContactList/ContactList'
 import UpdateUserForm from '../../components/UpdateUserForm/UpdateUserForm'
 import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantList'
-import Contact from '../../components/Contact/Contact'
-import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
 import styles from './UserShowPage.module.scss'
 import ShowPagePosts from '../../components/ShowPagePosts/ShowPagePosts'
 
