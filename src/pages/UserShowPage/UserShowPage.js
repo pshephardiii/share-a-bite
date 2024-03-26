@@ -90,6 +90,7 @@ export default function UserShowPage(
             }
          }
          getnewContacts()
+         setUser(user)
     },[changeFollowBtn])
 
     const deleteAccount = async(userId) =>{
@@ -124,6 +125,7 @@ export default function UserShowPage(
     }
     console.log(contacts)
     console.log(changeFollowBtn)
+    console.log(user)
 
     return(
         <div className={styles.UserShowPage}>
