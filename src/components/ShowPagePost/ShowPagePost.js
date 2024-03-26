@@ -11,7 +11,7 @@ export default function({post}){
          {showPostDetails?
            <div className = {styles.wrapper}>
                 <div className={styles.showPost}>
-                     <button onClick={()=>setShowPostDetails(false)} ><CircleX /></button>
+                     <button className={styles.close}onClick={()=>setShowPostDetails(false)} ><CircleX /></button>
                      <Post post={post} /> 
                  </div>
            </div>

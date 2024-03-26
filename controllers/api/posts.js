@@ -50,6 +50,11 @@ async function create(req, res, next) {
         postUser.posts.addToSet(post._id)
         
         await postUser.save()
+        if(post.restaurant) {
+            const postRest = await Restaurant.findById(post.restaurant)
+            postRest.featuredIn.push(post._id)
+            await postRest.save()
+        }
         res.locals.data.post = post
         next()
     } catch (error) {
