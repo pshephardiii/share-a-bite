@@ -25,7 +25,8 @@ export default function SearchPage({user, setUser}){
     //to filter the input that match the post title and post dish 
     useEffect(function(){
         if(allPosts){
-            const data = allPosts.filter(post => post.title.toLowerCase().includes(searchInput.toLowerCase().trim())||post.dish.toLowerCase().includes(searchInput.toLowerCase().trim()))
+            const data = allPosts.filter(post => post.title.toLowerCase().includes(searchInput.toLowerCase().trim())||post.dish.toLowerCase().includes(searchInput.toLowerCase().trim())||
+            post.user.name.toLowerCase().includes(searchInput.toLowerCase().trim())||post.restaurant.name.toLowerCase().includes(searchInput.toLowerCase().trim()))
             setSearchedItems(data)
         } 
     },[searchInput])
