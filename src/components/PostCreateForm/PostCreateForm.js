@@ -27,13 +27,13 @@ export default function PostCreateForm({ user }) {
   });
   const [restaurants, setRestaurants] = useState([]);
 
+ 
   const options = restaurants.map((eatery, i) => {
     return (
-      <option value={`${eatery._id}`} key={`${eatery._id}`}>
-        {eatery.name}
-      </option>
-    );
-  });
+      <option value={`${eatery._id}`} key={`${eatery._id}`}>{eatery.name}</option>
+    )
+  })
+
   console.log(options);
 
   useEffect(function () {
@@ -202,9 +202,16 @@ export default function PostCreateForm({ user }) {
             Restaurant: 
           </span>
 
-          <select className={styles.restaurantOptions} name="restaurant" onChange={handleChange}>
+          <select
+            className={styles.restaurantOptions}
+            name="restaurant"
+            onChange={handleChange}
+            value={post.restaurant} // Set the value to post.restaurant
+          >
+            <option value='none'>Select</option>
             {options}
           </select>
+
 
         </div>
 
