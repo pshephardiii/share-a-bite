@@ -37,8 +37,3 @@ export function addContact(id) {
 export function deleteContact(id) {
   return sendRequest(`${BASE_URL}/${id}/delete`,'POST')
 }
-/*
-router.put('/:id', userController.auth, userController.updateUser)
-router.delete('/:id', userController.auth, userController.deleteUser)
-router.get('/:id', userController.show)
-*/
