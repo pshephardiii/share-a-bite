@@ -17,8 +17,6 @@ export default function UserShowPage(
 ){
     const {userId} = useParams() 
 
-    
-
     //below is to show the current logged-in user's info
 
     const [contacts, setContacts] = useState([])
@@ -32,10 +30,8 @@ export default function UserShowPage(
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
     const [userContactIds, setUserContactIds] = useState([])
 
- 
-    console.log(newUserContacts)
     console.log(userContactIds)
-    console.log(user)
+    console.log(newUserContacts)
 
     useEffect(function(){
         async function getUserContactIds(){
@@ -105,7 +101,7 @@ export default function UserShowPage(
          }
          getnewContacts()
          setUser(user)
-    },[changeFollowBtn])
+    },[userContactIds])
 
     const deleteAccount = async(userId) =>{
         try{
@@ -116,9 +112,9 @@ export default function UserShowPage(
         }
     }
     
-    const addContact = async() =>{
+    const addContact = async(id) =>{
         try{
-            await userAPI.addContact(userId)
+            await userAPI.addContact(id)
             setChangeFollowBtn(true)
             const contactIds = userContactIds.concat(userId)
             setUserContactIds(contactIds)
@@ -131,9 +127,9 @@ export default function UserShowPage(
         }
     }
 
-    const deleteContact = async() =>{
+    const deleteContact = async(id) =>{
         try{
-            await userAPI.deleteContact(userId)
+            await userAPI.deleteContact(id)
             setChangeFollowBtn(false)
             const index1 = userContactIds.indexOf(userId)
             const index2 = newUserContacts.indexOf(user._id)
