@@ -3,23 +3,34 @@ import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
 import {getAllComments} from '../../utilities/comments-api'
 import { createComment } from '../../utilities/comments-api';
-import {Heart} from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { useNavigate } from 'react-router-dom';
-
-// import { FaHeart } from "react-icons/fa"; /* used lucide & fill: red */
-
 import { Rating } from 'react-simple-star-rating'
-import { Cookie } from 'lucide-react'
 import {useState, useEffect} from 'react'
 import styles from './Post.module.scss'
+import * as restaurantsAPI from "../../utilities/restaurants-api";
 
 export default function Post({post}) {
     const [liked, setLiked] = useState(false);
+
+    const [restaurant, setRestaurant] = useState([])
 
     const[comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
     const [updatedPost, setUpdatedPost] = useState(post)
     const navigate = useNavigate()
+
+    useEffect(() => {
+        async function fetchRestaurant() {
+            try {
+                const restaurant = await restaurantsAPI.getRestaurantById(post.restaurantId); // Adjust this according to your API method
+                setRestaurant(restaurant);
+            } catch (error) {
+                console.error('Error fetching restaurant:', error);
+            }
+        }
+        fetchRestaurant();
+    }, [post.restaurantId]);
    
     useEffect(function(){
         async function fetchComments(){
@@ -71,42 +82,56 @@ export default function Post({post}) {
         post ?
         
         <div className={styles.post}>
-            <h3 onClick = {()=>navigate(`/usershowpage/${post.user._id}`)} className={styles.userName}>{post.user.name}</h3>
-            <h3 className={styles.title}>{post.title}</h3>
-            <p className={styles.body}>{post.body}</p>
-            <img src={post.pic}/>
-            <div className={styles.ratingContainer}>
-                <h2 className={styles.dish}>{post.dish}</h2>
-                <Rating
-                    initialValue={post.rating}
-                    readonly={true}
-                />
-            </div>
-            <h3>{updatedPost.likes}</h3>
-            {
-                liked ?
-                <div onClick={() => {handleUnlikePost(post._id)}}>
-                    <Heart style={{color: 'red', fill: 'red', fontSize: '30px'}} />
-                </div> :
-                <div onClick={() => {handleLikePost(post._id)}}>
-                    <Heart color='gray' fontSize='30px'/>
+
+            
+
+                <div className={styles.userContainer}>
+                    <h3 onClick = {()=>navigate(`/usershowpage/${post.user._id}`)} className={styles.userName}>
+                        <img src='https://picsum.photos/100' className={styles.profilePic} alt={post.user.name}/>
+                        {post.user.name}
+                    </h3>
                 </div>
-            }
-            <div className={styles.likeContainer}>
-                <p className={styles.likes}>{post.likes}</p>
+                
+                <div className={styles.ratingContainer}>
+                    <h4 className={styles.dish}>{post.dish}</h4>
+                    <Rating
+                        initialValue={post.rating}
+                        readonly={true}
+                        size={20}
+                    />
+                </div>
 
-            {/* <button onClick={()=>{handleLikePost(post._id)}}>like</button>
-            <button onClick={()=>{handleUnlikePost(post._id)}}>unlike</button> */}
+                <h3 className={styles.restaurant}>{restaurant.name}</h3>
+                
+                <img src={post.pic} className={styles.postPic} alt={post.dish}/>
 
-{
-                liked?  <div  onClick={()=>{handleUnlikePost(post._id)}} ><Heart color='red' fill='red' fontSize='30px'/></div>:
-                <div  onClick={()=>{handleLikePost(post._id)}} ><Heart color='gray' fontSize='30px'/></div>
-              }
+                <div className={styles.likeContainer}>
+                    {
+                        liked ?
+                        <div onClick={() => {handleUnlikePost(post._id)}}>
+                            <Heart style={{color: 'red', fill: 'red', fontSize: '30px'}} />
+                        </div> :
+                        <div onClick={() => {handleLikePost(post._id)}}>
+                            <Heart color='gray' fontSize='30px'/>
+                        </div>
+                    }
+                
+                    <span>{updatedPost.likes} {updatedPost.likes === 1 ? 'like' : 'likes'}</span>
+                </div>  
 
-            <CommentList comments={comments}/>
-            <CreateCommentForm postId={post._id} setComment={setComment} comment={comment}/>
+            <div className={styles.postBody}>
+                    <h3>{post.user.name}</h3> 
+                    <b>{post.title}</b> &nbsp;
+                    {post.body}
             </div>
-        </div> :
+
+            <div className={styles.commentsContainer}>
+                <CommentList comments={comments}/>
+                <CreateCommentForm postId={post._id} setComment={setComment} comment={comment}/>
+            </div>
+
+        </div>
+         :
         <></>
     )
 }

@@ -31,7 +31,7 @@ export default function CreateCommentForm({ postId, comment,setComment}) {
                     value={comment.body}
                     name='body'
                     onChange={handleChange}
-                    style={{ width: '50%', marginRight: '5px' }}
+                    style={{ width: '100%', marginRight: '5px' }}
                 />
                 <button type='submit' style={{ fontSize: '15px', textAlign: 'center' }}>Comment</button>
             </form>
