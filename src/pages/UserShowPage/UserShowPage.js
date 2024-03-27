@@ -188,7 +188,7 @@ export default function UserShowPage(
           <FavRestaurantList restaurants={favRestaurants} user={user}/> 
         <div className={styles.post}>
           <img src="https://picsum.photos/200"/></div>
-          {user.name}
+          {user.name}<br/>
           {user.email}
           <NavBar user={user} setUser={setUser}/>
         </div>
