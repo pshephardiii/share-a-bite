@@ -19,7 +19,7 @@ To install the Application in your:
 
 ## Trello Board:
 
-Trello board link below includes user stories:
+Trello board link (includes user stories):
 https://trello.com/b/scJATDml 
 
 ## Entity Relationship Diagram:
