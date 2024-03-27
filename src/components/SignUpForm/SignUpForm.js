@@ -1,13 +1,10 @@
-import { Component } from "react";
-import { signUp } from '../../utilities/users-service';
-import { useNavigate, Link } from "react-router-dom";
-import HomePage from "../../pages/HomePage/HomePage";
+import { Component } from "react"
+import { signUp } from '../../utilities/users-service'
 import styles from "./SignUpForm.module.scss"
 import { CircleX } from 'lucide-react'
 import {storage} from '../../firebase'
 import {ref, getDownloadURL,uploadBytesResumable} from 'firebase/storage'
 import {v4} from 'uuid'
-
 
 export default class SignUpForm extends Component {
 state = {
@@ -37,7 +34,6 @@ handleSubmit = async (evt) => {
     // will resolve to the user object included in the
     // payload of the JSON Web Token (JWT)
     const user = await signUp(formData);
-    // Baby step
     this.props.setUser(user);
   } catch {
     // An error happened on the server
@@ -80,8 +76,6 @@ handleSubmit = async (evt) => {
   }
 );
 }
-
-  
 
 // We must override the render method
 // The render method is the equivalent to a function-based component

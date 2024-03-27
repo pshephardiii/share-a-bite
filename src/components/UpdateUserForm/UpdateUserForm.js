@@ -1,6 +1,5 @@
 import {updateUser}from '../../utilities/users-api'
 import { CircleX } from 'lucide-react'
-import {useState, useEffect} from 'react'
 import styles from './UpdateUserForm.module.scss'
 
 export default function UpdateUserForm(

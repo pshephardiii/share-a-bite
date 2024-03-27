@@ -2,13 +2,11 @@ import CommentList from '../CommentList/CommentList'
 import CreateCommentForm from '../CreateCommentForm/CreateCommentForm'
 import * as postAPI from '../../utilities/posts-api'
 import {getAllComments} from '../../utilities/comments-api'
-import { createComment } from '../../utilities/comments-api';
 import { Heart } from 'lucide-react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
 import {useState, useEffect} from 'react'
 import styles from './Post.module.scss'
-import * as restaurantsAPI from "../../utilities/restaurants-api";
 
 export default function Post({post}) {
     
@@ -18,18 +16,6 @@ export default function Post({post}) {
     const [comment, setComment] = useState({ body: '' });
     const [updatedPost, setUpdatedPost] = useState(post)
     const navigate = useNavigate()
-
-    useEffect(() => {
-        async function fetchRestaurant() {
-            try {
-                const restaurant = await restaurantsAPI.getRestaurantById(post.restaurantId); // Adjust this according to your API method
-                setRestaurant(restaurant);
-            } catch (error) {
-                console.error('Error fetching restaurant:', error);
-            }
-        }
-        fetchRestaurant();
-    }, [post.restaurantId]);
    
     useEffect(function(){
         async function fetchComments(){
@@ -77,13 +63,8 @@ export default function Post({post}) {
     }
 
     return (
-
         post ?
-        
         <div className={styles.post}>
-
-            
-
                 <div className={styles.userContainer}>
                     <h3 onClick = {()=>navigate(`/usershowpage/${post.user._id}`)} className={styles.userName}>
                         <img src='https://picsum.photos/100' className={styles.profilePic} alt={post.user.name}/>
