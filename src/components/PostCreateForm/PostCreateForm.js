@@ -117,11 +117,11 @@ export default function PostCreateForm({ user }) {
         <div className={styles.logoContainer}>
             <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
             <div className={styles.companyName}>
-                <h1>Share-A-Bite</h1>
+                <h2>Share-A-Bite</h2>
             </div>
         </div>
         
-        <h1>New Post</h1>
+        <h2>New Post</h2>
 
         <div className={styles.textInputContainer}>
 

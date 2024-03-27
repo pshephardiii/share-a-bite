@@ -1,17 +1,12 @@
 import { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
 import NavBar from '../../components/NavBar/NavBar'
 import { useParams } from 'react-router-dom'
 import * as userAPI from '../../utilities/users-api'
-import * as postsAPI from '../../utilities/posts-api'
 import * as restaurantsAPI from '../../utilities/restaurants-api'
-import {logOut} from '../../utilities/users-service'
 import ContactList from '../../components/ContactList/ContactList'
-import PostList from '../../components/PostList/PostList'
 import UpdateUserForm from '../../components/UpdateUserForm/UpdateUserForm'
 import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantList'
 import Contact from '../../components/Contact/Contact'
-import Post from '../../components/Post/Post'
 import FavRestaurant from '../../components/FavRestaurant/FavRestaurant'
 import styles from './UserShowPage.module.scss'
 import ShowPagePosts from '../../components/ShowPagePosts/ShowPagePosts'
@@ -21,40 +16,52 @@ export default function UserShowPage(
     { user, setUser }
 ){
     const {userId} = useParams() 
-    console.log(userId)
-    console.log(user)
-    //below is to show the current logged-in user's info
+
 
     const [contacts, setContacts] = useState([])
     const [posts, setPosts] = useState([])
     const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
     const [showUpdateUserForm, setShowUpdateUserForm] = useState(false)
+    const [newUser, setNewUser] = useState(null)
     const [userName, setUserName] = useState([])
+    const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
-    const postCount = posts.length
+    const [userContactIds, setUserContactIds] = useState([])
 
+    console.log(userContactIds)
+    console.log(newUserContacts)
 
     useEffect(function(){
-        // async function getAllPosts(){
-        //    try{
-        //     const data = await postsAPI.getAllUserPosts(userId)
-        //     setPosts(data)
-        //    } catch(error){
-        //     console.log(error)
-        //    }
-        // }
+        async function getUserContactIds(){
+            try {
+                const data = await userAPI.contactIdIndex()
+                setUserContactIds(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getUserContactIds()
+    },[])
+
+   
+    useEffect(function(){
+        
         async function getAllPosts(){
                try{
                 const data = await userAPI.showUser(userId)
-                if(data){
+
                     const newData = data.user.posts
                     const newPic = data.user.pic
                     const newName = data.user.name
+                    const newconnections = data.user.contacts
+        
+                    setNewUser(data)
                     setPosts(newData)
                     setProfilePic(newPic)
                     setUserName(newName)
-                }
+                    setNewUserContacts(newconnections)
+
                } catch(error){
                 console.log(error)
                }
@@ -79,9 +86,21 @@ export default function UserShowPage(
             getAllPosts()
             getAllUserFav()
             getAllContacts()
+           
     },[userId])
-
-    console.log(posts)
+   
+    useEffect(function(){
+        async function getnewContacts(){
+            try {
+                const data = await userAPI.contactIndex()
+                setContacts(data)
+            } catch (error) {
+                console.log(error)
+            }
+         }
+         getnewContacts()
+         setUser(user)
+    },[userContactIds])
 
     const deleteAccount = async(userId) =>{
         try{
@@ -91,10 +110,15 @@ export default function UserShowPage(
             console.log(error)
         }
     }
-    const addContact = async(userId) =>{
+    
+    const addContact = async(id) =>{
         try{
-            await userAPI.addContact(userId)
-            setChangeFollowBtn(!changeFollowBtn)
+            await userAPI.addContact(id)
+            setChangeFollowBtn(true)
+            const contactIds = userContactIds.concat(userId)
+            setUserContactIds(contactIds)
+            const otherContactIds = newUserContacts.concat(user._id)
+            setNewUserContacts(otherContactIds)
             console.log('succeeded in adding this new contact')
 
         }catch(error){
@@ -102,45 +126,38 @@ export default function UserShowPage(
         }
     }
 
-
-    const deleteContact = async(userId) =>{
+    const deleteContact = async(id) =>{
         try{
-            await userAPI.deleteContact(userId)
-            setChangeFollowBtn(!changeFollowBtn)
+            await userAPI.deleteContact(id)
+            setChangeFollowBtn(false)
+            const index1 = userContactIds.indexOf(userId)
+            const index2 = newUserContacts.indexOf(user._id)
+            userContactIds.splice(index1, 1)
+            newUserContacts.splice(index2, 1)
+            setUserContactIds(userContactIds)
+            setNewUserContacts(newUserContacts)
             console.log('succeeded in deleting this new contact')
         }catch(error){
             console.log(error)
         }
     }
-    //below is to make it versatile and show any user's info & this requires passing down the params --userId
-    // const [newUser, setNewUser] = useState(user)
-    // const [newContacts, setNewContacts] = useState(user[contacts])
-    // const [newPosts, setNewPosts] = useState(user[posts])
-    // const [newFavRestaurants, setNewFavRestaurants] = useState(user[favRestaurants])
-    // const newUserId = useParams()
-    // useEffect(function(){
-    //     async function fetchNewUser(){
-    //         try{
-    //             const data = await userAPI.showUser(newUserId)
-    //             setNewUser(data)
-    //         }catch(error){
-    //             console.log(error)
-    //         }
-    //     }
-    //     fetchNewUser()
-    // },[newUser])
+    
+    console.log(newUser)
+    console.log(!userContactIds.includes(userId))
+    console.log(contacts)
+   
+ 
+    return(
+        <div className={styles.userShowPage}>
+          {/* Below is only show the current loggedin user's profile */}
 
-    // useEffect(()=>{
-    //     setNewContacts(newUser[contacts])
-    //     setNewPosts(newUser[posts])
-    //     setNewFavRestaurants(newUser[favRestaurants])
-    // }
-    // ,[newUser])
+          <div className={styles.logoContainer}>
+            <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
+            <div className={styles.companyName}>
+                <h2>Share-A-Bite</h2>
+            </div>
+        </div>
 
-    // Inside your UserShowPage component
-return (
-    <div className={styles.userShowPage}>
-        {/* Below is only show the current loggedin user's profile */}
         <div className={styles.userContainer}>
             {/* Conditionally render profile picture */}
             {profilePic ? (
@@ -148,29 +165,35 @@ return (
             ) : (
                 <img className={styles.profilePic} src="https://picsum.photos/100" alt={userName}/>
             )}
-            <h1>{userName}</h1>
+
+
+            <h2>{userName}</h2>
         </div>
-        <div className={styles.postCount}>
-            <p>Posts: {postCount}</p>
+
+        <div className={styles.pageNav}>
+            <h3>{posts.length} Posts</h3>
+
+          {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId} deleteContact={deleteContact}/> :<></>}
+
+          {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)} className={styles.editProfileBtn}>Edit profile</button>:<></>}
+            {showUpdateUserForm? 
+                <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
+                :<></>
+            }
+          
+          {/* following and add contact */}
+          {
+            user._id !== userId && !userContactIds.includes(userId)? <button onClick={()=>addContact(userId)}>follow</button>: <button onClick={()=>deleteContact(userId)}>unfollow</button>
+          }
+          {/* unfollowing and delete contact */}
+
+         </div>
+          <ShowPagePosts allPosts={posts} user={userId}/>
+
+          {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
+
+          <NavBar user={user} setUser={setUser}/>
         </div>
-        {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
-        {/* following and add contact */}
-        {user._id !== userId && !user.contacts.includes(userId) ? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button> : <></>}
-        {/* unfollowing and delete contact */}
-        {user._id !== userId && user.contacts.includes(userId) ? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button> : <></>}
-        {/* <PostList allPosts={posts} user={userId}/> */}
-        <ShowPagePosts allPosts={posts} user={userId}/>
-        {/* click button to display or hide the UpdateUserForm*/}
-        {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
-        {showUpdateUserForm? 
-            <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
-            :<></>
-        }
-        {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
-        <FavRestaurantList restaurants={favRestaurants} user={user}/> 
-        {user.name}
-        {user.email}
-        <NavBar user={user} setUser={setUser}/>
-    </div>
+       
     )
 }

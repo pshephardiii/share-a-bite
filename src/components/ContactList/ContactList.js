@@ -18,10 +18,9 @@ export default function ContactList ({
 
     return(
         contacts ?
-        <div className={styles.contactlistContainer}>
-            <h3>ContactList</h3> 
-            <div className={styles.userContacts}>
-            {userContacts}</div>  
+    <div>
+        <h3>Contacts List</h3>
+        {userContacts}
         </div>
         :
         <h3>No Contacts Yet!</h3>

@@ -164,11 +164,7 @@ function ContactList(_ref) {
     contact: contact,
     deleteContact: deleteContact
   }));
-  return contacts ? /*#__PURE__*/React.createElement("div", {
-    className: _ContactList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].contactlistContainer
-  }, /*#__PURE__*/React.createElement("h3", null, "ContactList"), /*#__PURE__*/React.createElement("div", {
-    className: _ContactList_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].userContacts
-  }, userContacts)) : /*#__PURE__*/React.createElement("h3", null, "No Contacts Yet!");
+  return contacts ? /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", null, "Contacts List"), userContacts) : /*#__PURE__*/React.createElement("h3", null, "No Contacts Yet!");
 }
 
 /***/ }),
@@ -267,9 +263,7 @@ const favRestaurantComponent = () => {
   \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ FavRestaurantList)
-/* harmony export */ });
+/* unused harmony export default */
 /* harmony import */ var _FavRestaurantList_module_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./FavRestaurantList.module.scss */ "./src/components/FavRestaurantList/FavRestaurantList.module.scss");
 /* harmony import */ var _components_Restaurant_Restaurant__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/Restaurant/Restaurant */ "./src/components/Restaurant/Restaurant.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -757,7 +751,7 @@ function PostCreateForm(_ref) {
     src: "https://i.imgur.com/TxFQTR4.png"
   }), /*#__PURE__*/React.createElement("div", {
     className: _PostCreateForm_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].companyName
-  }, /*#__PURE__*/React.createElement("h1", null, "Share-A-Bite"))), /*#__PURE__*/React.createElement("h1", null, "New Post"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("h2", null, "Share-A-Bite"))), /*#__PURE__*/React.createElement("h2", null, "New Post"), /*#__PURE__*/React.createElement("div", {
     className: _PostCreateForm_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].textInputContainer
   }, /*#__PURE__*/React.createElement("input", {
     type: "text",
@@ -1006,7 +1000,7 @@ function ShowPagePost(_ref) {
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
     className: _ShowPagePosts_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].ShowPagePosts
-  }, /*#__PURE__*/React.createElement("h1", null, "ShowPagePosts"), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: _ShowPagePosts_module_scss__WEBPACK_IMPORTED_MODULE_1__["default"].gridContainer
   }, allPosts.map(post => {
     return /*#__PURE__*/React.createElement(_components_ShowPagePost_ShowPagePost__WEBPACK_IMPORTED_MODULE_0__["default"], {
@@ -1372,7 +1366,7 @@ function HomePage(_ref) {
     src: "https://i.imgur.com/TxFQTR4.png"
   }), /*#__PURE__*/React.createElement("div", {
     className: _homepage_module_scss__WEBPACK_IMPORTED_MODULE_3__["default"].companyName
-  }, /*#__PURE__*/React.createElement("h1", null, "Share-A-Bite"))), allPosts && /*#__PURE__*/React.createElement(_components_PostList_PostList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, /*#__PURE__*/React.createElement("h2", null, "Share-A-Bite"))), allPosts && /*#__PURE__*/React.createElement(_components_PostList_PostList__WEBPACK_IMPORTED_MODULE_2__["default"], {
     allPosts: allPosts,
     handleLikePost: handleLikePost,
     handleUnlikePost: handleUnlikePost,
@@ -1432,7 +1426,7 @@ function LandingPage(_ref) {
     src: "https://i.imgur.com/TxFQTR4.png"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].companyName
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h1", null, "Share-A-Bite"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h2", null, "Share-A-Bite"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].authContainer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].blackBtn,
@@ -1492,7 +1486,7 @@ function LandingPage(_ref) {
     src: "https://i.imgur.com/Syw6ubz.jpeg"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].postSampler
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "Post sampler - will contain 3 most recent posts")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].footer
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: _LandingPage_module_scss__WEBPACK_IMPORTED_MODULE_4__["default"].footerColumns
@@ -1662,24 +1656,17 @@ function SearchPage(_ref) {
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/NavBar/NavBar */ "./src/components/NavBar/NavBar.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../utilities/users-api */ "./src/utilities/users-api.js");
-/* harmony import */ var _utilities_restaurants_api__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../../utilities/restaurants-api */ "./src/utilities/restaurants-api.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
+/* harmony import */ var _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../utilities/users-api */ "./src/utilities/users-api.js");
+/* harmony import */ var _utilities_restaurants_api__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../utilities/restaurants-api */ "./src/utilities/restaurants-api.js");
 /* harmony import */ var _components_ContactList_ContactList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/ContactList/ContactList */ "./src/components/ContactList/ContactList.js");
-/* harmony import */ var _components_PostList_PostList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/PostList/PostList */ "./src/components/PostList/PostList.js");
-/* harmony import */ var _components_UpdateUserForm_UpdateUserForm__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/UpdateUserForm/UpdateUserForm */ "./src/components/UpdateUserForm/UpdateUserForm.js");
-/* harmony import */ var _components_FavRestaurantList_FavRestaurantList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/FavRestaurantList/FavRestaurantList */ "./src/components/FavRestaurantList/FavRestaurantList.js");
-/* harmony import */ var _components_Contact_Contact__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/Contact/Contact */ "./src/components/Contact/Contact.js");
-/* harmony import */ var _components_Post_Post__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../components/Post/Post */ "./src/components/Post/Post.js");
-/* harmony import */ var _components_FavRestaurant_FavRestaurant__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/FavRestaurant/FavRestaurant */ "./src/components/FavRestaurant/FavRestaurant.js");
-/* harmony import */ var _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./UserShowPage.module.scss */ "./src/pages/UserShowPage/UserShowPage.module.scss");
-/* harmony import */ var _components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../components/ShowPagePosts/ShowPagePosts */ "./src/components/ShowPagePosts/ShowPagePosts.js");
+/* harmony import */ var _components_UpdateUserForm_UpdateUserForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/UpdateUserForm/UpdateUserForm */ "./src/components/UpdateUserForm/UpdateUserForm.js");
+/* harmony import */ var _components_FavRestaurantList_FavRestaurantList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/FavRestaurantList/FavRestaurantList */ "./src/components/FavRestaurantList/FavRestaurantList.js");
+/* harmony import */ var _components_Contact_Contact__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/Contact/Contact */ "./src/components/Contact/Contact.js");
+/* harmony import */ var _components_FavRestaurant_FavRestaurant__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../components/FavRestaurant/FavRestaurant */ "./src/components/FavRestaurant/FavRestaurant.js");
+/* harmony import */ var _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./UserShowPage.module.scss */ "./src/pages/UserShowPage/UserShowPage.module.scss");
+/* harmony import */ var _components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../components/ShowPagePosts/ShowPagePosts */ "./src/components/ShowPagePosts/ShowPagePosts.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-
-
-
 
 
 
@@ -1699,46 +1686,50 @@ function UserShowPage(_ref) {
   } = _ref;
   const {
     userId
-  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_11__.useParams)();
-  console.log(userId);
-  console.log(user);
-  //below is to show the current logged-in user's info
-
+  } = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useParams)();
   const [contacts, setContacts] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [posts, setPosts] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [profilePic, setProfilePic] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [favRestaurants, setFavRestaurants] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [showUpdateUserForm, setShowUpdateUserForm] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [newUser, setNewUser] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [userName, setUserName] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  const [newUserContacts, setNewUserContacts] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
   const [changeFollowBtn, setChangeFollowBtn] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const postCount = posts.length;
+  const [userContactIds, setUserContactIds] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+  console.log(userContactIds);
+  console.log(newUserContacts);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // async function getAllPosts(){
-    //    try{
-    //     const data = await postsAPI.getAllUserPosts(userId)
-    //     setPosts(data)
-    //    } catch(error){
-    //     console.log(error)
-    //    }
-    // }
+    async function getUserContactIds() {
+      try {
+        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.contactIdIndex();
+        setUserContactIds(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getUserContactIds();
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     async function getAllPosts() {
       try {
-        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__.showUser(userId);
-        if (data) {
-          const newData = data.user.posts;
-          const newPic = data.user.pic;
-          const newName = data.user.name;
-          setPosts(newData);
-          setProfilePic(newPic);
-          setUserName(newName);
-        }
+        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.showUser(userId);
+        const newData = data.user.posts;
+        const newPic = data.user.pic;
+        const newName = data.user.name;
+        const newconnections = data.user.contacts;
+        setNewUser(data);
+        setPosts(newData);
+        setProfilePic(newPic);
+        setUserName(newName);
+        setNewUserContacts(newconnections);
       } catch (error) {
         console.log(error);
       }
     }
     async function getAllUserFav() {
       try {
-        const data = await _utilities_restaurants_api__WEBPACK_IMPORTED_MODULE_13__.getAllUserFav(userId);
+        const data = await _utilities_restaurants_api__WEBPACK_IMPORTED_MODULE_11__.getAllUserFav(userId);
         setFavRestaurants(data);
       } catch (error) {
         console.log(error);
@@ -1746,7 +1737,7 @@ function UserShowPage(_ref) {
     }
     async function getAllContacts() {
       try {
-        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__.contactIndex();
+        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.contactIndex();
         setContacts(data);
       } catch (error) {
         console.log(error);
@@ -1756,95 +1747,99 @@ function UserShowPage(_ref) {
     getAllUserFav();
     getAllContacts();
   }, [userId]);
-  console.log(posts);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    async function getnewContacts() {
+      try {
+        const data = await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.contactIndex();
+        setContacts(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    getnewContacts();
+    setUser(user);
+  }, [userContactIds]);
   const deleteAccount = async userId => {
     try {
-      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__.deleteUser(userId);
+      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.deleteUser(userId);
       console.log('succeeded in deleting this account');
     } catch (error) {
       console.log(error);
     }
   };
-  const addContact = async userId => {
+  const addContact = async id => {
     try {
-      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__.addContact(userId);
-      setChangeFollowBtn(!changeFollowBtn);
+      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.addContact(id);
+      setChangeFollowBtn(true);
+      const contactIds = userContactIds.concat(userId);
+      setUserContactIds(contactIds);
+      const otherContactIds = newUserContacts.concat(user._id);
+      setNewUserContacts(otherContactIds);
       console.log('succeeded in adding this new contact');
     } catch (error) {
       console.log(error);
     }
   };
-  const deleteContact = async userId => {
+  const deleteContact = async id => {
     try {
-      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_12__.deleteContact(userId);
-      setChangeFollowBtn(!changeFollowBtn);
+      await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.deleteContact(id);
+      setChangeFollowBtn(false);
+      const index1 = userContactIds.indexOf(userId);
+      const index2 = newUserContacts.indexOf(user._id);
+      userContactIds.splice(index1, 1);
+      newUserContacts.splice(index2, 1);
+      setUserContactIds(userContactIds);
+      setNewUserContacts(newUserContacts);
       console.log('succeeded in deleting this new contact');
     } catch (error) {
       console.log(error);
     }
   };
-  //below is to make it versatile and show any user's info & this requires passing down the params --userId
-  // const [newUser, setNewUser] = useState(user)
-  // const [newContacts, setNewContacts] = useState(user[contacts])
-  // const [newPosts, setNewPosts] = useState(user[posts])
-  // const [newFavRestaurants, setNewFavRestaurants] = useState(user[favRestaurants])
-  // const newUserId = useParams()
-  // useEffect(function(){
-  //     async function fetchNewUser(){
-  //         try{
-  //             const data = await userAPI.showUser(newUserId)
-  //             setNewUser(data)
-  //         }catch(error){
-  //             console.log(error)
-  //         }
-  //     }
-  //     fetchNewUser()
-  // },[newUser])
-
-  // useEffect(()=>{
-  //     setNewContacts(newUser[contacts])
-  //     setNewPosts(newUser[posts])
-  //     setNewFavRestaurants(newUser[favRestaurants])
-  // }
-  // ,[newUser])
-
-  // Inside your UserShowPage component
+  console.log(newUser);
+  console.log(!userContactIds.includes(userId));
+  console.log(contacts);
   return /*#__PURE__*/React.createElement("div", {
-    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].userShowPage
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].userShowPage
   }, /*#__PURE__*/React.createElement("div", {
-    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].userContainer
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].logoContainer
+  }, /*#__PURE__*/React.createElement("img", {
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].logo,
+    src: "https://i.imgur.com/TxFQTR4.png"
+  }), /*#__PURE__*/React.createElement("div", {
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].companyName
+  }, /*#__PURE__*/React.createElement("h2", null, "Share-A-Bite"))), /*#__PURE__*/React.createElement("div", {
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].userContainer
   }, profilePic ? /*#__PURE__*/React.createElement("img", {
-    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].profilePic,
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].profilePic,
     src: profilePic,
     alt: userName
   }) : /*#__PURE__*/React.createElement("img", {
-    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].profilePic,
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].profilePic,
     src: "https://picsum.photos/100",
     alt: userName
-  }), /*#__PURE__*/React.createElement("h1", null, userName)), /*#__PURE__*/React.createElement("div", {
-    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_9__["default"].postCount
-  }, /*#__PURE__*/React.createElement("p", null, "Posts: ", postCount)), user._id === userId ? /*#__PURE__*/React.createElement(_components_ContactList_ContactList__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), /*#__PURE__*/React.createElement("h2", null, userName)), /*#__PURE__*/React.createElement("div", {
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].pageNav
+  }, /*#__PURE__*/React.createElement("h3", null, posts.length, " Posts"), user._id === userId ? /*#__PURE__*/React.createElement(_components_ContactList_ContactList__WEBPACK_IMPORTED_MODULE_2__["default"], {
     contacts: contacts,
     user: user,
-    userId: userId
-  }) : /*#__PURE__*/React.createElement(React.Fragment, null), user._id !== userId && !user.contacts.includes(userId) ? /*#__PURE__*/React.createElement("button", {
-    onClick: () => addContact(userId)
-  }, changeFollowBtn ? 'unfollow' : 'follow') : /*#__PURE__*/React.createElement(React.Fragment, null), user._id !== userId && user.contacts.includes(userId) ? /*#__PURE__*/React.createElement("button", {
-    onClick: () => deleteContact(userId)
-  }, changeFollowBtn ? 'follow' : 'unfollow', "unfollowing") : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(_components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_10__["default"], {
-    allPosts: posts,
-    user: userId
-  }), user._id === userId ? /*#__PURE__*/React.createElement("button", {
-    onClick: () => setShowUpdateUserForm(true)
-  }, "Edit profile") : /*#__PURE__*/React.createElement(React.Fragment, null), showUpdateUserForm ? /*#__PURE__*/React.createElement(_components_UpdateUserForm_UpdateUserForm__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    userId: userId,
+    deleteContact: deleteContact
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null), user._id === userId ? /*#__PURE__*/React.createElement("button", {
+    onClick: () => setShowUpdateUserForm(true),
+    className: _UserShowPage_module_scss__WEBPACK_IMPORTED_MODULE_7__["default"].editProfileBtn
+  }, "Edit profile") : /*#__PURE__*/React.createElement(React.Fragment, null), showUpdateUserForm ? /*#__PURE__*/React.createElement(_components_UpdateUserForm_UpdateUserForm__WEBPACK_IMPORTED_MODULE_3__["default"], {
     userId: userId,
     user: user,
     setUser: setUser,
     setShowUpdateUserForm: setShowUpdateUserForm
-  }) : /*#__PURE__*/React.createElement(React.Fragment, null), /*#__PURE__*/React.createElement(_components_FavRestaurantList_FavRestaurantList__WEBPACK_IMPORTED_MODULE_5__["default"], {
-    restaurants: favRestaurants,
-    user: user
-  }), user.name, user.email, /*#__PURE__*/React.createElement(_components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null), user._id !== userId && !userContactIds.includes(userId) ? /*#__PURE__*/React.createElement("button", {
+    onClick: () => addContact(userId)
+  }, "follow") : /*#__PURE__*/React.createElement("button", {
+    onClick: () => deleteContact(userId)
+  }, "unfollow")), /*#__PURE__*/React.createElement(_components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    allPosts: posts,
+    user: userId
+  }), /*#__PURE__*/React.createElement(_components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
     user: user,
     setUser: setUser
   }));
@@ -2154,6 +2149,7 @@ async function sendRequest(url) {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addContact: () => (/* binding */ addContact),
+/* harmony export */   contactIdIndex: () => (/* binding */ contactIdIndex),
 /* harmony export */   contactIndex: () => (/* binding */ contactIndex),
 /* harmony export */   deleteContact: () => (/* binding */ deleteContact),
 /* harmony export */   deleteUser: () => (/* binding */ deleteUser),
@@ -2162,7 +2158,6 @@ async function sendRequest(url) {
 /* harmony export */   signUp: () => (/* binding */ signUp),
 /* harmony export */   updateUser: () => (/* binding */ updateUser)
 /* harmony export */ });
-/* unused harmony export contactIdIndex */
 /* harmony import */ var _send_request__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./send-request */ "./src/utilities/send-request.js");
 
 const BASE_URL = '/api/users';
@@ -2670,13 +2665,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.widAo3qUJKYt9pYxb4Sx {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 10px;
-}
-
-.s9U6aSYGfACPGrVw9u4S {
   width: 400px;
+  margin-bottom: 10px;
   margin-left: 10px;
-  text-align: left;
 }
 
 .dVqRekk8Pn5GYyfpt3cc {
@@ -2742,7 +2733,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.widAo3qUJKYt9pYxb4Sx {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/components/Post/Post.module.scss"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,WAAA;EACA,gBAAA;EACA,UAAA;EACA,cAAA;EACA,kCAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,mBAAA;AAAJ;;AAGA;EACI,YAAA;EACA,iBAAA;EACA,gBAAA;AAAJ;;AAGA;EACI,YAAA;EACA,WAAA;EACA,oBAAA;EACG,iBAAA;EACH,mBAAA;EACA,yBAAA;EACA,kBAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,SAAA;AAAJ;;AAGA;EACI,aAAA;EACA,qBAAA;EACA,uBAAA;EACA,gBAAA;EACA,iBAAA;AAAJ;;AAGA;EACI,eAAA;EACA,iBAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,aAAA;EACA,YAAA;EACA,yBAAA;EACG,sBAAA;EACH,uBAAA;EACA,mBAAA;EACA,oBAAA;EACG,iBAAA;EACH,gBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AAAJ;;AAGA;EACI,YAAA;EACA,iBAAA;EACA,gBAAA;EACA,mBAAA;AAAJ;;AAIA;EACI,YAAA;EACA,iBAAA;EACA,gBAAA;EACA,mBAAA;AADJ;;AAIA;EACI,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;AADJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n.post {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: .5rem;\n    margin-top: 5rem;\n    width: 50%;\n    margin: 0 auto;\n    font-family: 'Poppins', sans-serif;\n    border: 1px solid #ccc;\n    border-radius: 10px;\n    padding: 10px;\n}\n\n.userContainer {\n    display: flex;\n    align-items: center; \n    justify-content: flex-start;\n    margin-bottom: 10px; \n}\n\n.userContainer{\n    width: 400px; \n    margin-left: 10px; \n    text-align: left; \n}\n\n.profilePic {\n    height: 40px;\n    width: 40px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    background: #E8FAFA;\n    border: 1px solid #F9450E;\n    border-radius: 50%;\n    margin-right: 10px; \n}\n\n.userName {\n    margin: 0; \n}\n\n.ratingContainer {\n    display: flex;\n    align-items:baseline;\n    justify-content: center;\n    margin-top: 10px; \n    margin-left: 10px;\n}\n\n.dish {\n    font-size: 20px;\n    font-weight: bold; \n    margin-right: 10px; \n}\n\n.postPic {\n    height: 400px;\n    width: 400px;\n    -o-object-fit: scale-down;\n       object-fit: scale-down;\n    border: 1px solid white;\n    border-radius: 10px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n    display: flex; \n    justify-content: center; \n    align-items: center;\n}\n\n.likeContainer {\n    width: 400px; \n    margin-left: 10px; \n    text-align: left; \n    margin-bottom: 25px;\n\n}\n\n.postBody {\n    width: 400px; \n    margin-left: 10px; \n    text-align: left; \n    margin-bottom: 25px;\n}\n\n.commentsContainer {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Post/Post.module.scss"],"names":[],"mappings":"AAEA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,WAAA;EACA,gBAAA;EACA,UAAA;EACA,cAAA;EACA,kCAAA;EACA,sBAAA;EACA,mBAAA;EACA,aAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,YAAA;EACA,mBAAA;EACA,iBAAA;AAAJ;;AAGA;EACI,YAAA;EACA,WAAA;EACA,oBAAA;EACG,iBAAA;EACH,mBAAA;EACA,yBAAA;EACA,kBAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,SAAA;AAAJ;;AAGA;EACI,aAAA;EACA,qBAAA;EACA,uBAAA;EACA,gBAAA;EACA,iBAAA;AAAJ;;AAGA;EACI,eAAA;EACA,iBAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,aAAA;EACA,YAAA;EACA,yBAAA;EACG,sBAAA;EACH,uBAAA;EACA,mBAAA;EACA,oBAAA;EACG,iBAAA;EACH,gBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AAAJ;;AAGA;EACI,YAAA;EACA,iBAAA;EACA,gBAAA;EACA,mBAAA;AAAJ;;AAIA;EACI,YAAA;EACA,iBAAA;EACA,gBAAA;EACA,mBAAA;AADJ;;AAIA;EACI,aAAA;EACA,sBAAA;EACA,8BAAA;EACA,mBAAA;AADJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n.post {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    gap: .5rem;\n    margin-top: 5rem;\n    width: 50%;\n    margin: 0 auto;\n    font-family: 'Poppins', sans-serif;\n    border: 1px solid #ccc;\n    border-radius: 10px;\n    padding: 10px;\n}\n\n.userContainer {\n    display: flex;\n    align-items: center; \n    justify-content: flex-start;\n    width: 400px; \n    margin-bottom: 10px; \n    margin-left: 10px; \n}\n\n.profilePic {\n    height: 40px;\n    width: 40px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    background: #E8FAFA;\n    border: 1px solid #F9450E;\n    border-radius: 50%;\n    margin-right: 10px; \n}\n\n.userName {\n    margin: 0; \n}\n\n.ratingContainer {\n    display: flex;\n    align-items:baseline;\n    justify-content: center;\n    margin-top: 10px; \n    margin-left: 10px;\n}\n\n.dish {\n    font-size: 20px;\n    font-weight: bold; \n    margin-right: 10px; \n}\n\n.postPic {\n    height: 400px;\n    width: 400px;\n    -o-object-fit: scale-down;\n       object-fit: scale-down;\n    border: 1px solid white;\n    border-radius: 10px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    overflow: hidden;\n    display: flex; \n    justify-content: center; \n    align-items: center;\n}\n\n.likeContainer {\n    width: 400px; \n    margin-left: 10px; \n    text-align: left; \n    margin-bottom: 25px;\n\n}\n\n.postBody {\n    width: 400px; \n    margin-left: 10px; \n    text-align: left; \n    margin-bottom: 25px;\n}\n\n.commentsContainer {\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"post": `widAo3qUJKYt9pYxb4Sx`,
@@ -2783,8 +2774,9 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.c
 ___CSS_LOADER_EXPORT___.push([module.id, `.CEmtBuM4xxFYde9r9wll {
   height: 100%;
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
-  align-items: center; /* Center items vertically */
+  justify-content: flex-start !important;
+  align-items: center;
+  padding: 10px;
 }
 
 .pBERe7phAB7AI5tjHxAv {
@@ -2798,6 +2790,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.CEmtBuM4xxFYde9r9wll {
   font-weight: 400;
   font-style: normal;
   margin-right: 10px;
+  font-size: larger;
 }
 
 .QLU9e7RYR5RIBskNyl74 {
@@ -2868,7 +2861,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.CEmtBuM4xxFYde9r9wll {
 
 .foemVx3iYfoHF96Tjwmp {
   margin-bottom: 10px; /* Add space between the file upload and the text/icon */
-}`, "",{"version":3,"sources":["webpack://./src/components/PostCreateForm/PostCreateForm.module.scss"],"names":[],"mappings":"AAEA;EACI,YAAA;EACA,aAAA;EACA,2BAAA,EAAA,4BAAA;EACA,mBAAA,EAAA,4BAAA;AAAJ;;AAGA;EACI,YAAA;EACA,WAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,iDAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;AAAJ;;AAGA;EACE,aAAA;EACA,sBAAA;AAAF;;AAGA;EACE,YAAA;EACA,YAAA;EACA,mBAAA;EACA,kBAAA;AAAF;;AAGA;EACI,kBAAA;AAAJ;;AAIA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;AADJ;AAGI;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,SAAA;EACA,kCAAA;AADR;AAGQ;EACI,aAAA;EACA,sBAAA;EACA,SAAA;AADZ;AAIQ;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;AAFZ;AAIY;EACI,gBAAA;AAFhB;AAMQ;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,SAAA;AAJZ;;AASA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;AANJ;;AASA;EACI,YAAA;EACA,aAAA;EACA,2BAAA,EAAA,4BAAA;EACA,mBAAA,EAAA,4BAAA;AANJ;;AASA;;EAEI,mBAAA,EAAA,wDAAA;AANJ;;AASA;EACI,mBAAA,EAAA,wDAAA;AANJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    justify-content: flex-start; /* Align items to the left */\n    align-items: center; /* Center items vertically */\n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 10px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-style: normal;\n    margin-right: 10px;\n}\n\n.textInputContainer {\n  display: flex;\n  flex-direction: column;\n}\n  \n.inputBox {\n  width: 300px; \n  height: 50px; \n  margin-bottom: 10px; \n  inline-size: 300px;\n}\n\n.restaurant, .mealName, .uploadPhoto {\n    margin-right: 1rem;\n}\n  \n\n.postCreateFormContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n\n    .postCreateForm {\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        gap: 2rem;\n        font-family: 'Poppins', sans-serif;\n\n        .textInputContainer {\n            display: flex;\n            flex-direction: column;\n            gap: 1rem;\n        }\n\n        .imageInputContainer {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n\n            .fileUpload {\n                max-width: 15rem;\n            }\n        }\n\n        .ratingContainer {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            gap: 1rem;\n        }\n    }\n}\n\n.imageInputContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n.uploadDescr {\n    height: 100%; \n    display: flex; \n    justify-content: flex-start; /* Align items to the left */\n    align-items: center; /* Center items vertically */\n}\n\n.uploadPhoto,\n.imageIcon {\n    margin-bottom: 10px; /* Add space between the text/icon and the file upload */\n}\n\n.fileUpload {\n    margin-bottom: 10px; /* Add space between the file upload and the text/icon */\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/PostCreateForm/PostCreateForm.module.scss"],"names":[],"mappings":"AAEA;EACI,YAAA;EACA,aAAA;EACA,sCAAA;EACA,mBAAA;EACA,aAAA;AAAJ;;AAGA;EACI,YAAA;EACA,WAAA;EACA,kBAAA;AAAJ;;AAGA;EACI,iDAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;EACA,iBAAA;AAAJ;;AAGA;EACE,aAAA;EACA,sBAAA;AAAF;;AAGA;EACE,YAAA;EACA,YAAA;EACA,mBAAA;EACA,kBAAA;AAAF;;AAGA;EACI,kBAAA;AAAJ;;AAIA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;AADJ;AAGI;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,SAAA;EACA,kCAAA;AADR;AAGQ;EACI,aAAA;EACA,sBAAA;EACA,SAAA;AADZ;AAIQ;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;AAFZ;AAIY;EACI,gBAAA;AAFhB;AAMQ;EACI,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,SAAA;AAJZ;;AASA;EACI,aAAA;EACA,sBAAA;EACA,mBAAA;AANJ;;AASA;EACI,YAAA;EACA,aAAA;EACA,2BAAA,EAAA,4BAAA;EACA,mBAAA,EAAA,4BAAA;AANJ;;AASA;;EAEI,mBAAA,EAAA,wDAAA;AANJ;;AASA;EACI,mBAAA,EAAA,wDAAA;AANJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    justify-content: flex-start !important;\n    align-items: center; \n    padding: 10px;\n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 10px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-style: normal;\n    margin-right: 10px;\n    font-size: larger;\n}\n\n.textInputContainer {\n  display: flex;\n  flex-direction: column;\n}\n  \n.inputBox {\n  width: 300px; \n  height: 50px; \n  margin-bottom: 10px; \n  inline-size: 300px;\n}\n\n.restaurant, .mealName, .uploadPhoto {\n    margin-right: 1rem;\n}\n  \n\n.postCreateFormContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n\n    .postCreateForm {\n        display: flex;\n        flex-direction: column;\n        align-items: center;\n        gap: 2rem;\n        font-family: 'Poppins', sans-serif;\n\n        .textInputContainer {\n            display: flex;\n            flex-direction: column;\n            gap: 1rem;\n        }\n\n        .imageInputContainer {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n\n            .fileUpload {\n                max-width: 15rem;\n            }\n        }\n\n        .ratingContainer {\n            display: flex;\n            justify-content: center;\n            align-items: center;\n            gap: 1rem;\n        }\n    }\n}\n\n.imageInputContainer {\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n}\n\n.uploadDescr {\n    height: 100%; \n    display: flex; \n    justify-content: flex-start; /* Align items to the left */\n    align-items: center; /* Center items vertically */\n}\n\n.uploadPhoto,\n.imageIcon {\n    margin-bottom: 10px; /* Add space between the text/icon and the file upload */\n}\n\n.fileUpload {\n    margin-bottom: 10px; /* Add space between the file upload and the text/icon */\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"logoContainer": `CEmtBuM4xxFYde9r9wll`,
@@ -3049,7 +3042,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l14VH7OjSEOZDYfRwfxO .eUDVjXInF8KbGiG
   position: fixed;
   top: 0;
   left: 0;
-  opacity: 0.85;
+  opacity: 0.9;
   z-index: 1;
   display: flex;
   justify-content: center;
@@ -3064,7 +3057,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l14VH7OjSEOZDYfRwfxO .eUDVjXInF8KbGiG
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 80%;
-  max-width: 600px;
+  max-width: 80vw;
   position: relative;
   z-index: 2;
 }
@@ -3087,7 +3080,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.l14VH7OjSEOZDYfRwfxO .eUDVjXInF8KbGiG
   z-index: 3;
   display: flex;
   align-items: center;
-}`, "",{"version":3,"sources":["webpack://./src/components/ShowPagePost/ShowPagePost.module.scss"],"names":[],"mappings":"AACI;EACI,aAAA;EACA,YAAA;EACA,yBAAA;EACG,sBAAA;EACH,uBAAA;EACA,mBAAA;EACA,oBAAA;EACG,iBAAA;EACH,gBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AAAR;AAGI;EACI,uBAAA;EACA,aAAA;EACA,YAAA;EACA,eAAA;EACA,MAAA;EACA,OAAA;EACA,aAAA;EACA,UAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AADR;AAII;EACI,yBAAA;EACA,gBAAA;EACA,gBAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;EACA,wCAAA;EACA,UAAA;EACA,gBAAA;EACA,kBAAA;EACA,UAAA;AAFR;AAKI;EACI,kBAAA;EACA,SAAA;EACA,UAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;AAHR;AAMI;EACI,kBAAA;EACA,SAAA;EACA,WAAA;EACA,gBAAA;EACA,YAAA;EACA,eAAA;EACA,YAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;AAJR","sourcesContent":[".ShowPagePost {\n    .pageImgs {\n        height: 200px;\n        width: 200px;\n        -o-object-fit: scale-down;\n           object-fit: scale-down;\n        border: 1px solid white;\n        border-radius: 10px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        overflow: hidden;\n        display: flex; \n        justify-content: center; \n        align-items: center;\n    }\n\n    .wrapper {\n        background-color: black;\n        height: 100vh;\n        width: 100vw;\n        position: fixed;\n        top: 0;\n        left: 0;\n        opacity: 0.85;\n        z-index: 1;\n        display: flex;\n        justify-content: center; \n        align-items: center;\n    }\n\n    .showPost {\n        background-color: #E8FAFA;\n        max-height: 80vh;\n        overflow-y: auto;\n        overflow-x: hidden;\n        padding: 20px;\n        border-radius: 10px;\n        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n        width: 80%;\n        max-width: 600px;\n        position: relative;\n        z-index: 2;\n    }\n  \n    .close {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        border-radius: 50%;\n        width: 2rem;\n        height: 2rem;\n      }\n\n    .closePopup {\n        position: absolute;\n        top: 10px;\n        right: 10px;\n        background: none;\n        border: none;\n        cursor: pointer;\n        color: white;\n        z-index: 3;\n        display: flex;\n        align-items: center;\n    }\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/ShowPagePost/ShowPagePost.module.scss"],"names":[],"mappings":"AACI;EACI,aAAA;EACA,YAAA;EACA,yBAAA;EACG,sBAAA;EACH,uBAAA;EACA,mBAAA;EACA,oBAAA;EACG,iBAAA;EACH,gBAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AAAR;AAGI;EACI,uBAAA;EACA,aAAA;EACA,YAAA;EACA,eAAA;EACA,MAAA;EACA,OAAA;EACA,YAAA;EACA,UAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;AADR;AAII;EACI,yBAAA;EACA,gBAAA;EACA,gBAAA;EACA,kBAAA;EACA,aAAA;EACA,mBAAA;EACA,wCAAA;EACA,UAAA;EACA,eAAA;EACA,kBAAA;EACA,UAAA;AAFR;AAKI;EACI,kBAAA;EACA,SAAA;EACA,UAAA;EACA,kBAAA;EACA,WAAA;EACA,YAAA;AAHR;AAMI;EACI,kBAAA;EACA,SAAA;EACA,WAAA;EACA,gBAAA;EACA,YAAA;EACA,eAAA;EACA,YAAA;EACA,UAAA;EACA,aAAA;EACA,mBAAA;AAJR","sourcesContent":[".ShowPagePost {\n    .pageImgs {\n        height: 200px;\n        width: 200px;\n        -o-object-fit: scale-down;\n           object-fit: scale-down;\n        border: 1px solid white;\n        border-radius: 10px;\n        -o-object-fit: cover;\n           object-fit: cover;\n        overflow: hidden;\n        display: flex; \n        justify-content: center; \n        align-items: center;\n    }\n\n    .wrapper {\n        background-color: black;\n        height: 100vh;\n        width: 100vw;\n        position: fixed;\n        top: 0;\n        left: 0;\n        opacity: 0.9;\n        z-index: 1;\n        display: flex;\n        justify-content: center; \n        align-items: center;\n    }\n\n    .showPost {\n        background-color: #E8FAFA;\n        max-height: 80vh;\n        overflow-y: auto;\n        overflow-x: hidden;\n        padding: 20px;\n        border-radius: 10px;\n        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);\n        width: 80%;\n        max-width: 80vw;\n        position: relative;\n        z-index: 2;\n    }\n  \n    .close {\n        position: absolute;\n        top: 10px;\n        right: 5px;\n        border-radius: 50%;\n        width: 2rem;\n        height: 2rem;\n      }\n\n    .closePopup {\n        position: absolute;\n        top: 10px;\n        right: 10px;\n        background: none;\n        border: none;\n        cursor: pointer;\n        color: white;\n        z-index: 3;\n        display: flex;\n        align-items: center;\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"ShowPagePost": `l14VH7OjSEOZDYfRwfxO`,
@@ -3321,35 +3314,36 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.i55znKPQrG6qhtfR1l2e h1 {
-  font-family: "Lobster Two", sans-serif !important;
-  font-weight: 400;
-  font-style: normal;
-  margin-right: 10px;
-}
-
-.j_bzi_Z0mECub0XB2MIs {
+___CSS_LOADER_EXPORT___.push([module.id, `.j_bzi_Z0mECub0XB2MIs {
   height: 100%;
   display: flex;
   align-items: center;
+  margin: 10px;
 }
 
 .KzzrtuIfwPdkZJXUH4Ek {
   height: 25px;
   width: auto;
+  margin-right: 8px;
+}
+
+.i55znKPQrG6qhtfR1l2e {
+  font-family: "Lobster Two", sans-serif !important;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
   margin-right: 10px;
 }
 
 .rih5wsgzCtcO2bMXP60v {
   display: flex;
   flex-direction: column;
-  padding: 20px;
-}`, "",{"version":3,"sources":["webpack://./src/pages/HomePage/homepage.module.scss"],"names":[],"mappings":"AAAA;EACI,iDAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,mBAAA;AACJ;;AAEA;EACI,YAAA;EACA,WAAA;EACA,kBAAA;AACJ;;AAGA;EACI,aAAA;EACA,sBAAA;EACA,aAAA;AAAJ","sourcesContent":[".companyName h1 {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-style: normal;\n    margin-right: 10px;\n}\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    align-items: center; \n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 10px; \n}\n\n\n.HomePage {\n    display: flex;\n    flex-direction: column;\n    padding: 20px;\n  }"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/HomePage/homepage.module.scss"],"names":[],"mappings":"AAAA;EACI,YAAA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;AACJ;;AAEA;EACI,YAAA;EACA,WAAA;EACA,iBAAA;AACJ;;AAEA;EACI,iDAAA;EACA,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAGA;EACI,aAAA;EACA,sBAAA;AAAJ","sourcesContent":[".logoContainer {\n    height: 100%; \n    display: flex; \n    align-items: center; \n    margin: 10px;\n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 8px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-size: larger;\n    font-style: normal;\n    margin-right: 10px;\n}\n\n\n.HomePage {\n    display: flex;\n    flex-direction: column;\n  }"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
-	"companyName": `i55znKPQrG6qhtfR1l2e`,
 	"logoContainer": `j_bzi_Z0mECub0XB2MIs`,
 	"logo": `KzzrtuIfwPdkZJXUH4Ek`,
+	"companyName": `i55znKPQrG6qhtfR1l2e`,
 	"HomePage": `rih5wsgzCtcO2bMXP60v`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -3443,17 +3437,19 @@ p {
   height: 100%;
   display: flex;
   align-items: center;
+  margin: 10px;
 }
 
 .jdVF7i_v5tlz_gUu8L4m {
   height: 25px;
   width: auto;
-  margin-right: 10px;
+  margin-right: 8px;
 }
 
 .Hw4cI4ZtMnQ1MuUa7CGQ {
   font-family: "Lobster Two", sans-serif !important;
   font-weight: 400;
+  font-size: larger;
   font-style: normal;
   margin-right: 10px;
 }
@@ -3467,6 +3463,7 @@ button {
   padding: 5px;
   cursor: pointer;
   font-weight: bold;
+  text-align: center;
 }
 
 .yuup4JfAosSW_FORPmdA {
@@ -3495,7 +3492,7 @@ button {
 }
 
 .bX8Pv6MRXHd_mswPnhcp {
-  position: relative; /* Enables absolute positioning within it */
+  position: relative;
 }
 
 .g85ZoxzDAEkw3_1sn49d {
@@ -3508,12 +3505,12 @@ button {
 
 .Cg7qQUURxi9wh4LPPU7d {
   position: absolute;
-  top: 50%; /* 50% from top */
-  left: 50%; /* 50% from left */
-  transform: translate(-50%, -50%); /* Centers horizontally and vertically */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
   color: #F9450E;
-  font-size: larger;
+  font-size: xx-large;
 }
 
 ._bYbkMzeHOxtjy0w3LPY {
@@ -3541,9 +3538,15 @@ button {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: space-evenly;
+  justify-content: space-evenly;
   margin: 50px;
   padding-bottom: 150px;
+}
+@media (max-width: 600px) {
+  .VCzB81guJ1EzGfGxEjO_ {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .aglZF0R5WPpC6Wdc4yCB {
@@ -3583,7 +3586,7 @@ button {
 .pu2_iHlmgD6brWeFKM62 {
   width: 90px;
   height: auto;
-}`, "",{"version":3,"sources":["webpack://./src/pages/LandingPage/LandingPage.module.scss"],"names":[],"mappings":"AAGA;EACI,sBAAA;EACA,SAAA;AAAJ;;AAGA;EACI,cAAA;EACA,qBAAA;AAAJ;;AAGA;EACI,iBAAA;EACA,oBAAA;AAAJ;;AAGA;EACI,kCAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,8BAAA;EACA,eAAA;EACA,YAAA;EACA,WAAA;EACA,yBAAA;EACA,UAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,uBAAA;AAAJ;;AAEA;EACI,uBAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;EACA,MAAA;EACA,aAAA;EACA,UAAA;AACJ;;AAEA;EACI,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,WAAA;EACA,UAAA;EACA,kBAAA;EACA,cAAA;EACA,QAAA;EACA,yBAAA;EACA,UAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,mBAAA;AACJ;;AAEA;EACI,YAAA;EACA,WAAA;EACA,kBAAA;AACJ;;AAEA;EACI,iDAAA;EACA,gBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,WAAA;EACA,qBAAA;EACA,yBAAA;EACA,WAAA;EACA,iBAAA;EACA,YAAA;EACA,eAAA;EACA,iBAAA;AACJ;;AAEA;EACI,yBAAA;EACA,cAAA;AACJ;;AAEA;EACI,yBAAA;EACA,yBAAA;AACJ;;AAEA;EACI,yBAAA;AACJ;;AAEA;EACI,YAAA;EACA,yBAAA;EACA,cAAA;AACJ;;AAEA;EACI,yBAAA;EACA,yBAAA;AACJ;;AAEA;EACI,kBAAA,EAAA,2CAAA;AACJ;;AAEA;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,oBAAA;EACG,iBAAA;AACP;;AAEA;EACI,kBAAA;EACA,QAAA,EAAA,iBAAA;EACA,SAAA,EAAA,kBAAA;EACA,gCAAA,EAAA,wCAAA;EACA,kBAAA;EACA,cAAA;EACA,iBAAA;AACJ;;AAEA;EACI,aAAA;EACA,qCAAA;EACA,qBAAA;EACA,YAAA;EACA,kBAAA;EACA,qBAAA;AACJ;;AAEA;EACI,WAAA;EACA,YAAA;EACA,8BAAA;AACJ;;AAEA;EACI,aAAA;EACA,cAAA;EACA,kBAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,2BAAA;EACA,YAAA;EACA,qBAAA;AACJ;;AAEA;EACI,UAAA;EACA,YAAA;EACA,oBAAA;EACG,iBAAA;EACH,kBAAA;EACA,aAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,WAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;AACJ;;AAKA;EACI,aAAA;EACA,sBAAA;EACA,iBAAA;EACA,kBAAA;EACA,gBAAA;EACA,oBAAA;AAFJ;;AAKA;EACI,aAAA;EACA,yBAAA;EACA,cAAA;AAFJ;;AAKA;EACI,WAAA;EACA,YAAA;AAFJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Ojuju:wght@200..800&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n}\n\na {\n    color:#ffffff;\n    text-decoration: none;\n}\n\np {\n    padding-top: 25px;\n    padding-bottom: 25px;\n}\n\n.landingPage:not(.companyName) {\n    font-family: \"Poppins\", sans-serif;\n}\n\n.headerContainer {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content:space-between;\n    position: fixed;\n    height: 50px; \n    width: 100%; \n    background-color: #ffffff; \n    z-index: 1;\n}\n\n.authContainer{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.wrapper {\n    background-color: black;\n    height: 100%;\n    width: 100%;\n    position: absolute;\n    top: 0;\n    opacity: 0.85;\n    z-index: 2;\n}\n\n.showforms {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    height: 75%;\n    width: 50%;\n    position: relative;\n    margin: 0 auto;\n    top: 10%;\n    background-color: #E8FAFA;\n    opacity: 1;\n}\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    align-items: center; \n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 10px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-style: normal;\n    margin-right: 10px;\n}\n\nbutton {\n    width: 90px;\n    border-radius: 16vmin;\n    border: 2px solid #000000;\n    margin: 5px;\n    margin-right: 5px;\n    padding: 5px;\n    cursor: pointer;\n    font-weight: bold;\n}\n\n.blackBtn {\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.blackBtn:hover {\n    background-color: #030303;\n    border: 2px solid #030303;\n}\n\n.whiteBtn {\n    background-color: #ffffff;\n}\n\n.restaurantBtn {\n    width: 130px;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.restaurantBtn:hover {\n    background-color: #030303;\n    border: 2px solid #030303;\n}\n\n.heroContainer {\n    position: relative; /* Enables absolute positioning within it */\n}\n\n.heroImg {\n    width:100%;\n    height: auto;\n    margin-top: 0;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n\n.heroOverlay {\n    position: absolute;\n    top: 50%; /* 50% from top */\n    left: 50%; /* 50% from left */\n    transform: translate(-50%, -50%); /* Centers horizontally and vertically */\n    text-align: center; \n    color: #F9450E;\n    font-size: larger;\n}\n\n.highlightsContainer {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    grid-column-gap: 50px;\n    margin: 50px;\n    padding-top: 150px;\n    padding-bottom: 150px;\n}\n\n.highlightImg {\n    width: 50px;\n    height: auto;\n    align-items: center !important;\n}\n\n.postSampler {\n    height: 100px;\n    color: #F9450E;\n    text-align: center;\n}\n\n.promoContainer {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-items: space-evenly;\n    margin: 50px;\n    padding-bottom: 150px;\n}\n\n.featureImg {\n    width:50%;\n    height: auto;\n    -o-object-fit: cover;\n       object-fit: cover;\n    margin-right: 50px;\n    padding: 10px;\n}\n\n.footer {\n    display: flex;\n    flex-direction: row;\n    justify-items: space-evenly;\n    width: 100%;\n    height: auto;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n// @media .footer\n// screen size smaller, change to column\n\n.footerColumns {\n    display: flex;\n    flex-direction: column;\n    margin-left: 60px;\n    margin-right: 90px;\n    margin-top: 25px;\n    margin-bottom: 150px;\n}\n\n.footerBottom {\n    padding: 10px;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.badge {\n    width: 90px;\n    height: auto;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/pages/LandingPage/LandingPage.module.scss"],"names":[],"mappings":"AAGA;EACI,sBAAA;EACA,SAAA;AAAJ;;AAGA;EACI,cAAA;EACA,qBAAA;AAAJ;;AAGA;EACI,iBAAA;EACA,oBAAA;AAAJ;;AAGA;EACI,kCAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,8BAAA;EACA,eAAA;EACA,YAAA;EACA,WAAA;EACA,yBAAA;EACA,UAAA;AAAJ;;AAGA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,uBAAA;AAAJ;;AAEA;EACI,uBAAA;EACA,YAAA;EACA,WAAA;EACA,kBAAA;EACA,MAAA;EACA,aAAA;EACA,UAAA;AACJ;;AAEA;EACI,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,WAAA;EACA,UAAA;EACA,kBAAA;EACA,cAAA;EACA,QAAA;EACA,yBAAA;EACA,UAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;AACJ;;AAEA;EACI,YAAA;EACA,WAAA;EACA,iBAAA;AACJ;;AAEA;EACI,iDAAA;EACA,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,WAAA;EACA,qBAAA;EACA,yBAAA;EACA,WAAA;EACA,iBAAA;EACA,YAAA;EACA,eAAA;EACA,iBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,yBAAA;EACA,cAAA;AACJ;;AAEA;EACI,yBAAA;EACA,yBAAA;AACJ;;AAEA;EACI,yBAAA;AACJ;;AAEA;EACI,YAAA;EACA,yBAAA;EACA,cAAA;AACJ;;AAEA;EACI,yBAAA;EACA,yBAAA;AACJ;;AAEA;EACI,kBAAA;AACJ;;AAEA;EACI,WAAA;EACA,YAAA;EACA,aAAA;EACA,oBAAA;EACG,iBAAA;AACP;;AAEA;EACI,kBAAA;EACA,QAAA;EACA,SAAA;EACA,gCAAA;EACA,kBAAA;EACA,cAAA;EACA,mBAAA;AACJ;;AAEA;EACI,aAAA;EACA,qCAAA;EACA,qBAAA;EACA,YAAA;EACA,kBAAA;EACA,qBAAA;AACJ;;AAEA;EACI,WAAA;EACA,YAAA;EACA,8BAAA;AACJ;;AAEA;EACI,aAAA;EACA,cAAA;EACA,kBAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,6BAAA;EACA,YAAA;EACA,qBAAA;AACJ;AACI;EARJ;IASQ,sBAAA;IACA,mBAAA;EAEN;AACF;;AACA;EACI,UAAA;EACA,YAAA;EACA,oBAAA;EACG,iBAAA;EACH,kBAAA;EACA,aAAA;AAEJ;;AACA;EACI,aAAA;EACA,mBAAA;EACA,2BAAA;EACA,WAAA;EACA,YAAA;EACA,yBAAA;EACA,cAAA;AAEJ;;AAIA;EACI,aAAA;EACA,sBAAA;EACA,iBAAA;EACA,kBAAA;EACA,gBAAA;EACA,oBAAA;AADJ;;AAIA;EACI,aAAA;EACA,yBAAA;EACA,cAAA;AADJ;;AAIA;EACI,WAAA;EACA,YAAA;AADJ","sourcesContent":["@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Ojuju:wght@200..800&display=swap');\n@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Ojuju:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');\n\n* {\n    box-sizing: border-box;\n    margin: 0;\n}\n\na {\n    color:#ffffff;\n    text-decoration: none;\n}\n\np {\n    padding-top: 25px;\n    padding-bottom: 25px;\n}\n\n.landingPage:not(.companyName) {\n    font-family: \"Poppins\", sans-serif;\n}\n\n.headerContainer {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content:space-between;\n    position: fixed;\n    height: 50px; \n    width: 100%; \n    background-color: #ffffff; \n    z-index: 1;\n}\n\n.authContainer{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n}\n.wrapper {\n    background-color: black;\n    height: 100%;\n    width: 100%;\n    position: absolute;\n    top: 0;\n    opacity: 0.85;\n    z-index: 2;\n}\n\n.showforms {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    height: 75%;\n    width: 50%;\n    position: relative;\n    margin: 0 auto;\n    top: 10%;\n    background-color: #E8FAFA;\n    opacity: 1;\n}\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    align-items: center; \n    margin: 10px;\n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 8px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-size: larger;\n    font-style: normal;\n    margin-right: 10px;\n}\n\nbutton {\n    width: 90px;\n    border-radius: 16vmin;\n    border: 2px solid #000000;\n    margin: 5px;\n    margin-right: 5px;\n    padding: 5px;\n    cursor: pointer;\n    font-weight: bold;\n    text-align: center;\n}\n\n.blackBtn {\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.blackBtn:hover {\n    background-color: #030303;\n    border: 2px solid #030303;\n}\n\n.whiteBtn {\n    background-color: #ffffff;\n}\n\n.restaurantBtn {\n    width: 130px;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.restaurantBtn:hover {\n    background-color: #030303;\n    border: 2px solid #030303;\n}\n\n.heroContainer {\n    position: relative; \n}\n\n.heroImg {\n    width:100%;\n    height: auto;\n    margin-top: 0;\n    -o-object-fit: cover;\n       object-fit: cover;\n}\n\n.heroOverlay {\n    position: absolute;\n    top: 50%; \n    left: 50%; \n    transform: translate(-50%, -50%); \n    text-align: center; \n    color: #F9450E;\n    font-size: xx-large;\n}\n\n.highlightsContainer {\n    display: grid;\n    grid-template-columns: repeat(3, 1fr);\n    grid-column-gap: 50px;\n    margin: 50px;\n    padding-top: 150px;\n    padding-bottom: 150px;\n}\n\n.highlightImg {\n    width: 50px;\n    height: auto;\n    align-items: center !important;\n}\n\n.postSampler {\n    height: 100px;\n    color: #F9450E;\n    text-align: center;\n}\n\n.promoContainer {\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: space-evenly;\n    margin: 50px;\n    padding-bottom: 150px;\n\n    @media (max-width: 600px) {\n        flex-direction: column; \n        align-items: center; \n    }\n}\n\n.featureImg {\n    width:50%;\n    height: auto;\n    -o-object-fit: cover;\n       object-fit: cover;\n    margin-right: 50px;\n    padding: 10px;\n}\n\n.footer {\n    display: flex;\n    flex-direction: row;\n    justify-items: space-evenly;\n    width: 100%;\n    height: auto;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n// @media .footer\n// screen size smaller, change to column\n\n.footerColumns {\n    display: flex;\n    flex-direction: column;\n    margin-left: 60px;\n    margin-right: 90px;\n    margin-top: 25px;\n    margin-bottom: 150px;\n}\n\n.footerBottom {\n    padding: 10px;\n    background-color: #000000;\n    color: #ffffff;\n}\n\n.badge {\n    width: 90px;\n    height: auto;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"landingPage": `_1h4Lhe5cJsURYGEnuN1`,
@@ -3667,17 +3670,41 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.jNvHfPsMswg94QC3TNCB {
   width: 100%;
+  overflow: scroll;
+}
+
+.jNvHfPsMswg94QC3TNCB:not(.EoaSqxfxlVxaXVNwvIpA) {
   font-family: "Poppins", sans-serif;
 }
 
-a {
-  cursor: pointer;
+.jl3cs5wT9Bt5Rk0QfHiA {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.jeJ36npDbmvteFMCQfly {
+  height: 25px;
+  width: auto;
+  margin-right: 8px;
+}
+
+.EoaSqxfxlVxaXVNwvIpA {
+  font-family: "Lobster Two", sans-serif !important;
+  font-weight: 400;
+  font-size: larger;
+  font-style: normal;
+  margin-right: 10px;
 }
 
 .o7Q8cxjz8a_Qz0l7pb0o {
   display: flex;
   flex-direction: column;
   padding: 10px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .UPolbSoLGK7h8drjxVsy {
@@ -3689,17 +3716,38 @@ a {
   border: 1px solid #F9450E;
   border-radius: 50%;
   margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 .NOYOkTLxi8zqHt1VyEOd {
   margin: 0;
-}`, "",{"version":3,"sources":["webpack://./src/pages/UserShowPage/UserShowPage.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,kCAAA;AACJ;;AAEA;EACI,eAAA;AACJ;;AAEA;EACI,aAAA;EACA,sBAAA;EACA,aAAA;AACJ;;AAEA;EACI,aAAA;EACA,YAAA;EACA,oBAAA;EACG,iBAAA;EACH,mBAAA;EACA,yBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,SAAA;AACJ","sourcesContent":[".userShowPage {\n    width: 100%;\n    font-family: 'Poppins', sans-serif;\n}\n\na {\n    cursor: pointer;\n}\n\n.userContainer{\n    display: flex;\n    flex-direction: column;\n    padding: 10px;\n}\n\n.profilePic {\n    height: 100px;\n    width: 100px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    background: #E8FAFA;\n    border: 1px solid #F9450E;\n    border-radius: 50%;\n    margin-right: 10px; \n}\n\n.userName {\n    margin: 0; \n}"],"sourceRoot":""}]);
+}
+
+.FQgP7_QRRrp1olYr120P {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.eY_mR8lobGt_XC9vqIci {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+}`, "",{"version":3,"sources":["webpack://./src/pages/UserShowPage/UserShowPage.module.scss"],"names":[],"mappings":"AAAA;EACI,WAAA;EACA,gBAAA;AACJ;;AAEA;EACI,kCAAA;AACJ;;AAEA;EACI,YAAA;EACA,aAAA;EACA,mBAAA;EACA,YAAA;AACJ;;AAEA;EACI,YAAA;EACA,WAAA;EACA,iBAAA;AACJ;;AAEA;EACI,iDAAA;EACA,gBAAA;EACA,iBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,aAAA;EACA,sBAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,aAAA;EACA,YAAA;EACA,oBAAA;EACG,iBAAA;EACH,mBAAA;EACA,yBAAA;EACA,kBAAA;EACA,kBAAA;EACA,kBAAA;AACJ;;AAEA;EACI,SAAA;AACJ;;AAEA;EACI,aAAA;EACA,mBAAA;EACA,6BAAA;EACA,UAAA;EACA,cAAA;EACA,aAAA;AACJ;;AAEA;EACI,uBAAA;EACA,kBAAA;EACA,YAAA;AACJ","sourcesContent":[".userShowPage {\n    width: 100%;\n    overflow: scroll;\n}\n\n.userShowPage:not(.companyName) {\n    font-family: \"Poppins\", sans-serif;\n}\n\n.logoContainer {\n    height: 100%; \n    display: flex; \n    align-items: center; \n    margin: 10px;\n}\n\n.logo {\n    height: 25px; \n    width: auto;\n    margin-right: 8px; \n}\n\n.companyName {\n    font-family: \"Lobster Two\", sans-serif !important;\n    font-weight: 400;\n    font-size: larger;\n    font-style: normal;\n    margin-right: 10px;\n}\n\n.userContainer{\n    display: flex;\n    flex-direction: column;\n    padding: 10px;\n    align-items: center;\n    justify-content: center;\n    position: relative;\n}\n\n.profilePic {\n    height: 100px;\n    width: 100px;\n    -o-object-fit: cover;\n       object-fit: cover;\n    background: #E8FAFA;\n    border: 1px solid #F9450E;\n    border-radius: 50%;\n    margin-right: 10px; \n    margin-bottom: 5px;\n}\n\n.userName {\n    margin: 0; \n}\n\n.pageNav {\n    display: flex;\n    align-items: center;\n    justify-content: space-evenly;\n    width: 50%; \n    margin: 0 auto; \n    padding: 50px;\n}\n\n.editProfileBtn {\n    width: -moz-fit-content;\n    width: fit-content;\n    padding: 5px;\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"userShowPage": `jNvHfPsMswg94QC3TNCB`,
+	"companyName": `EoaSqxfxlVxaXVNwvIpA`,
+	"logoContainer": `jl3cs5wT9Bt5Rk0QfHiA`,
+	"logo": `jeJ36npDbmvteFMCQfly`,
 	"userContainer": `o7Q8cxjz8a_Qz0l7pb0o`,
 	"profilePic": `UPolbSoLGK7h8drjxVsy`,
-	"userName": `NOYOkTLxi8zqHt1VyEOd`
+	"userName": `NOYOkTLxi8zqHt1VyEOd`,
+	"pageNav": `FQgP7_QRRrp1olYr120P`,
+	"editProfileBtn": `eY_mR8lobGt_XC9vqIci`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -3846,11 +3894,8 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /*!************************************************************!*\
   !*** ./src/components/ContactList/ContactList.module.scss ***!
   \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ "./node_modules/style-loader/dist/runtime/styleDomAPI.js");
@@ -3890,7 +3935,7 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 
-       /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
+       /* unused harmony default export */ var __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"] && _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals ? _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_2_use_1_node_modules_sass_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ContactList_module_scss__WEBPACK_IMPORTED_MODULE_6__["default"].locals : undefined);
 
 
 /***/ }),
@@ -5070,4 +5115,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.f91ab5724c7f6e6364dd2f490807b557.js.map
+//# sourceMappingURL=App.068871e1866a9a871fded8a8c4b32167.js.map

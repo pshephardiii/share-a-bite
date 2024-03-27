@@ -7,6 +7,8 @@ This is a full-stack MERN application that is built to allow people to connect w
 
 ## Live Project Link:
 
+https://share-a-bite.paulshephard.me/
+
 ## Pitch Deck Link:
 
 https://docs.google.com/presentation/d/13j-zx0Jf3Pzl8wfHLIPeSPVK7gMc00tSAgcTqPPEvu8/edit?usp=sharing
