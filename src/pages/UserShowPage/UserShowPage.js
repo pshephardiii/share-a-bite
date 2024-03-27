@@ -28,6 +28,7 @@ export default function UserShowPage(
     const [userName, setUserName] = useState([])
     const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
+    const postCount = posts.length
 
    
     useEffect(function(){
@@ -127,47 +128,39 @@ export default function UserShowPage(
     console.log(changeFollowBtn)
     console.log(user)
 
-    return(
-        <div className={styles.UserShowPage}>
-          {/* Below is only show the current loggedin user's profile */}
-          <div className={styles.userInfo}>
-            <div className={styles.profileNamePic}>
-                <img className={styles.profilePic} src={profilePic}/>
-                <h2>{userName}</h2>
-            </div>
-            <h3>{posts.length} Posts</h3>
-            <h3>{newUserContacts.length} Contacts</h3>
-          </div>
-          {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId} deleteContact={deleteContact}/> :<></>}
-          
-          {/* following and add contact */}
-          {
-
-            user._id !== userId && !contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn?'unfollow':'follow'}</button>:<></>
-          }
-          {/* unfollowing and delete contact */}
-           {
-            user._id !== userId && contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>unfollowing1</button>:<></>
-          }
-
-          {/* click button to display or hid the UpdateUserForm*/}
-          {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
-
-          {showUpdateUserForm? 
-          <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
-          :<></>}
-
-          <ShowPagePosts allPosts={posts} user={userId}/>
-
-          {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
-
-          <FavRestaurantList restaurants={favRestaurants} user={user}/> 
-        <div className={styles.post}>
-          <img src="https://picsum.photos/200"/></div>
-          {user.name}
-          {user.email}
-          <NavBar user={user} setUser={setUser}/>
+return (
+    <div className={styles.userShowPage}>
+        {/* Below is only show the current loggedin user's profile */}
+        <div className={styles.userContainer}>
+            {/* Conditionally render profile picture */}
+            {profilePic ? (
+                <img className={styles.profilePic} src={profilePic} alt={userName}/>
+            ) : (
+                <img className={styles.profilePic} src="https://picsum.photos/100" alt={userName}/>
+            )}
+            <h1>{userName}</h1>
         </div>
-       
+        <div className={styles.postCount}>
+            <p>Posts: {postCount}</p>
+        </div>
+        {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
+        {/* following and add contact */}
+        {user._id !== userId && !user.contacts.includes(userId) ? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button> : <></>}
+        {/* unfollowing and delete contact */}
+        {user._id !== userId && user.contacts.includes(userId) ? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button> : <></>}
+        {/* <PostList allPosts={posts} user={userId}/> */}
+        <ShowPagePosts allPosts={posts} user={userId}/>
+        {/* click button to display or hide the UpdateUserForm*/}
+        {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
+        {showUpdateUserForm? 
+            <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
+            :<></>
+        }
+        {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
+        <FavRestaurantList restaurants={favRestaurants} user={user}/> 
+        {user.name}
+        {user.email}
+        <NavBar user={user} setUser={setUser}/>
+    </div>
     )
 }

@@ -1,49 +1,28 @@
-.UserShowPage{
-    margin: 2vw 2vw;
+.userShowPage {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+.userContainer{
     display: flex;
-    flex-direction: column; 
-    .profileNamePic{
-        display:flex;
-        flex-direction: column; 
-        align-items: center;
-    }
-    .profilePic{
-        width:8vmax;
-        height: 8vmax;
-        border-radius: 50%;
-        background-image: url('https://i.imgur.com/1Q36Y5C.png');
-        background-size: cover;
-        
-    }
+    flex-direction: column;
+    padding: 10px;
+}
 
-     
-    .userInfo{
-        display:flex;
-        justify-content: space-between;;
-        align-items: center;
-        margin-left: 270px;
-    }
+.profilePic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    background: #E8FAFA;
+    border: 1px solid #F9450E;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
 
-    button{
-        
-        background-color:#0a0a23;
-        color: #fff;
-        border:none;
-        border-radius:10px;
-        text-align: center;
-        white-space: nowrap;
-        width: 7rem;
-       
-    }
-
-   
-    .post{
-        padding-left: 25%;
-    }
-
-    h1{
-        padding-left: 25%;
-    }
-
-    
+.userName {
+    margin: 0; 
 }
