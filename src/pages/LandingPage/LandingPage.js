@@ -2,8 +2,6 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {useState} from 'react'
 import SearchBar from '../../components/SearchBar/SearchBar'
-import RestaurantSampler from '../../components/RestaurantSampler/RestaurantSampler'
-import AuthComponent from '../../components/AuthComponent/AuthComponent'
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import LoginForm from '../../components/LoginForm/LoginForm'
 import styles from './LandingPage.module.scss'
@@ -18,14 +16,8 @@ export default function LandingPage({
         navigate('/restaurants')
     }
 
-    // const [showAuth, setShowAuth] = useState(false)
     const [showLoginForm, setShowLoginForm] = useState(false)
     const [showSignUpForm, setShowSignUpForm] = useState(false)
-    // const handleLoginOrSignup = () => {
-    //     navigate('/auth')
-    // }
-
-    // className={styles.myComponent}
 
     return(
         <div className={styles.landingPage}>
@@ -49,7 +41,6 @@ export default function LandingPage({
              {(showLoginForm||showSignUpForm)?
                <div className = {styles.wrapper}>
                 <div className={styles.showforms}>
-                    {/* {showAuth?<AuthComponent setUser={setUser} />:<></>} */}
                     {showLoginForm?<LoginForm setUser={setUser} setShowLoginForm={setShowLoginForm}/>:<></>}
                     {showSignUpForm?<SignUpForm setUser={setUser} setShowSignUpForm={setShowSignUpForm} />:<></>}
                 </div>

@@ -4,13 +4,15 @@ import Contact from '../../components/Contact/Contact'
 export default function ContactList ({ 
     user,
     contacts,
-    userId
+    userId,
+    deleteContact
 }){
     const userContacts = contacts.map(contact =>
         <Contact
             key={contact._id}
             user={user}
             contact={contact}
+            deleteContact={deleteContact}
         />
     )
 
@@ -19,7 +21,6 @@ export default function ContactList ({
     <div>
         <h3>Contacts List</h3>
         {userContacts}
-        
         </div>
         :
         <h3>No Contacts Yet!</h3>

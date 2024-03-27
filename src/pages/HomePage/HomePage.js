@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
 
 import * as postAPI from '../../utilities/posts-api'

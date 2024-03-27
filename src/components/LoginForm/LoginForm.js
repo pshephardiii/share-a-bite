@@ -42,7 +42,6 @@ return (
     </div>
     <p className="error-message">&nbsp;{error}</p>
     <button className={styles.close} onClick={(e)=>{setShowLoginForm(false)}}><CircleX /></button>
-    {/* <button className={styles.close} onClick={(e)=>{setShowLoginForm(false)}}>X</button> */}
   </div>
 );
 }

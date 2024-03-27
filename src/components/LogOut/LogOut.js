@@ -11,11 +11,7 @@ function handleLogOut() {
 
 return (
   <div className={styles.LogOut}>
-    {/* <div>{user.name}</div>
-    <div className={styles.email}>{user.email}</div> */}
-    {/* <button className="btn-sm" onClick={handleLogOut}>LOG OUT</button> */}
     <div onClick={handleLogOut}><ImExit fontSize='48'/></div>
-
   </div>
 );
 }
