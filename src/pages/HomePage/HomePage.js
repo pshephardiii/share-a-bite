@@ -59,7 +59,7 @@ export default function HomePage(
         <div className={styles.logoContainer}>
             <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
                     <div className={styles.companyName}>
-                        <h1>Share-A-Bite</h1>
+                        <h2>Share-A-Bite</h2>
                     </div>
         
          </div>

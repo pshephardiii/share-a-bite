@@ -141,6 +141,14 @@ export default function UserShowPage(
 return (
     <div className={styles.userShowPage}>
         {/* Below is only show the current loggedin user's profile */}
+
+        <div className={styles.logoContainer}>
+            <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
+            <div className={styles.companyName}>
+                <h2>Share-A-Bite</h2>
+            </div>
+        </div>
+
         <div className={styles.userContainer}>
             {/* Conditionally render profile picture */}
             {profilePic ? (
@@ -148,29 +156,37 @@ return (
             ) : (
                 <img className={styles.profilePic} src="https://picsum.photos/100" alt={userName}/>
             )}
-            <h1>{userName}</h1>
+            <h2>{userName}</h2>
         </div>
-        <div className={styles.postCount}>
-            <p>Posts: {postCount}</p>
+
+        <div className={styles.pageNav}>
+            <h3>{postCount} Posts</h3>
+
+            {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
+
+            {/* click button to display or hide the UpdateUserForm*/}
+            {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)} className={styles.editProfileBtn}>Edit profile</button>:<></>}
+            {showUpdateUserForm? 
+                <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
+                :<></>
+            }
+
+            {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
+
+            {/* following and add contact */}
+            {user._id !== userId && !user.contacts.includes(userId) ? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button> : <></>}
+            
+            {/* unfollowing and delete contact */}
+            {user._id !== userId && user.contacts.includes(userId) ? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button> : <></>}
+            
         </div>
-        {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId}/> :<></>}
-        {/* following and add contact */}
-        {user._id !== userId && !user.contacts.includes(userId) ? <button onClick={()=>addContact(userId)}>{changeFollowBtn? 'unfollow':'follow'}</button> : <></>}
-        {/* unfollowing and delete contact */}
-        {user._id !== userId && user.contacts.includes(userId) ? <button onClick={()=>deleteContact(userId)}>{changeFollowBtn? 'follow':'unfollow'}unfollowing</button> : <></>}
-        {/* <PostList allPosts={posts} user={userId}/> */}
+
         <ShowPagePosts allPosts={posts} user={userId}/>
-        {/* click button to display or hide the UpdateUserForm*/}
-        {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
-        {showUpdateUserForm? 
-            <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
-            :<></>
-        }
-        {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
-        <FavRestaurantList restaurants={favRestaurants} user={user}/> 
-        {user.name}
-        {user.email}
+        
+        {/* <FavRestaurantList restaurants={favRestaurants} user={user}/>  */}
+        
         <NavBar user={user} setUser={setUser}/>
+
     </div>
     )
 }
