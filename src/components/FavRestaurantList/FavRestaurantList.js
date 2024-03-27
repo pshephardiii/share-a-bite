@@ -9,7 +9,7 @@ export default function FavRestaurantList ({
     return(
         restaurants ?
     <div>
-        <h3>FavRestaurantList</h3>
+        <h3 className={styles.favRestaurant}>FavRestaurantList</h3>
         {restaurants.map(restaurant =>(
             <Restaurant
                 key={restaurant._id}

@@ -22,14 +22,18 @@ export default function UpdateUserForm(
     return (
         <div className={styles.UpdateUserForm}>
             <>
-                <h1>Update User info</h1>
+               
+                     <h1>Update User Info</h1>
+                
+                
                 <form  
                 onSubmit={handleSubmit}>
                     <input type='text' placeholder='name' name='name' value={user.name} onChange={handleChange}/>
                     <input type='email' placeholder='email' name='email' value={user.email} onChange={handleChange}/>
                     <input type='password' placeholder='password' name='password' value={user.password} onChange={handleChange}/>
-                    <input type='submit'  value='Submit Update Data'/>
+                    <button className= {styles.submitButton} type='submit'  value='Submit Update Data'>Submit</button>
                 </form>
+        
                 <div onClick={(e)=>{setShowUpdateUserForm(false)}}><CircleX /></div>
              </>
         </div>
