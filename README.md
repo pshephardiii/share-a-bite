@@ -53,3 +53,5 @@ https://trello.com/b/scJATDml
 + Absord third-party API to acquire information about restaurants, including location, menu, and website.
 
 + Change the home page into a "feed" that algorithmically determines what content is prioritized for a user based on their restaurant and dish preferences, contacts, past posts, etc.
+
++ Adjust search functionality so that users can find restaurants and access their show pages.
