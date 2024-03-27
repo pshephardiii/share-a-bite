@@ -8,6 +8,7 @@ import UpdateUserForm from '../../components/UpdateUserForm/UpdateUserForm'
 import FavRestaurantList from '../../components/FavRestaurantList/FavRestaurantList'
 import styles from './UserShowPage.module.scss'
 import ShowPagePosts from '../../components/ShowPagePosts/ShowPagePosts'
+import { logOut } from '../../utilities/users-service';
 
 
 export default function UserShowPage(
@@ -101,9 +102,10 @@ export default function UserShowPage(
          setUser(user)
     },[userContactIds])
 
-    const deleteAccount = async(userId) =>{
+    const deleteAccount = async(id) =>{
         try{
-            await userAPI.deleteUser(userId)
+            await userAPI.deleteUser(id)
+            logOut()
             console.log('succeeded in deleting this account')
         }catch(error){
             console.log(error)
@@ -172,6 +174,8 @@ export default function UserShowPage(
           {showUpdateUserForm? 
           <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
           :<></>}
+
+          {user._id === userId? <button onClick={()=>deleteAccount(user._id)}>Delete User</button>:<></>}
 
           <ShowPagePosts allPosts={posts} user={userId}/>
 
