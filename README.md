@@ -76,3 +76,7 @@ https://trello.com/b/scJATDml
 + Change the home page into a "feed" that algorithmically determines what content is prioritized for a user based on their restaurant and dish preferences, contacts, past posts, etc.
 
 + Adjust search functionality so that users can find restaurants and access their show pages.
+
++ Add functionality to allow users to edit the posts and comments that they've created.
+
++ Add functionality to allow users to delete their posts, comments, and profiles.
