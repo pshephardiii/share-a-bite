@@ -1,0 +1,2 @@
+(new class{constructor(){var r,e,t,i;r=this,t=()=>{console.log("no other instructors got swagger like us")},(e="symbol"==typeof(i=function(r,e){if("object"!=typeof r||!r)return r;var t=r[Symbol.toPrimitive];if(void 0!==t){var i=t.call(r,"string");if("object"!=typeof i)return i;throw new TypeError("@@toPrimitive must return a primitive value.")}return String(r)}(e="main"))?i:String(i))in r?Object.defineProperty(r,e,{value:t,enumerable:!0,configurable:!0,writable:!0}):r[e]=t}}).main();
+//# sourceMappingURL=main.5e47746ac0e036d3777a719e23949406.js.map
