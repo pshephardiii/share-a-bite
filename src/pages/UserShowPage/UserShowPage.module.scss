@@ -1,34 +1,67 @@
-.UserShowPage{
-    margin: 2vw 2vw;
+.userShowPage {
+    width: 100%;
+    overflow: scroll;
+}
+
+.userShowPage:not(.companyName) {
+    font-family: "Poppins", sans-serif;
+}
+
+.logoContainer {
+    height: 100%; 
+    display: flex; 
+    align-items: center; 
+    margin: 10px;
+}
+
+.logo {
+    height: 25px; 
+    width: auto;
+    margin-right: 8px; 
+}
+
+.companyName {
+    font-family: "Lobster Two", sans-serif !important;
+    font-weight: 400;
+    font-size: larger;
+    font-style: normal;
+    margin-right: 10px;
+}
+
+.userContainer{
     display: flex;
-    flex-direction: column; 
-    .profileNamePic{
-        display:flex;
-        flex-direction: column; 
-        align-items: center;
-    }
-    .profilePic{
-        width:8vmax;
-        height: 8vmax;
-        border-radius: 50%;
-        background-image: url('https://i.imgur.com/1Q36Y5C.png');
-        background-size: cover;
-    }
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
 
-     
-    .userInfo{
-        display:flex;
-        justify-content: space-between;;
-        align-items: center;
-    }
+.profilePic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    background: #E8FAFA;
+    border: 1px solid #F9450E;
+    border-radius: 50%;
+    margin-right: 10px; 
+    margin-bottom: 5px;
+}
 
-    button{
-        background-color:#0a0a23;
-        color: #fff;
-        border:none;
-        border-radius:10px;
-        text-align: center;
-        white-space: nowrap;
-        width: 7rem;
-    }
+.userName {
+    margin: 0; 
+}
+
+.pageNav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%; 
+    margin: 0 auto; 
+    padding: 50px;
+}
+
+.editProfileBtn {
+    width: fit-content;
+    padding: 5px;
 }

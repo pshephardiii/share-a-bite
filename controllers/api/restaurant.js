@@ -1,8 +1,6 @@
 const Restaurant = require('../../models/restaurant')
 const User = require('../../models/user')
 
-
-
 module.exports = {
     index,
     show,

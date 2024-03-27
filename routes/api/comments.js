@@ -3,12 +3,9 @@ const router = express.Router()
 const commentCtrl = require('../../controllers/api/comments')
 const userCtrl = require('../../controllers/api/users')
 
-
 router.get('/', commentCtrl.indexComments, commentCtrl.jsonComments) // indexComments
 router.get('/:id', commentCtrl.showComment, commentCtrl.jsonComment) // show comment
 
-
-// the create a comment route might need to be moved to the Nicole's Post route
 router.post('/:postId/comment', userCtrl.auth, commentCtrl.createComment, commentCtrl.jsonComment) //create a comment
 router.put('/:id', userCtrl.auth,commentCtrl.updateComment, commentCtrl.jsonComment) // update the comment
 router.delete('/:id', userCtrl.auth, commentCtrl.deleteComment, commentCtrl.jsonComment) // delete the comment

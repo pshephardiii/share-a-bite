@@ -16,43 +16,52 @@ export default function UserShowPage(
     { user, setUser }
 ){
     const {userId} = useParams() 
-    console.log(userId)
-    console.log(user)
-    //below is to show the current logged-in user's info
+
 
     const [contacts, setContacts] = useState([])
     const [posts, setPosts] = useState([])
     const [profilePic, setProfilePic] = useState([])
     const [favRestaurants, setFavRestaurants] = useState([])
     const [showUpdateUserForm, setShowUpdateUserForm] = useState(false)
+    const [newUser, setNewUser] = useState(null)
     const [userName, setUserName] = useState([])
     const [newUserContacts,setNewUserContacts] = useState([])
     const [changeFollowBtn,setChangeFollowBtn] = useState(false)
+    const [userContactIds, setUserContactIds] = useState([])
+
+    console.log(userContactIds)
+    console.log(newUserContacts)
+
+    useEffect(function(){
+        async function getUserContactIds(){
+            try {
+                const data = await userAPI.contactIdIndex()
+                setUserContactIds(data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        getUserContactIds()
+    },[changeFollowBtn])
 
    
     useEffect(function(){
-        // async function getAllPosts(){
-        //    try{
-        //     const data = await postsAPI.getAllUserPosts(userId)
-        //     setPosts(data)
-        //    } catch(error){
-        //     console.log(error)
-        //    }
-        // }
+        
         async function getAllPosts(){
                try{
                 const data = await userAPI.showUser(userId)
-             
+
                     const newData = data.user.posts
                     const newPic = data.user.pic
                     const newName = data.user.name
                     const newconnections = data.user.contacts
-
+        
+                    setNewUser(data)
                     setPosts(newData)
                     setProfilePic(newPic)
                     setUserName(newName)
                     setNewUserContacts(newconnections)
-                
+
                } catch(error){
                 console.log(error)
                }
@@ -102,70 +111,80 @@ export default function UserShowPage(
         }
     }
     
-    const addContact = async(userId) =>{
+    const addContact = async(id) =>{
         try{
-            await userAPI.addContact(userId)
-            setChangeFollowBtn(true)
-            console.log('succeeded in adding this new contact')
+            await userAPI.addContact(id)
+            setChangeFollowBtn(!changeFollowBtn)
 
         }catch(error){
             console.log(error)
         }
     }
 
-
-    const deleteContact = async(userId) =>{
+    const deleteContact = async(id) =>{
         try{
-            await userAPI.deleteContact(userId)
-            setChangeFollowBtn(false)
-            console.log('succeeded in deleting this new contact')
+            await userAPI.deleteContact(id)
+            setChangeFollowBtn(!changeFollowBtn)
+         
         }catch(error){
             console.log(error)
         }
     }
+    
+    console.log(newUser)
+    console.log(!userContactIds.includes(userId))
     console.log(contacts)
-    console.log(changeFollowBtn)
-    console.log(user)
-
+   
+ 
     return(
-        <div className={styles.UserShowPage}>
+        <div className={styles.userShowPage}>
           {/* Below is only show the current loggedin user's profile */}
-          <div className={styles.userInfo}>
-            <div className={styles.profileNamePic}>
-                <img className={styles.profilePic} src={profilePic}/>
-                <h2>{userName}</h2>
+
+          <div className={styles.logoContainer}>
+            <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
+            <div className={styles.companyName}>
+                <h2>Share-A-Bite</h2>
             </div>
+        </div>
+
+        <div className={styles.userContainer}>
+            {/* Conditionally render profile picture */}
+            {profilePic ? (
+                <img className={styles.profilePic} src={profilePic} alt={userName}/>
+            ) : (
+                <img className={styles.profilePic} src="https://picsum.photos/100" alt={userName}/>
+            )}
+
+
+            <h2>{userName}</h2>
+        </div>
+
+        <div className={styles.pageNav}>
             <h3>{posts.length} Posts</h3>
-            <h3>{newUserContacts.length} Contacts</h3>
-          </div>
+
           {user._id === userId? <ContactList contacts={contacts} user={user} userId={userId} deleteContact={deleteContact}/> :<></>}
+
+          {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)} className={styles.editProfileBtn}>Edit profile</button>:<></>}
+            {showUpdateUserForm? 
+                <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
+                :<></>
+            }
           
           {/* following and add contact */}
           {
-
-            user._id !== userId && !contacts.includes(userId)? <button onClick={()=>addContact(userId)}>{changeFollowBtn?'unfollow':'follow'}</button>:<></>
+            user._id !== userId && !userContactIds.includes(userId)? <button onClick={()=>addContact(userId)}>follow</button>: <></>
+          }
+          {
+            user._id !== userId && userContactIds.includes(userId)?
+            <button onClick={()=>deleteContact(userId)}>unfollow</button>:<></>
           }
           {/* unfollowing and delete contact */}
-           {
-            user._id !== userId && contacts.includes(userId)? <button onClick={()=>deleteContact(userId)}>unfollowing1</button>:<></>
-          }
 
-          {/* click button to display or hid the UpdateUserForm*/}
-          {user._id === userId?  <button onClick={()=>setShowUpdateUserForm(true)}>Edit profile</button>:<></>}
-
-          {showUpdateUserForm? 
-          <UpdateUserForm userId={userId} user={user} setUser={setUser} setShowUpdateUserForm={setShowUpdateUserForm}/>
-          :<></>}
-
+         </div>
           <ShowPagePosts allPosts={posts} user={userId}/>
 
           {/* {user._id === userId?  <button onClick={()=>{deleteAccount(userId),logOut()}}>Delete User</button>:<></>} */}
 
-          <FavRestaurantList restaurants={favRestaurants} user={user}/> 
-        
-          <img src="https://picsum.photos/200"/>
-          {user.name}
-          {user.email}
           <NavBar user={user} setUser={setUser}/>
         </div>
        

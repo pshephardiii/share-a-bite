@@ -1,4 +1,3 @@
-import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
 import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import styles from './PostCreatePage.module.scss'

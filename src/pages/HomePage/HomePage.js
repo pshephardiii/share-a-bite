@@ -1,6 +1,5 @@
 import {useState, useEffect} from 'react'
 import NavBar from '../../components/NavBar/NavBar'
-import PostCreateForm from '../../components/PostCreateForm/PostCreateForm'
 import PostList from '../../components/PostList/PostList'
 
 import * as postAPI from '../../utilities/posts-api'
@@ -60,7 +59,7 @@ export default function HomePage(
         <div className={styles.logoContainer}>
             <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
                     <div className={styles.companyName}>
-                        <h1>Share-A-Bite</h1>
+                        <h2>Share-A-Bite</h2>
                     </div>
         
          </div>
