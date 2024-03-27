@@ -34,7 +34,7 @@ export default function LandingPage({
                 <div className={styles.logoContainer}>
                     <img className={styles.logo} src="https://i.imgur.com/TxFQTR4.png"/>
                     <div className={styles.companyName}>
-                        <h1>Share-A-Bite</h1>
+                        <h2>Share-A-Bite</h2>
                     </div>
                 </div>
 
@@ -94,7 +94,6 @@ export default function LandingPage({
             </div>
 
             <div className={styles.postSampler}>
-                <p>Post sampler - will contain 3 most recent posts</p>
                 {/* showcase a few things in the post list, ex. last 3 posts */}
             </div>
 

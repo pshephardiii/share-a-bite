@@ -17,7 +17,7 @@ export default function ContactList ({
     return(
         contacts ?
     <div>
-        <h3>ContactList</h3>
+        <h3>Contacts List</h3>
         {userContacts}
         
         </div>
