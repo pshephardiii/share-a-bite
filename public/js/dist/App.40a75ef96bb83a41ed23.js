@@ -1834,9 +1834,9 @@ function UserShowPage(_ref) {
     setShowUpdateUserForm: setShowUpdateUserForm
   }) : /*#__PURE__*/React.createElement(React.Fragment, null), user._id !== userId && !userContactIds.includes(userId) ? /*#__PURE__*/React.createElement("button", {
     onClick: () => addContact(userId)
-  }, "follow") : /*#__PURE__*/React.createElement("button", {
+  }, "follow") : /*#__PURE__*/React.createElement(React.Fragment, null), user._id !== userId && userContactIds.includes(userId) ? /*#__PURE__*/React.createElement("button", {
     onClick: () => deleteContact(userId)
-  }, "unfollow")), /*#__PURE__*/React.createElement(_components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  }, "unfollow") : /*#__PURE__*/React.createElement(React.Fragment, null)), /*#__PURE__*/React.createElement(_components_ShowPagePosts_ShowPagePosts__WEBPACK_IMPORTED_MODULE_8__["default"], {
     allPosts: posts,
     user: userId
   }), /*#__PURE__*/React.createElement(_components_NavBar_NavBar__WEBPACK_IMPORTED_MODULE_1__["default"], {
@@ -5115,4 +5115,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.068871e1866a9a871fded8a8c4b32167.js.map
+//# sourceMappingURL=App.ae1da7e1cf7dfbc0b2ed6df48066073f.js.map
