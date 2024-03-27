@@ -16,15 +16,15 @@
 
 .userContainer {
     display: flex;
-    align-items: center; /* Align items vertically */
+    align-items: center; 
     justify-content: flex-start;
     margin-bottom: 10px; 
 }
 
 .userContainer{
-    width: 400px; /* Set width to match postPic */
-    margin-left: 10px; /* Adjust margin as needed */
-    text-align: left; /* Align items to the left */
+    width: 400px; 
+    margin-left: 10px; 
+    text-align: left; 
 }
 
 .profilePic {
@@ -34,25 +34,25 @@
     background: #E8FAFA;
     border: 1px solid #F9450E;
     border-radius: 50%;
-    margin-right: 10px; /* Adjust as needed */
+    margin-right: 10px; 
 }
 
 .userName {
-    margin: 0; /* Reset any default margin */
+    margin: 0; 
 }
 
 .ratingContainer {
     display: flex;
     align-items:baseline;
     justify-content: center;
-    margin-top: 10px; /* Adjust margin as needed */
+    margin-top: 10px; 
     margin-left: 10px;
 }
 
 .dish {
-    font-size: 20px; /* Example font size for dish name */
-    font-weight: bold; /* Example font weight for dish name */
-    margin-right: 10px; /* Add margin to separate from the rating */
+    font-size: 20px;
+    font-weight: bold; 
+    margin-right: 10px; 
 }
 
 .postPic {
@@ -63,23 +63,23 @@
     border-radius: 10px;
     object-fit: cover;
     overflow: hidden;
-    display: flex; /* Use flexbox */
-    justify-content: center; /* Center horizontally */
+    display: flex; 
+    justify-content: center; 
     align-items: center;
 }
 
 .likeContainer {
-    width: 400px; /* Set width to match postPic */
-    margin-left: 10px; /* Adjust margin as needed */
-    text-align: left; /* Align items to the left */
+    width: 400px; 
+    margin-left: 10px; 
+    text-align: left; 
     margin-bottom: 25px;
 
 }
 
 .postBody {
-    width: 400px; /* Set width to match postPic */
-    margin-left: 10px; /* Adjust margin as needed */
-    text-align: left; /* Align items to the left */
+    width: 400px; 
+    margin-left: 10px; 
+    text-align: left; 
     margin-bottom: 25px;
 }
 
