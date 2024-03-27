@@ -1,0 +1,64 @@
+.ShowPagePost {
+    .pageImgs {
+        height: 200px;
+        width: 200px;
+        object-fit: scale-down;
+        border: 1px solid white;
+        border-radius: 10px;
+        object-fit: cover;
+        overflow: hidden;
+        display: flex; 
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .wrapper {
+        background-color: black;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        opacity: 0.85;
+        z-index: 1;
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+
+    .showPost {
+        background-color: #E8FAFA;
+        max-height: 80vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        position: relative;
+        z-index: 2;
+    }
+  
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 5px;
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+      }
+
+    .closePopup {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: white;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+    }
+}

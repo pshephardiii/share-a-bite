@@ -1,0 +1,9 @@
+.ShowPagePosts {
+    width: 100%;
+    
+    .gridContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly; 
+    }
+}

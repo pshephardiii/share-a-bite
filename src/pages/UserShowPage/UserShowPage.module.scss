@@ -1,0 +1,28 @@
+.userShowPage {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    cursor: pointer;
+}
+
+.userContainer{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.profilePic {
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    background: #E8FAFA;
+    border: 1px solid #F9450E;
+    border-radius: 50%;
+    margin-right: 10px; 
+}
+
+.userName {
+    margin: 0; 
+}
