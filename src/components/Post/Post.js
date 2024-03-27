@@ -9,11 +9,10 @@ import {useState, useEffect} from 'react'
 import styles from './Post.module.scss'
 
 export default function Post({post}) {
+    
     const [liked, setLiked] = useState(false);
-
     const [restaurant, setRestaurant] = useState([])
-
-    const[comments, setComments] = useState([])
+    const [comments, setComments] = useState([])
     const [comment, setComment] = useState({ body: '' });
     const [updatedPost, setUpdatedPost] = useState(post)
     const navigate = useNavigate()
@@ -69,6 +68,14 @@ export default function Post({post}) {
                 <div className={styles.userContainer}>
                     <h3 onClick = {()=>navigate(`/usershowpage/${post.user._id}`)} className={styles.userName}>
                         <img src='https://picsum.photos/100' className={styles.profilePic} alt={post.user.name}/>
+                        
+                        {/* use profile pic if present, or use placeholder image if not
+                        {profilePic ? (
+                            <img className={styles.profilePic} src={profilePic} alt={userName}/>
+                            ) : (
+                                <img className={styles.profilePic} src="https://picsum.photos/100" alt={userName}/>
+                        )} */}
+
                         {post.user.name}
                     </h3>
                 </div>
