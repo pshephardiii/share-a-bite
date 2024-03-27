@@ -3,7 +3,7 @@
 ## Description:
 
 This is a full-stack MERN application that is built to allow people to connect with others through the love of food.
- Once you signup you can post, rate, and commit on a picture. If your hungry and have no idea what you want to eat, join Share-a-Bite and you’ll scroll to your next meal.
+ Once you signup you can post, rate, and comment on a picture. If your hungry and have no idea what you want to eat, join Share-a-Bite and you’ll scroll to your next meal.
 
 ## Live Project Link:
 
