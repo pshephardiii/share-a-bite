@@ -1709,7 +1709,7 @@ function UserShowPage(_ref) {
       }
     }
     getUserContactIds();
-  }, []);
+  }, [changeFollowBtn]);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     async function getAllPosts() {
       try {
@@ -1758,7 +1758,7 @@ function UserShowPage(_ref) {
     }
     getnewContacts();
     setUser(user);
-  }, [userContactIds]);
+  }, [changeFollowBtn]);
   const deleteAccount = async userId => {
     try {
       await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.deleteUser(userId);
@@ -1770,12 +1770,7 @@ function UserShowPage(_ref) {
   const addContact = async id => {
     try {
       await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.addContact(id);
-      setChangeFollowBtn(true);
-      const contactIds = userContactIds.concat(userId);
-      setUserContactIds(contactIds);
-      const otherContactIds = newUserContacts.concat(user._id);
-      setNewUserContacts(otherContactIds);
-      console.log('succeeded in adding this new contact');
+      setChangeFollowBtn(!changeFollowBtn);
     } catch (error) {
       console.log(error);
     }
@@ -1783,14 +1778,7 @@ function UserShowPage(_ref) {
   const deleteContact = async id => {
     try {
       await _utilities_users_api__WEBPACK_IMPORTED_MODULE_10__.deleteContact(id);
-      setChangeFollowBtn(false);
-      const index1 = userContactIds.indexOf(userId);
-      const index2 = newUserContacts.indexOf(user._id);
-      userContactIds.splice(index1, 1);
-      newUserContacts.splice(index2, 1);
-      setUserContactIds(userContactIds);
-      setNewUserContacts(newUserContacts);
-      console.log('succeeded in deleting this new contact');
+      setChangeFollowBtn(!changeFollowBtn);
     } catch (error) {
       console.log(error);
     }
@@ -5115,4 +5103,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.ae1da7e1cf7dfbc0b2ed6df48066073f.js.map
+//# sourceMappingURL=App.2fbdb31f20d9001879415d97440766ad.js.map

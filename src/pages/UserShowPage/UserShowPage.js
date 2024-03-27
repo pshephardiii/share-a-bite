@@ -42,7 +42,7 @@ export default function UserShowPage(
             }
         }
         getUserContactIds()
-    },[])
+    },[changeFollowBtn])
 
    
     useEffect(function(){
@@ -100,7 +100,7 @@ export default function UserShowPage(
          }
          getnewContacts()
          setUser(user)
-    },[userContactIds])
+    },[changeFollowBtn])
 
     const deleteAccount = async(userId) =>{
         try{
@@ -114,12 +114,7 @@ export default function UserShowPage(
     const addContact = async(id) =>{
         try{
             await userAPI.addContact(id)
-            setChangeFollowBtn(true)
-            const contactIds = userContactIds.concat(userId)
-            setUserContactIds(contactIds)
-            const otherContactIds = newUserContacts.concat(user._id)
-            setNewUserContacts(otherContactIds)
-            console.log('succeeded in adding this new contact')
+            setChangeFollowBtn(!changeFollowBtn)
 
         }catch(error){
             console.log(error)
@@ -129,14 +124,8 @@ export default function UserShowPage(
     const deleteContact = async(id) =>{
         try{
             await userAPI.deleteContact(id)
-            setChangeFollowBtn(false)
-            const index1 = userContactIds.indexOf(userId)
-            const index2 = newUserContacts.indexOf(user._id)
-            userContactIds.splice(index1, 1)
-            newUserContacts.splice(index2, 1)
-            setUserContactIds(userContactIds)
-            setNewUserContacts(newUserContacts)
-            console.log('succeeded in deleting this new contact')
+            setChangeFollowBtn(!changeFollowBtn)
+         
         }catch(error){
             console.log(error)
         }

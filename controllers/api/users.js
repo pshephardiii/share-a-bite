@@ -1,5 +1,8 @@
 require('dotenv').config
 const User = require('../../models/user')
+const Post = require('../../models/post')
+const Comment = require('../../models/comment')
+const Restaurant = require('../../models/restaurant')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
@@ -90,6 +93,7 @@ exports.contactsIdIndex = async (req, res ,next) => {
 
 exports.deleteUser = async (req, res) => {
     try {
+      
         await req.user.deleteOne()
         res.status(200).json({ message: 'User Deleted' })
       }catch(error){
